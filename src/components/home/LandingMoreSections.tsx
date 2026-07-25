@@ -41,7 +41,7 @@ export const AboutFacultySection: React.FC = () => {
     },
   ];
   return (
-    <section className="relative overflow-hidden py-24 md:py-28 bg-[#fdfaf3]">
+    <section className="relative overflow-hidden py-14 sm:py-14 sm:py-20 md:py-28 bg-[#fdfaf3]">
       <div className="absolute inset-0 parchment-texture opacity-40 pointer-events-none" />
       <div
         className="absolute inset-0 opacity-[0.5] pointer-events-none"
@@ -49,7 +49,7 @@ export const AboutFacultySection: React.FC = () => {
       />
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-amber-300/20 blur-[120px] rounded-full pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -60,7 +60,7 @@ export const AboutFacultySection: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             {t('land_about_badge')} · {facultyFacts.academicYear}
           </p>
-          <h2 className="text-4xl md:text-5xl font-classic text-slate-950 uppercase tracking-wide leading-tight mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-classic text-slate-950 uppercase tracking-wide leading-tight mb-4 sm:mb-6">
             {t('land_about_title')}
           </h2>
           <div className="w-24 h-1 gold-gradient mb-8 rounded-full shadow-sm" />
@@ -114,7 +114,7 @@ export const LeadershipPreviewSection: React.FC = () => {
   const verse = couplet[language] || couplet.uz;
 
   return (
-    <section className="relative overflow-hidden py-24 md:py-28 bg-[#fdfaf3] text-slate-950">
+    <section className="relative overflow-hidden py-14 sm:py-14 sm:py-20 md:py-28 bg-[#fdfaf3] text-slate-950">
       {/* === ULUG'VOR NAQSH QATLAMLARI === */}
       <div className="absolute inset-0 parchment-texture opacity-45 pointer-events-none" />
 
@@ -160,28 +160,28 @@ export const LeadershipPreviewSection: React.FC = () => {
       <div className="absolute top-0 left-0 right-0 h-1 gold-gradient opacity-70" />
       <div className="absolute bottom-0 left-0 right-0 h-1 gold-gradient opacity-50" />
 
-      {/* Dekorativ burchak medalyonlar */}
-      <div className="absolute top-6 left-4 md:top-10 md:left-10 opacity-40 pointer-events-none" aria-hidden>
-        <BehzodStarMedallion className="w-14 h-14 md:w-16 md:h-16" />
+      {/* Dekorativ burchak medalyonlar — faqat md+ (mobil joy tejash) */}
+      <div className="hidden md:block absolute top-10 left-10 opacity-40 pointer-events-none" aria-hidden>
+        <BehzodStarMedallion className="w-16 h-16" />
       </div>
-      <div className="absolute top-6 right-4 md:top-10 md:right-10 opacity-40 pointer-events-none" aria-hidden>
-        <BehzodStarMedallion className="w-14 h-14 md:w-16 md:h-16" />
+      <div className="hidden md:block absolute top-10 right-10 opacity-40 pointer-events-none" aria-hidden>
+        <BehzodStarMedallion className="w-16 h-16" />
       </div>
-      <div className="absolute bottom-6 left-4 md:bottom-10 md:left-10 opacity-30 pointer-events-none" aria-hidden>
-        <ShamsaMedallion className="w-12 h-12 md:w-14 md:h-14" />
+      <div className="hidden md:block absolute bottom-10 left-10 opacity-30 pointer-events-none" aria-hidden>
+        <ShamsaMedallion className="w-14 h-14" />
       </div>
-      <div className="absolute bottom-6 right-4 md:bottom-10 md:right-10 opacity-30 pointer-events-none" aria-hidden>
-        <ShamsaMedallion className="w-12 h-12 md:w-14 md:h-14" />
+      <div className="hidden md:block absolute bottom-10 right-10 opacity-30 pointer-events-none" aria-hidden>
+        <ShamsaMedallion className="w-14 h-14" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.4em] text-amber-800 font-ui mb-3 flex items-center gap-2">
               <ShamsaMedallion className="w-6 h-6" />
               {t('land_lead_badge')}
             </p>
-            <h2 className="text-4xl md:text-5xl font-classic uppercase tracking-widest text-slate-950">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-classic uppercase tracking-wide sm:tracking-widest text-slate-950">
               <span className="text-transparent bg-clip-text gold-gradient">{t('land_lead_title')}</span>
             </h2>
           </div>
@@ -263,7 +263,7 @@ export const ActiveStudentsSection: React.FC = () => {
   const students = people.filter((p) => p.roles.includes('student')).slice(0, 6);
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-28 bg-white">
+    <section className="relative overflow-hidden py-14 sm:py-20 md:py-28 bg-white">
       {/* Minimal grid — naqsh emas */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.4]"
@@ -276,13 +276,13 @@ export const ActiveStudentsSection: React.FC = () => {
       />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#0f2744]/20 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-end mb-12">
           <div className="lg:col-span-7">
             <p className="font-ui text-[11px] font-semibold uppercase tracking-[0.35em] text-[#0f2744]/55 mb-4">
               {t('land_stu_badge')}
             </p>
-            <h2 className="font-classic text-4xl md:text-6xl text-[#0f2744] tracking-tight leading-[1.05]">
+            <h2 className="font-classic text-2xl sm:text-4xl md:text-6xl text-[#0f2744] tracking-tight leading-[1.05]">
               {t('land_stu_title')}
             </h2>
           </div>
@@ -352,7 +352,7 @@ export const SciencePreviewSection: React.FC = () => {
   const topPubs = publications.filter((p) => p.indexed === 'scopus' || p.indexed === 'wos').slice(0, 3);
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-28 bg-[#fdfaf3]">
+    <section className="relative overflow-hidden py-14 sm:py-20 md:py-28 bg-[#fdfaf3]">
       <div className="absolute inset-0 parchment-texture opacity-30 pointer-events-none" />
       <div
         className="absolute inset-0 opacity-[0.35] pointer-events-none"
@@ -363,7 +363,7 @@ export const SciencePreviewSection: React.FC = () => {
       <div className="absolute -bottom-20 -left-16 w-[360px] h-[360px] bg-[#003366]/08 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-1 gold-gradient opacity-70" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -376,7 +376,7 @@ export const SciencePreviewSection: React.FC = () => {
               <FlaskConical className="w-4 h-4 text-amber-700" />
               {t('land_sci_badge')}
             </p>
-            <h2 className="font-classic text-4xl md:text-5xl lg:text-6xl text-slate-950 tracking-tight leading-[1.08] mb-4">
+            <h2 className="font-classic text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-slate-950 tracking-tight leading-[1.08] mb-3 sm:mb-4">
               <span className="text-transparent bg-clip-text gold-gradient">{t('land_sci_title')}</span>
             </h2>
             <p className="font-serif-classic text-lg md:text-xl italic text-slate-600 leading-relaxed max-w-xl">
@@ -571,7 +571,7 @@ export const MediaTourSection: React.FC = () => {
             <p className="font-ui text-[11px] font-bold uppercase tracking-[0.4em] text-amber-800/80 mb-5">
               {t('land_media_badge')}
             </p>
-            <h2 className="font-classic text-4xl md:text-5xl text-[#1a1a1a] leading-[1.1] tracking-tight mb-6">
+            <h2 className="font-classic text-2xl sm:text-4xl md:text-5xl text-[#1a1a1a] leading-[1.1] tracking-tight mb-4 sm:mb-6">
               {t('land_media_title')}
             </h2>
             <p className="font-serif-classic text-lg text-slate-600 leading-relaxed mb-10">
@@ -720,7 +720,7 @@ export const EventsSection: React.FC = () => {
   const { t, L } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-28 bg-[#fcf8ee]">
+    <section className="relative overflow-hidden py-14 sm:py-20 md:py-28 bg-[#fcf8ee]">
       <div className="absolute inset-0 parchment-texture opacity-35 pointer-events-none" />
       <div
         className="absolute inset-0 opacity-[0.2] pointer-events-none"
@@ -730,7 +730,7 @@ export const EventsSection: React.FC = () => {
       <div className="absolute top-0 left-0 right-0 h-1 gold-gradient opacity-60" />
       <div className="absolute -bottom-24 right-0 w-[400px] h-[400px] bg-amber-300/20 blur-[110px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -742,7 +742,7 @@ export const EventsSection: React.FC = () => {
             <Calendar className="w-4 h-4 text-amber-700" />
             {t('land_ev_badge')}
           </p>
-          <h2 className="font-classic text-4xl md:text-5xl text-slate-950 tracking-tight">
+          <h2 className="font-classic text-2xl sm:text-4xl md:text-5xl text-slate-950 tracking-tight">
             <span className="text-transparent bg-clip-text gold-gradient">{t('land_ev_title')}</span>
           </h2>
           <p className="mt-4 font-serif-classic italic text-lg text-slate-600 max-w-lg mx-auto">
@@ -910,13 +910,13 @@ export const HomeCtaSection: React.FC = () => {
   const { t } = useLanguage();
   return (
     <section className="relative py-16 md:py-24 bg-[#faf7f2]">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-2 rounded-[2rem] overflow-hidden shadow-[0_30px_80px_-30px_rgba(15,39,68,0.35)] border border-slate-200/60">
           {/* Chap: yo'nalishlar */}
-          <div className="relative bg-[#0f2744] text-white p-10 md:p-14 flex flex-col justify-between min-h-[280px]">
+          <div className="relative bg-[#0f2744] text-white p-6 sm:p-10 md:p-14 flex flex-col justify-between min-h-[240px] sm:min-h-[280px]">
             <div>
               <GraduationCap className="w-8 h-8 text-amber-400 mb-6" />
-              <h2 className="font-classic text-3xl md:text-4xl leading-tight tracking-tight mb-4">
+              <h2 className="font-classic text-2xl sm:text-3xl md:text-4xl leading-tight tracking-tight mb-3 sm:mb-4">
                 {t('land_cta_title')}
               </h2>
               <p className="font-serif-classic text-base text-slate-300 leading-relaxed max-w-sm">
@@ -932,7 +932,7 @@ export const HomeCtaSection: React.FC = () => {
           </div>
 
           {/* O'ng: aloqa */}
-          <div className="relative bg-white p-10 md:p-14 flex flex-col justify-between min-h-[280px]">
+          <div className="relative bg-white p-6 sm:p-10 md:p-14 flex flex-col justify-between min-h-[240px] sm:min-h-[280px]">
             <div>
               <Users className="w-8 h-8 text-[#0f2744] mb-6" />
               <h3 className="font-classic text-2xl md:text-3xl text-[#0f2744] leading-tight mb-4">

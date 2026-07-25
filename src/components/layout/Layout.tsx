@@ -8,7 +8,7 @@ import { ScrollToTop } from './ScrollToTop';
 
 export const Layout: React.FC = () => {
   return (
-    <div className="min-h-screen relative flex flex-col overflow-x-hidden selection:bg-amber-200 selection:text-amber-900">
+    <div className="min-h-screen relative flex flex-col overflow-x-hidden w-full max-w-[100vw] selection:bg-amber-200 selection:text-amber-900">
       {/* Sahifalar almashganda avtomatik yuqoriga qaytarish */}
       <ScrollToTop />
 

@@ -137,11 +137,11 @@ export const HomePage: React.FC = () => {
       <HeroSlider />
 
       {/* ========== STATISTIKA SEKSIYASI ========== */}
-      <section className="py-24 md:py-28 relative overflow-hidden bg-[#fdfaf3]">
+      <section className="py-14 sm:py-20 md:py-28 relative overflow-hidden bg-[#fdfaf3]">
         <SectionAtmosphere tone="heritage-strong" variant="center" manuscript />
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <SectionTitleDecoration />
-          <h2 className="text-3xl md:text-5xl font-classic text-slate-950 uppercase tracking-widest text-center mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-classic text-slate-950 uppercase tracking-wide sm:tracking-widest text-center mb-3">
             Fakultet Ko'rsatkichlari
           </h2>
           <p className="text-center text-lg md:text-xl italic font-serif-classic text-amber-900/80 mb-14 max-w-xl mx-auto">
@@ -165,12 +165,12 @@ export const HomePage: React.FC = () => {
       <PresidentialVision />
 
       {/* ========== BENTO GRID: SO'NGGI YANGILIKLAR ========== */}
-      <section id="home-news" className="py-24 md:py-32 relative overflow-hidden bg-[#fdfaf3]">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <section id="home-news" className="py-14 sm:py-20 md:py-32 relative overflow-hidden bg-[#fdfaf3]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <SectionTitleDecoration />
-              <h2 className="text-4xl md:text-6xl font-classic text-slate-950 uppercase tracking-widest leading-tight">
+              <h2 className="text-2xl sm:text-4xl md:text-6xl font-classic text-slate-950 uppercase tracking-wide sm:tracking-widest leading-tight">
                 {t('home_news')}
               </h2>
               <p className="text-lg font-serif-classic italic text-slate-700 mt-2">
@@ -198,7 +198,7 @@ export const HomePage: React.FC = () => {
               >
                 <Link
                   to={newsPath(featuredNewsItem.slug)}
-                  className="group relative block h-full min-h-[460px] rounded-[3rem] overflow-hidden border border-amber-400/40 shadow-2xl bg-slate-950 text-white"
+                  className="group relative block h-full min-h-[280px] sm:min-h-[380px] md:min-h-[460px] rounded-2xl sm:rounded-[3rem] overflow-hidden border border-amber-400/40 shadow-2xl bg-slate-950 text-white"
                 >
                   <img
                     src={featuredNewsItem.cover}
@@ -207,21 +207,21 @@ export const HomePage: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
                   
-                  <div className="relative z-10 p-8 sm:p-12 h-full flex flex-col justify-end">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest font-ui gold-gradient text-slate-950 shadow-md">
+                  <div className="relative z-10 p-5 sm:p-8 md:p-12 h-full flex flex-col justify-end">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                      <span className="px-3 sm:px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest font-ui gold-gradient text-slate-950 shadow-md">
                         Muhim Yangilik
                       </span>
-                      <span className="text-[11px] font-black uppercase tracking-widest text-amber-300 font-ui flex items-center gap-1.5">
+                      <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-amber-300 font-ui flex items-center gap-1.5">
                         <Calendar className="w-3.5 h-3.5" /> {featuredNewsItem.date}
                       </span>
                     </div>
 
-                    <h3 className="font-classic text-3xl sm:text-4xl text-white uppercase tracking-tight leading-snug mb-4 group-hover:text-amber-300 transition-colors">
+                    <h3 className="font-classic text-xl sm:text-3xl md:text-4xl text-white uppercase tracking-tight leading-snug mb-3 sm:mb-4 group-hover:text-amber-300 transition-colors">
                       {L(featuredNewsItem.title)}
                     </h3>
 
-                    <p className="text-lg font-serif-classic italic text-slate-300 line-clamp-3 mb-6">
+                    <p className="text-sm sm:text-lg font-serif-classic italic text-slate-300 line-clamp-3 mb-4 sm:mb-6">
                       {L(featuredNewsItem.excerpt)}
                     </p>
 
@@ -287,7 +287,7 @@ export const HomePage: React.FC = () => {
       <HomeCtaSection />
 
       {/* ========== TA'LIM YO'NALISHLARI — royal fon (Meros/Global dialogue dan) ========== */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-14 sm:py-20 md:py-24 relative overflow-hidden">
         {/* Oldin Navoiy «Meros · Modern world · Global dialogue» bo'limi foni */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#001a2c] via-[#001524] to-[#0a1628]" />
         <div
@@ -308,11 +308,11 @@ export const HomePage: React.FC = () => {
           <div className="absolute inset-[18%] rounded-full border border-dashed border-amber-400/15" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="flex justify-center mb-2 opacity-90">
             <SectionTitleDecoration />
           </div>
-          <h2 className="text-4xl md:text-6xl font-classic text-transparent bg-clip-text gold-gradient uppercase tracking-widest text-center mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-6xl font-classic text-transparent bg-clip-text gold-gradient uppercase tracking-wide sm:tracking-widest text-center mb-4">
             {t('home_programs')}
           </h2>
           <p className="text-center text-xl md:text-2xl italic font-serif-classic text-amber-100/75 mb-10 max-w-2xl mx-auto">
@@ -321,11 +321,11 @@ export const HomePage: React.FC = () => {
           </p>
 
           {/* Level Filter Tabs */}
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex p-1.5 rounded-full bg-white/5 border border-amber-400/25 backdrop-blur-md">
+          <div className="flex justify-center mb-8 sm:mb-12 overflow-x-auto scrollbar-hide -mx-4 px-4">
+            <div className="inline-flex p-1 sm:p-1.5 rounded-full bg-white/5 border border-amber-400/25 backdrop-blur-md shrink-0">
               <button
                 onClick={() => setProgramFilter('all')}
-                className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest font-ui transition-all ${
+                className={`px-3.5 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest font-ui transition-all whitespace-nowrap ${
                   programFilter === 'all'
                     ? 'gold-gradient text-slate-950 shadow-lg'
                     : 'text-amber-100/70 hover:text-amber-200'
@@ -335,7 +335,7 @@ export const HomePage: React.FC = () => {
               </button>
               <button
                 onClick={() => setProgramFilter('bachelor')}
-                className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest font-ui transition-all ${
+                className={`px-3.5 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest font-ui transition-all whitespace-nowrap ${
                   programFilter === 'bachelor'
                     ? 'gold-gradient text-slate-950 shadow-lg'
                     : 'text-amber-100/70 hover:text-amber-200'
@@ -345,7 +345,7 @@ export const HomePage: React.FC = () => {
               </button>
               <button
                 onClick={() => setProgramFilter('master')}
-                className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest font-ui transition-all ${
+                className={`px-3.5 sm:px-6 py-2.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest font-ui transition-all whitespace-nowrap ${
                   programFilter === 'master'
                     ? 'gold-gradient text-slate-950 shadow-lg'
                     : 'text-amber-100/70 hover:text-amber-200'

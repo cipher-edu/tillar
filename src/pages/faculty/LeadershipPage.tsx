@@ -230,10 +230,10 @@ export const LeadershipPage: React.FC = () => {
             </div>
 
             {/* Filter Category Tabs */}
-            <div className="flex items-center gap-1.5 bg-white/90 p-1.5 rounded-2xl border-2 border-amber-300/80 shadow-sm shrink-0">
+            <div className="flex items-center gap-1 bg-white/90 p-1 sm:p-1.5 rounded-2xl border-2 border-amber-300/80 shadow-sm w-full sm:w-auto overflow-x-auto scrollbar-hide">
               <button
                 onClick={() => setCategory('all')}
-                className={`px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest font-ui transition-all ${
+                className={`px-3 sm:px-4 py-2.5 rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-wider sm:tracking-widest font-ui transition-all whitespace-nowrap shrink-0 ${
                   category === 'all'
                     ? 'gold-gradient text-slate-950 shadow-md font-bold'
                     : 'text-slate-600 hover:text-amber-900'
@@ -243,7 +243,7 @@ export const LeadershipPage: React.FC = () => {
               </button>
               <button
                 onClick={() => setCategory('dekanat')}
-                className={`px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest font-ui transition-all ${
+                className={`px-3 sm:px-4 py-2.5 rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-wider sm:tracking-widest font-ui transition-all whitespace-nowrap shrink-0 ${
                   category === 'dekanat'
                     ? 'gold-gradient text-slate-950 shadow-md font-bold'
                     : 'text-slate-600 hover:text-amber-900'
@@ -253,7 +253,7 @@ export const LeadershipPage: React.FC = () => {
               </button>
               <button
                 onClick={() => setCategory('kafedra')}
-                className={`px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest font-ui transition-all ${
+                className={`px-3 sm:px-4 py-2.5 rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-wider sm:tracking-widest font-ui transition-all whitespace-nowrap shrink-0 ${
                   category === 'kafedra'
                     ? 'gold-gradient text-slate-950 shadow-md font-bold'
                     : 'text-slate-600 hover:text-amber-900'
@@ -267,7 +267,7 @@ export const LeadershipPage: React.FC = () => {
 
         {/* ========== LEADERS GRID WITH ANIMATION ========== */}
         {filteredLeaders.length > 0 ? (
-          <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
             <AnimatePresence mode="popLayout">
               {filteredLeaders.map((person) => (
                 <motion.div

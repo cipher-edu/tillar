@@ -79,16 +79,16 @@ export const NavoiHeritageBand: React.FC<NavoiHeritageBandProps> = ({
           className="text-center"
         >
           {/* Sarlavha — NAVOIY MEROSI */}
-          <div className="flex items-center justify-center gap-3 md:gap-4 mb-7 md:mb-9">
-            <span className="hidden sm:block h-px w-10 md:w-16 bg-gradient-to-r from-transparent to-amber-600/55" />
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 md:px-8 md:py-3.5 rounded-full bg-slate-950 border border-amber-400/50 shadow-[0_16px_48px_-12px_rgba(0,0,0,0.55)]">
-              <ShamsaMedallion className="w-6 h-6 md:w-7 md:h-7" />
-              <span className="font-classic font-bold text-amber-300 text-sm sm:text-base md:text-lg tracking-[0.3em] md:tracking-[0.4em] uppercase">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-7 md:mb-9 px-1">
+            <span className="hidden sm:block h-px w-10 md:w-16 bg-gradient-to-r from-transparent to-amber-600/55 shrink-0" />
+            <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-2.5 md:px-8 md:py-3.5 rounded-full bg-slate-950 border border-amber-400/50 shadow-[0_16px_48px_-12px_rgba(0,0,0,0.55)] max-w-full">
+              <ShamsaMedallion className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 shrink-0" />
+              <span className="font-classic font-bold text-amber-300 text-[11px] sm:text-base md:text-lg tracking-[0.12em] sm:tracking-[0.3em] md:tracking-[0.4em] uppercase truncate">
                 ⚜ {t('navoi_merosi_title')} ⚜
               </span>
-              <ShamsaMedallion className="w-6 h-6 md:w-7 md:h-7" />
+              <ShamsaMedallion className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 shrink-0" />
             </div>
-            <span className="hidden sm:block h-px w-10 md:w-16 bg-gradient-to-l from-transparent to-amber-600/55" />
+            <span className="hidden sm:block h-px w-10 md:w-16 bg-gradient-to-l from-transparent to-amber-600/55 shrink-0" />
           </div>
 
           {/* 4 misra kartasi */}

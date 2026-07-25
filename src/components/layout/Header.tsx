@@ -51,6 +51,16 @@ export const Header: React.FC = () => {
     setSearchOpen(false);
   }, [location.pathname]);
 
+  /* Mobil menyu ochiqda body scroll qulflansin */
+  useEffect(() => {
+    if (!mobileOpen && !searchOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen, searchOpen]);
+
   const dropdowns = [
     {
       key: 'faculty',
@@ -97,25 +107,32 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-2.5' : 'py-5'}`}>
-        <div className="max-w-[1800px] mx-auto px-4 md:px-8">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 safe-pt ${scrolled ? 'py-2' : 'py-3 sm:py-5'}`}>
+        <div className="max-w-[1800px] mx-auto px-3 sm:px-4 md:px-8">
           <div
-            className={`relative transition-all duration-500 rounded-[2.5rem] ${
-              scrolled
-                ? 'bg-slate-900/85 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-amber-500/20 py-2 text-white'
-                : 'bg-[#fdfaf3]/95 backdrop-blur-xl border border-amber-200/70 shadow-[0_12px_40px_-12px_rgba(166,124,0,0.18)] py-3 text-slate-900'
+            className={`relative transition-all duration-500 rounded-2xl sm:rounded-[2.5rem] ${
+              scrolled || mobileOpen
+                ? 'bg-[#001524]/97 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.45)] border border-amber-500/30 py-1.5 sm:py-2 text-white'
+                : 'bg-[#fdfaf3]/97 backdrop-blur-xl border border-amber-200/70 shadow-[0_12px_40px_-12px_rgba(166,124,0,0.18)] py-2 sm:py-3 text-slate-900'
             }`}
           >
-            {/* Yorug' rejimda yengil oltin yuvish — kulrang o'rniga heritage */}
-            {!scrolled && (
+            {/* Yorug' rejimda yengil oltin yuvish (faqat desktop yopiq menyu) */}
+            {!scrolled && !mobileOpen && (
               <div
                 className="absolute inset-0 rounded-[2.5rem] overflow-hidden pointer-events-none bg-gradient-to-b from-white via-[#fdfaf3]/90 to-amber-50/50"
                 aria-hidden
               />
             )}
+            {/* Mobil menyu ochiq: qattiq to'q fon (oppoq emas) */}
+            {mobileOpen && (
+              <div
+                className="absolute inset-0 rounded-2xl sm:rounded-[2.5rem] overflow-hidden pointer-events-none bg-gradient-to-b from-[#001a2c] via-[#001524] to-[#0a1628]"
+                aria-hidden
+              />
+            )}
             <div
               className={`absolute inset-0 pointer-events-none rounded-[2.5rem] overflow-hidden ${
-                scrolled ? 'opacity-[0.04]' : 'opacity-[0.06]'
+                scrolled || mobileOpen ? 'opacity-[0.06]' : 'opacity-[0.06]'
               }`}
               style={{
                 backgroundImage: PATTERNS.diamondSm,
@@ -123,25 +140,26 @@ export const Header: React.FC = () => {
               }}
             />
 
-            <div className="relative px-5 md:px-8 flex justify-between items-center min-h-14">
+            <div className="relative px-3 sm:px-5 md:px-8 flex justify-between items-center gap-2 min-h-12 sm:min-h-14">
               {/* Brand Logo & Name */}
-              <Link to="/" className="flex items-center gap-3.5 group z-10">
-                <div className="relative">
+              <Link to="/" className="flex items-center gap-2 sm:gap-3.5 group z-10 min-w-0 shrink">
+                <div className="relative shrink-0">
                   <div className="absolute inset-0 gold-gradient blur-xl opacity-40 group-hover:opacity-80 transition-opacity rounded-full" />
-                  <div className="relative w-11 h-11 gold-gradient rounded-full flex items-center justify-center shadow-lg border-2 border-amber-200/60 transition-transform duration-300 group-hover:scale-105">
-                    <span className="text-slate-950 font-classic font-black text-base">TF</span>
+                  <div className="relative w-10 h-10 sm:w-11 sm:h-11 gold-gradient rounded-full flex items-center justify-center shadow-lg border-2 border-amber-200/60 transition-transform duration-300 group-hover:scale-105">
+                    <span className="text-slate-950 font-classic font-black text-sm sm:text-base">TF</span>
                   </div>
                 </div>
-                <div className="hidden sm:block">
-                  <h1 className={`text-sm md:text-base font-classic font-bold leading-none tracking-tight transition-colors uppercase ${
-                    scrolled ? 'text-amber-100 group-hover:text-amber-400' : 'text-slate-900 group-hover:text-amber-800'
+                <div className="min-w-0">
+                  <h1 className={`text-[11px] sm:text-sm md:text-base font-classic font-bold leading-tight tracking-tight transition-colors uppercase truncate max-w-[46vw] sm:max-w-none ${
+                    scrolled || mobileOpen ? 'text-amber-100 group-hover:text-amber-400' : 'text-slate-900 group-hover:text-amber-800'
                   }`}>
                     {t('site_name')}
                   </h1>
-                  <p className={`text-[9px] tracking-[0.25em] uppercase font-bold mt-1 flex items-center gap-1 font-ui ${
-                    scrolled ? 'text-amber-400/90' : 'text-amber-800'
+                  <p className={`hidden sm:flex text-[9px] tracking-[0.25em] uppercase font-bold mt-0.5 items-center gap-1 font-ui truncate ${
+                    scrolled || mobileOpen ? 'text-amber-400/90' : 'text-amber-800'
                   }`}>
-                    <Sparkles className="w-3 h-3 text-amber-500" /> {t('site_uni')}
+                    <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+                    <span className="truncate">{t('site_uni')}</span>
                   </p>
                 </div>
               </Link>
@@ -234,12 +252,13 @@ export const Header: React.FC = () => {
                 {/* Search Button */}
                 <button
                   onClick={() => setSearchOpen(true)}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-full border text-[11px] font-extrabold font-ui transition-all ${
-                    scrolled
+                  className={`flex items-center justify-center gap-2 min-w-11 min-h-11 sm:min-w-0 sm:min-h-0 px-2.5 sm:px-3.5 py-2 rounded-full border text-[11px] font-extrabold font-ui transition-all ${
+                    scrolled || mobileOpen
                       ? 'border-amber-500/30 bg-white/10 text-slate-200 hover:bg-amber-500/20 hover:border-amber-400'
                       : 'border-amber-200 bg-white text-slate-800 hover:bg-amber-50 hover:border-amber-400 shadow-sm'
                   }`}
                   title="Qidiruv (Ctrl+K)"
+                  aria-label="Qidiruv"
                 >
                   <Search className="w-4 h-4 text-amber-500" />
                   <span className="hidden md:inline uppercase tracking-wider text-[10px]">Qidiruv</span>
@@ -252,14 +271,15 @@ export const Header: React.FC = () => {
                 <div className="relative">
                   <button
                     onClick={() => setLangOpen((v) => !v)}
-                    className={`flex items-center gap-2 px-3.5 py-2 rounded-full border text-[10px] font-extrabold uppercase tracking-widest font-ui transition-all ${
-                      scrolled
+                    className={`flex items-center justify-center gap-1.5 sm:gap-2 min-w-11 min-h-11 sm:min-w-0 sm:min-h-0 px-2.5 sm:px-3.5 py-2 rounded-full border text-[10px] font-extrabold uppercase tracking-widest font-ui transition-all ${
+                      scrolled || mobileOpen
                         ? 'border-amber-500/30 bg-white/10 text-slate-200 hover:bg-amber-500/20'
                         : 'border-amber-200 bg-white text-slate-800 hover:bg-amber-50 hover:border-amber-400 shadow-sm'
                     }`}
+                    aria-label="Til"
                   >
                     <Globe className="w-4 h-4 text-amber-500" />
-                    {language.toUpperCase()}
+                    <span className="text-[10px]">{language.toUpperCase()}</span>
                   </button>
                   <AnimatePresence>
                     {langOpen && (
@@ -292,18 +312,21 @@ export const Header: React.FC = () => {
 
                 {/* Mobile Drawer Button */}
                 <button
-                  className={`xl:hidden p-2.5 rounded-2xl border transition-colors ${
-                    scrolled ? 'border-amber-500/30 bg-white/10 text-white' : 'border-amber-200 bg-white text-slate-900 shadow-sm'
+                  className={`xl:hidden flex items-center justify-center min-w-11 min-h-11 p-2.5 rounded-2xl border transition-colors ${
+                    scrolled || mobileOpen
+                      ? 'border-amber-500/30 bg-white/10 text-white'
+                      : 'border-amber-200 bg-white text-slate-900 shadow-sm'
                   }`}
                   onClick={() => setMobileOpen((v) => !v)}
                   aria-label="Menu"
+                  aria-expanded={mobileOpen}
                 >
-                  {mobileOpen ? <X className="w-5 h-5 text-amber-500" /> : <Menu className="w-5 h-5" />}
+                  {mobileOpen ? <X className="w-5 h-5 text-amber-400" /> : <Menu className="w-5 h-5" />}
                 </button>
               </div>
             </div>
 
-            {/* Mobile Navigation Drawer */}
+            {/* Mobile Navigation Drawer — doim to'q royal fon (oppoq emas) */}
             <AnimatePresence>
               {mobileOpen && (
                 <motion.div
@@ -311,24 +334,44 @@ export const Header: React.FC = () => {
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="xl:hidden overflow-hidden border-t border-amber-500/20"
+                  className="xl:hidden relative z-10 overflow-hidden border-t border-amber-500/25"
                 >
-                  <div className="p-5 space-y-2 max-h-[75vh] overflow-y-auto">
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#001524] to-[#0a1628] pointer-events-none" aria-hidden />
+                  <div className="relative p-3 sm:p-5 space-y-1.5 max-h-[min(75vh,calc(100dvh-6rem))] overflow-y-auto overscroll-contain safe-pb">
+                    <div className="h-0.5 w-full rounded-full gold-gradient mb-2 opacity-80" />
                     <Link
                       to="/"
-                      className="block px-4 py-3 rounded-2xl font-ui text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10"
+                      className="block px-4 py-3.5 rounded-2xl font-ui text-xs font-black uppercase tracking-widest text-amber-200 bg-amber-500/15 border border-amber-400/25"
                     >
                       {t('nav_home')}
                     </Link>
-                    {[...dropdowns.flatMap((d) => d.items), ...plainLinks].map((item) => (
-                      <Link
-                        key={item.to}
-                        to={item.to}
-                        className="block px-4 py-3 rounded-2xl font-ui text-xs font-extrabold uppercase tracking-widest text-slate-300 hover:bg-amber-500/20 hover:text-amber-300 transition-colors"
-                      >
-                        {item.label}
-                      </Link>
+                    {dropdowns.map((menu) => (
+                      <div key={menu.key} className="pt-2">
+                        <p className="px-4 py-1.5 font-ui text-[10px] font-black uppercase tracking-[0.2em] text-amber-400/80">
+                          {menu.label}
+                        </p>
+                        {menu.items.map((item) => (
+                          <Link
+                            key={item.to}
+                            to={item.to}
+                            className="block px-4 py-3 rounded-2xl font-ui text-xs font-extrabold uppercase tracking-widest text-amber-50/95 hover:bg-amber-500/20 hover:text-amber-200 transition-colors active:bg-amber-500/25"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
                     ))}
+                    <div className="pt-2 border-t border-amber-500/15 mt-1">
+                      {plainLinks.map((item) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          className="block px-4 py-3.5 rounded-2xl font-ui text-xs font-extrabold uppercase tracking-widest text-amber-50/95 hover:bg-amber-500/20 hover:text-amber-200 transition-colors active:bg-amber-500/25"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -340,12 +383,12 @@ export const Header: React.FC = () => {
       {/* Quick Search Modal */}
       <AnimatePresence>
         {searchOpen && (
-          <div className="fixed inset-0 z-[100] flex items-start justify-center pt-20 px-4 bg-slate-950/80 backdrop-blur-xl">
+          <div className="fixed inset-0 z-[100] flex items-start justify-center pt-16 sm:pt-20 px-3 sm:px-4 bg-slate-950/80 backdrop-blur-xl overflow-y-auto safe-pt safe-pb">
             <motion.div
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              className="w-full max-w-2xl bg-slate-900 border border-amber-500/30 rounded-3xl p-6 shadow-2xl text-white relative"
+              className="w-full max-w-2xl bg-slate-900 border border-amber-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl text-white relative my-4"
             >
               <button
                 onClick={() => setSearchOpen(false)}

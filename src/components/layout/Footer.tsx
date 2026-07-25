@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden pt-28 pb-12 bg-slate-950 text-slate-100">
+    <footer className="relative overflow-hidden pt-16 sm:pt-24 md:pt-28 pb-8 sm:pb-12 bg-slate-950 safe-pb text-slate-100">
       {/* Background & Patterns */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-[#071324] to-slate-950" />
       <div
@@ -42,8 +42,8 @@ export const Footer: React.FC = () => {
       {/* Top border line */}
       <div className="absolute top-0 left-0 right-0 h-1 gold-gradient shadow-[0_0_20px_#d4af37]" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-10 mb-10 sm:mb-16">
           {/* Brand Column */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-4 mb-6">

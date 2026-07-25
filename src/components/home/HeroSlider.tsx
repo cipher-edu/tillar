@@ -59,6 +59,19 @@ export const HeroSlider: React.FC = () => {
     return () => window.removeEventListener('keydown', onKey);
   }, [next, prev]);
 
+  /* Mobil swipe */
+  const [touchX, setTouchX] = useState<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => setTouchX(e.changedTouches[0].clientX);
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX == null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) next();
+      else prev();
+    }
+    setTouchX(null);
+  };
+
   // Entrance animation: starts blurred & scaled, clarifies into crisp focus
   const textVariants = {
     enter: (dir: number) => ({
@@ -83,9 +96,11 @@ export const HeroSlider: React.FC = () => {
 
   return (
     <section
-      className="relative w-full min-h-[100svh] h-[100svh] max-h-[1200px] overflow-hidden bg-slate-950"
+      className="relative w-full min-h-[100svh] h-[100svh] max-h-[1200px] overflow-hidden bg-slate-950 touch-pan-y"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
       aria-roledescription="carousel"
       aria-label={t('hero_title')}
     >
@@ -156,21 +171,21 @@ export const HeroSlider: React.FC = () => {
 
       {/* ========== MAIN CONTENT WITH UNBLUR/CLARIFY ANIMATION ========== */}
       <div className="relative z-10 w-full h-full flex flex-col justify-between">
-        <div className="flex-1 flex items-center justify-center px-6 sm:px-10 lg:px-20 pt-32 pb-10">
+        <div className="flex-1 flex items-center justify-center px-4 sm:px-10 lg:px-20 pt-24 sm:pt-32 pb-6 sm:pb-10">
           <div className="w-full max-w-6xl mx-auto text-center">
             {/* Top Badge */}
             <motion.div
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-amber-400/30 bg-slate-900/70 backdrop-blur-xl text-amber-300 text-[10px] font-black tracking-[0.4em] uppercase mb-8 shadow-2xl font-ui"
+              className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full border border-amber-400/30 bg-slate-900/70 backdrop-blur-xl text-amber-300 text-[9px] sm:text-[10px] font-black tracking-[0.22em] sm:tracking-[0.4em] uppercase mb-5 sm:mb-8 shadow-2xl font-ui max-w-[95vw]"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin" style={{ animationDuration: '6s' }} />
-              {t('hero_badge')}
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin" style={{ animationDuration: '6s' }} />
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 shrink-0 animate-spin" style={{ animationDuration: '6s' }} />
+              <span className="truncate">{t('hero_badge')}</span>
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400 shrink-0 animate-spin" style={{ animationDuration: '6s' }} />
             </motion.div>
 
             {/* Slide Details with Clarifying Blur Transition */}
-            <div className="relative min-h-[260px] sm:min-h-[300px] md:min-h-[340px] flex flex-col items-center justify-center">
+            <div className="relative min-h-[220px] sm:min-h-[300px] md:min-h-[340px] flex flex-col items-center justify-center">
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
                   key={current.id}
@@ -188,30 +203,30 @@ export const HeroSlider: React.FC = () => {
                     <span className="hidden sm:inline-block w-12 h-px bg-gradient-to-l from-transparent to-amber-400/80" />
                   </p>
 
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-classic font-black text-white leading-[1.02] uppercase tracking-tight mb-6 whitespace-pre-line drop-shadow-2xl">
+                  <h1 className="text-[1.65rem] leading-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-classic font-black text-white sm:leading-[1.02] uppercase tracking-tight mb-4 sm:mb-6 whitespace-pre-line drop-shadow-2xl px-1">
                     {L(current.title)}
                   </h1>
 
-                  <div className="h-0.5 w-32 sm:w-48 bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-6 opacity-90" />
+                  <div className="h-0.5 w-24 sm:w-48 bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-4 sm:mb-6 opacity-90" />
 
-                  <p className="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif-classic italic text-slate-200 leading-snug mb-10 px-2 drop-shadow-md">
+                  <p className="max-w-3xl mx-auto text-base sm:text-xl md:text-2xl lg:text-3xl font-serif-classic italic text-slate-200 leading-snug mb-6 sm:mb-10 px-1 drop-shadow-md line-clamp-4 sm:line-clamp-none">
                     <span className="text-amber-400 mr-2 not-italic">❦</span>
                     {L(current.description)}
                     <span className="text-amber-400 ml-2 not-italic inline-block rotate-180">❦</span>
                   </p>
 
                   {/* CTAs */}
-                  <div className="flex flex-wrap items-center justify-center gap-4">
+                  <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
                     <Link
                       to={current.ctaTo}
-                      className="group inline-flex items-center gap-3 px-8 py-4 sm:py-5 rounded-2xl gold-gradient text-slate-950 font-black text-[11px] uppercase tracking-[0.22em] shadow-[0_10px_30px_rgba(212,175,55,0.3)] hover:scale-105 transition-all font-ui"
+                      className="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-5 rounded-2xl gold-gradient text-slate-950 font-black text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] shadow-[0_10px_30px_rgba(212,175,55,0.3)] hover:scale-105 transition-all font-ui"
                     >
                       {L(current.ctaLabel)}
                       <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                     <Link
                       to="/talim/yonalishlar"
-                      className="inline-flex items-center gap-2.5 px-8 py-4 sm:py-5 rounded-2xl border border-white/20 text-white font-black text-[11px] uppercase tracking-[0.22em] hover:bg-white/10 hover:border-amber-400 transition-all font-ui bg-slate-900/60 backdrop-blur-xl"
+                      className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-5 rounded-2xl border border-white/20 text-white font-black text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] hover:bg-white/10 hover:border-amber-400 transition-all font-ui bg-slate-900/60 backdrop-blur-xl"
                     >
                       <BookOpen className="w-4 h-4 text-amber-400" />
                       {t('hero_cta_programs')}
@@ -231,7 +246,7 @@ export const HeroSlider: React.FC = () => {
         </div>
 
         {/* ========== BOTTOM SLIDE PROGRESS & INDICATOR ========== */}
-        <div className="relative z-20 w-full shrink-0 pb-8 pt-4">
+        <div className="relative z-20 w-full shrink-0 pb-5 sm:pb-8 pt-3 sm:pt-4 safe-pb">
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-white/10">
             <div
               className="h-full gold-gradient transition-[width] duration-100 ease-linear shadow-[0_0_15px_#d4af37]"
@@ -239,12 +254,12 @@ export const HeroSlider: React.FC = () => {
             />
           </div>
 
-          <div className="w-full px-6 sm:px-10 lg:px-16">
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
+          <div className="w-full px-4 sm:px-10 lg:px-16">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-6">
               {/* Counter & Mobile Arrows */}
               <div className="flex items-center justify-between sm:justify-start gap-4">
                 <p className="font-classic text-white text-base tracking-widest tabular-nums font-bold">
-                  <span className="text-2xl text-amber-400">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="text-xl sm:text-2xl text-amber-400">{String(index + 1).padStart(2, '0')}</span>
                   <span className="text-white/30 mx-2">/</span>
                   <span className="text-slate-400">{String(total).padStart(2, '0')}</span>
                 </p>
@@ -253,7 +268,7 @@ export const HeroSlider: React.FC = () => {
                     type="button"
                     onClick={prev}
                     aria-label="Previous"
-                    className="w-10 h-10 rounded-full border border-white/20 bg-slate-900/80 flex items-center justify-center text-white"
+                    className="w-11 h-11 rounded-full border border-white/20 bg-slate-900/80 flex items-center justify-center text-white"
                   >
                     <ChevronLeft className="w-5 h-5 text-amber-400" />
                   </button>
@@ -261,7 +276,7 @@ export const HeroSlider: React.FC = () => {
                     type="button"
                     onClick={next}
                     aria-label="Next"
-                    className="w-10 h-10 rounded-full border border-white/20 bg-slate-900/80 flex items-center justify-center text-white"
+                    className="w-11 h-11 rounded-full border border-white/20 bg-slate-900/80 flex items-center justify-center text-white"
                   >
                     <ChevronRight className="w-5 h-5 text-amber-400" />
                   </button>

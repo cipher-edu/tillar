@@ -2,7 +2,7 @@
 <html lang="uz" style="scroll-behavior: smooth;">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>NavDU Tillar Fakulteti — Navoiy davlat universiteti</title>
     <meta
       name="description"
@@ -32,10 +32,35 @@
         --gold: #d4af37;
         --antique-white: #f3eee6;
       }
+      html {
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+      }
       body {
         font-family: 'Cormorant Garamond', serif;
         background-color: var(--heritage);
         color: #1a202c;
+        overflow-x: hidden;
+        -webkit-tap-highlight-color: rgba(212, 175, 55, 0.15);
+      }
+      img, video, iframe {
+        max-width: 100%;
+      }
+      /* Mobil: tezkor bosish maydoni */
+      @media (max-width: 767px) {
+        .font-classic {
+          letter-spacing: 0.02em !important;
+        }
+        .animated-pattern {
+          animation-duration: 200s;
+        }
+      }
+      /* iOS safe area */
+      .safe-pb {
+        padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+      }
+      .safe-pt {
+        padding-top: max(0.5rem, env(safe-area-inset-top));
       }
       body.parchment-texture {
         background-color: var(--heritage);
