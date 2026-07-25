@@ -4,7 +4,7 @@ import type { Person } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 import { personPath } from '@/lib/links';
 import { StudentBadgePill } from '@/components/ui/Badge';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface PersonCardProps {
   person: Person;
@@ -21,7 +21,7 @@ export const PersonCard: React.FC<PersonCardProps> = ({ person, onQuickView }) =
         person.isMemorial ? 'opacity-90' : ''
       }`}
     >
-      {/* Warm Ambient Radial Glow on Card Background */}
+      {/* Subtle Background Ambient Amber Glow */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none group-hover:bg-amber-500/20 transition-all duration-500" />
 
       <button
@@ -29,14 +29,16 @@ export const PersonCard: React.FC<PersonCardProps> = ({ person, onQuickView }) =
         onClick={() => onQuickView?.(person)}
         className="w-full text-center relative z-10"
       >
-        {/* Photo Container with Warm Gold Filigree Border */}
-        <div className="relative w-36 h-36 mx-auto mb-6">
-          <div className="absolute inset-0 border-2 border-amber-400/50 rounded-[2.2rem] rotate-45 group-hover:rotate-90 group-hover:border-amber-300 transition-transform duration-700 shadow-md" />
-          <div className="absolute inset-3 overflow-hidden rounded-[1.75rem] shadow-xl border-2 border-amber-300/60 bg-amber-50 group-hover:border-amber-400 transition-all">
+        {/* Photo Container — Oriental Mihrab Arch (Peshtoq) Frame */}
+        <div className="relative w-40 h-44 mx-auto mb-6">
+          {/* Double Gold Filigree Border */}
+          <div className="absolute inset-0 border-2 border-amber-400/40 rounded-t-[4.5rem] rounded-b-[1.75rem] group-hover:scale-105 group-hover:border-amber-300 transition-all duration-500 shadow-md" />
+          
+          <div className="absolute inset-2 overflow-hidden rounded-t-[4rem] rounded-b-[1.5rem] shadow-xl border-2 border-amber-300/70 bg-amber-50 group-hover:border-amber-400 transition-all">
             <img
               src={person.photo}
               alt={L(person.name)}
-              className={`w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-108 contrast-[1.05] brightness-[1.02] ${
+              className={`w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-110 contrast-[1.05] brightness-[1.02] ${
                 person.isMemorial ? 'grayscale opacity-80' : 'filter-none'
               }`}
             />

@@ -301,6 +301,35 @@ export const ShamsaMedallion: React.FC<{ className?: string }> = ({ className = 
   </svg>
 );
 
+/** Kamoliddin Behzod Hirot Miniatura Maktabi 8-Burchakli Yulduzli Tamaddun Medalyoni (Oddiy doira o'rniga) */
+export const BehzodStarMedallion: React.FC<{ className?: string }> = ({ className = 'w-10 h-10' }) => (
+  <svg className={className} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Outer 8-Pointed Star Geometrical Arch Frame */}
+    <path
+      d="M60 0 L75 25 L102 18 L95 45 L120 60 L95 75 L102 102 L75 95 L60 120 L45 95 L18 102 L25 75 L0 60 L25 45 L18 18 L45 25 Z"
+      fill="url(#behzodGoldGrad)"
+      stroke="#78350f"
+      strokeWidth="2"
+    />
+    <path
+      d="M60 10 L70 30 L92 24 L86 46 L108 60 L86 74 L92 96 L70 90 L60 110 L50 90 L28 96 L34 74 L12 60 L34 46 L28 24 L50 30 Z"
+      fill="#09192f"
+      stroke="#f59e0b"
+      strokeWidth="1.5"
+    />
+    {/* Inner Oriental Islimiy Motif */}
+    <polygon points="60,28 68,48 88,48 72,60 78,80 60,68 42,80 48,60 32,48 52,48" fill="#fef08a" />
+    <circle cx="60" cy="60" r="10" fill="#b48a1d" stroke="#ffffff" strokeWidth="1.5" />
+    <defs>
+      <linearGradient id="behzodGoldGrad" x1="0" y1="0" x2="120" y2="120">
+        <stop offset="0%" stopColor="#d4af37" />
+        <stop offset="50%" stopColor="#f59e0b" />
+        <stop offset="100%" stopColor="#b48a1d" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
 /**
  * Mukammal darajada yaratilgan "NAVOIY MEROSI" maxsus bo'limi
  */
@@ -342,11 +371,11 @@ export const IslimiyDivider: React.FC<{ topic?: string; lang?: 'uz' | 'ru' | 'en
         <div className="relative z-10 flex flex-col items-center">
           {/* Top Badge Header */}
           <div className="flex items-center gap-3 mb-5">
-            <ShamsaMedallion className="w-8 h-8" />
+            <BehzodStarMedallion className="w-8 h-8" />
             <span className="text-xs md:text-sm font-classic font-black tracking-[0.4em] text-amber-300 uppercase">
               ⚜ HAZRAT ALISHER NAVOIY MEROSI ⚜
             </span>
-            <ShamsaMedallion className="w-8 h-8" />
+            <BehzodStarMedallion className="w-8 h-8" />
           </div>
 
           <div className="h-0.5 w-48 bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-8 opacity-90 shadow-[0_0_10px_#d4af37]" />
@@ -389,7 +418,7 @@ export const IslimiyDivider: React.FC<{ topic?: string; lang?: 'uz' | 'ru' | 'en
 
 export const SectionTitleDecoration: React.FC = () => (
   <div className="flex flex-col items-center mb-8">
-    <ShamsaMedallion className="w-8 h-8 mb-3" />
+    <BehzodStarMedallion className="w-8 h-8 mb-3" />
     <div className="w-28 h-1 gold-gradient rounded-full shadow-[0_0_12px_#d4af37]" />
   </div>
 );
