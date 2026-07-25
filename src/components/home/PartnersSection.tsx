@@ -135,7 +135,7 @@ export const PartnersSection: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: -12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-amber-500/30 bg-amber-500/5 text-amber-300 text-[10px] font-black uppercase tracking-[0.4em] font-ui mb-6"
           >
             <Globe2 className="w-3.5 h-3.5" />
@@ -147,7 +147,7 @@ export const PartnersSection: React.FC = () => {
             id="partners-title"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-4xl md:text-6xl lg:text-7xl font-classic uppercase tracking-widest text-transparent bg-clip-text gold-gradient leading-tight"
           >
             {t('home_partners')}
@@ -163,7 +163,7 @@ export const PartnersSection: React.FC = () => {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="max-w-3xl mx-auto text-lg md:text-2xl italic font-serif-classic text-amber-100/75 leading-relaxed"
           >
             <span className="text-amber-400 not-italic">“</span>
@@ -188,7 +188,7 @@ export const PartnersSection: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="mt-14 md:mt-16 relative rounded-[2rem] border border-amber-500/20 overflow-hidden"
         >
           <div

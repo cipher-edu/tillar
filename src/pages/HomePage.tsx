@@ -20,6 +20,7 @@ import {
   SectionAtmosphere,
   ShamsaMedallion,
   PATTERNS,
+  HERITAGE_MANUSCRIPT_URL,
 } from '@/components/ui/PatternBackground';
 import { HeroSlider } from '@/components/home/HeroSlider';
 import { PresidentialVision } from '@/components/home/PresidentialVision';
@@ -42,9 +43,13 @@ import { newsPath } from '@/lib/links';
 function useCountUp(target: number, active: boolean) {
   const [value, setValue] = useState(0);
   useEffect(() => {
-    if (!active) return;
+    if (!active) {
+      setValue(0);
+      return;
+    }
     let frame = 0;
     const steps = 40;
+    setValue(0);
     const id = window.setInterval(() => {
       frame += 1;
       setValue(Math.round((target * frame) / steps));
@@ -67,46 +72,47 @@ const StatItem: React.FC<{ icon: React.ReactNode; label: string; value: number; 
   return (
     <motion.div
       onViewportEnter={() => setVisible(true)}
-      viewport={{ once: true, margin: '-40px' }}
+      onViewportLeave={() => setVisible(false)}
+      viewport={{ once: false, amount: 0.35, margin: '0px 0px -40px 0px' }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="relative group h-full"
     >
-      <div className="relative h-full overflow-hidden rounded-[2.5rem] border-2 border-amber-300/60 bg-white/95 backdrop-blur-xl p-8 text-center shadow-lg transition-all duration-500 hover:bg-slate-950 hover:border-amber-400 hover:shadow-[0_25px_60px_rgba(212,175,55,0.35)] hover:-translate-y-2 flex flex-col justify-between items-center">
-        {/* Background Islamic Girih Ornament overlay on hover */}
+      <div className="relative h-full overflow-hidden rounded-[2.5rem] border-2 border-amber-300/60 bg-white/95 backdrop-blur-xl p-8 text-center shadow-lg transition-all duration-500 hover:bg-white hover:border-amber-400 hover:shadow-[0_22px_50px_-14px_rgba(212,175,55,0.32)] hover:-translate-y-2 flex flex-col justify-between items-center">
+        {/* Soft gold wash on hover (no dark invert) */}
         <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-[0.12] transition-opacity duration-500 pointer-events-none"
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-b from-amber-50/80 via-transparent to-amber-100/40"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-[0.07] transition-opacity duration-500 pointer-events-none"
           style={{ backgroundImage: PATTERNS.girih, backgroundSize: '160px 160px' }}
         />
 
-        {/* Top Gold Shamsa Badge */}
-        <div className="w-full flex justify-between items-center opacity-60 group-hover:opacity-100 transition-opacity">
-          <span className="text-[10px] font-black font-classic text-amber-800 group-hover:text-amber-400">
+        <div className="relative z-10 w-full flex justify-between items-center opacity-70 group-hover:opacity-100 transition-opacity">
+          <span className="text-[10px] font-black font-classic text-amber-800">
             0{index + 1}
           </span>
           <ShamsaMedallion className="w-5 h-5" />
         </div>
 
-        {/* Center Icon */}
-        <div className="relative my-6">
-          <div className="w-16 h-16 rounded-2xl gold-gradient text-slate-950 flex items-center justify-center shadow-xl border border-amber-200/60 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-[0_0_30px_#d4af37] transition-all duration-500">
+        <div className="relative z-10 my-6">
+          <div className="w-16 h-16 rounded-2xl gold-gradient text-slate-950 flex items-center justify-center shadow-xl border border-amber-200/60 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-[0_0_28px_rgba(212,175,55,0.45)] transition-all duration-500">
             {icon}
           </div>
         </div>
 
-        {/* Count Value & Label */}
-        <div>
-          <p className="text-4xl md:text-5xl font-classic font-black text-slate-950 group-hover:text-amber-300 transition-colors duration-300 tracking-tight drop-shadow-sm mb-2">
+        <div className="relative z-10">
+          <p className="text-4xl md:text-5xl font-classic font-black text-slate-950 group-hover:text-amber-950 transition-colors duration-300 tracking-tight mb-2">
             {count}+
           </p>
-          <p className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-700 group-hover:text-amber-100 transition-colors duration-300 font-ui">
+          <p className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-600 group-hover:text-amber-900 transition-colors duration-300 font-ui">
             {label}
           </p>
         </div>
 
-        {/* Bottom Sliding Gold Line */}
-        <div className="w-0 group-hover:w-full h-1 gold-gradient transition-all duration-500 rounded-full mt-6 shadow-[0_0_10px_#d4af37]" />
+        <div className="relative z-10 w-0 group-hover:w-full h-1 gold-gradient transition-all duration-500 rounded-full mt-6 shadow-[0_0_10px_rgba(212,175,55,0.5)]" />
       </div>
     </motion.div>
   );
@@ -173,7 +179,7 @@ export const HomePage: React.FC = () => {
             </div>
             <Link
               to="/yangiliklar"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-amber-800/30 text-[11px] font-black uppercase tracking-[0.25em] text-amber-900 hover:bg-slate-950 hover:text-white transition-all font-ui self-center md:self-auto"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-amber-400/60 bg-white/80 text-[11px] font-black uppercase tracking-[0.25em] text-amber-950 hover:bg-amber-50 hover:border-amber-500 hover:shadow-md transition-all font-ui self-center md:self-auto"
             >
               {t('home_news_more')} <ArrowRight className="w-4 h-4" />
             </Link>
@@ -186,6 +192,7 @@ export const HomePage: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: false, amount: 0.25, margin: '0px 0px -40px 0px' }}
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-7"
               >
@@ -234,27 +241,28 @@ export const HomePage: React.FC = () => {
                   key={item.id}
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: false, amount: 0.25, margin: '0px 0px -40px 0px' }}
                   transition={{ duration: 0.5, delay: idx * 0.15 }}
                 >
                   <Link
                     to={newsPath(item.slug)}
-                    className="glass-card rounded-[2rem] p-6 border-amber-300/60 group hover:shadow-2xl hover:bg-slate-950 hover:border-amber-400 transition-all flex gap-5 items-center"
+                    className="glass-card rounded-[2rem] p-6 border-amber-300/60 group hover:shadow-[0_18px_40px_-12px_rgba(166,124,0,0.22)] hover:bg-white hover:border-amber-400 transition-all flex gap-5 items-center"
                   >
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shrink-0 ring-2 ring-amber-200/50 group-hover:ring-amber-400/60 transition-all">
                       <img
                         src={item.cover}
                         alt=""
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-amber-700 group-hover:text-amber-400 font-ui mb-1 transition-colors">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-amber-700 group-hover:text-amber-800 font-ui mb-1 transition-colors">
                         {item.date}
                       </p>
-                      <h4 className="font-classic text-lg text-slate-950 group-hover:text-white font-bold leading-snug line-clamp-2 mb-2 transition-colors">
+                      <h4 className="font-classic text-lg text-slate-950 group-hover:text-amber-950 font-bold leading-snug line-clamp-2 mb-2 transition-colors">
                         {L(item.title)}
                       </h4>
-                      <p className="text-xs font-serif-classic italic text-slate-600 group-hover:text-slate-300 line-clamp-2 transition-colors">
+                      <p className="text-xs font-serif-classic italic text-slate-600 group-hover:text-slate-700 line-clamp-2 transition-colors">
                         {L(item.excerpt)}
                       </p>
                     </div>
@@ -278,28 +286,49 @@ export const HomePage: React.FC = () => {
       <EventsSection />
       <HomeCtaSection />
 
-      {/* ========== TA'LIM YO'NALISHLARI (INTERAKTIV TABLAR BILAN) ========== */}
+      {/* ========== TA'LIM YO'NALISHLARI — royal fon (Meros/Global dialogue dan) ========== */}
       <section className="py-24 relative overflow-hidden">
-        <SectionAtmosphere tone="heritage-strong" variant="default" manuscript />
+        {/* Oldin Navoiy «Meros · Modern world · Global dialogue» bo'limi foni */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#001a2c] via-[#001524] to-[#0a1628]" />
+        <div
+          className="absolute inset-0 opacity-[0.12] mix-blend-soft-light pointer-events-none"
+          style={{
+            backgroundImage: `url(${HERITAGE_MANUSCRIPT_URL})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            filter: 'sepia(0.3)',
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.07] pointer-events-none"
+          style={{ backgroundImage: PATTERNS.girih, backgroundSize: '200px 200px' }}
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(88vw,560px)] h-[min(88vw,560px)] pointer-events-none opacity-25">
+          <div className="absolute inset-0 rounded-full border border-amber-500/20" />
+          <div className="absolute inset-[18%] rounded-full border border-dashed border-amber-400/15" />
+        </div>
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <SectionTitleDecoration />
-          <h2 className="text-4xl md:text-6xl font-classic text-slate-950 uppercase tracking-widest text-center mb-4">
+          <div className="flex justify-center mb-2 opacity-90">
+            <SectionTitleDecoration />
+          </div>
+          <h2 className="text-4xl md:text-6xl font-classic text-transparent bg-clip-text gold-gradient uppercase tracking-widest text-center mb-4">
             {t('home_programs')}
           </h2>
-          <p className="text-center text-xl md:text-2xl italic font-serif-classic text-amber-800/80 mb-10 max-w-2xl mx-auto">
-            <span className="text-amber-600">❦</span> {t('programs_intro')}{' '}
-            <span className="text-amber-600 inline-block rotate-180">❦</span>
+          <p className="text-center text-xl md:text-2xl italic font-serif-classic text-amber-100/75 mb-10 max-w-2xl mx-auto">
+            <span className="text-amber-400">❦</span> {t('programs_intro')}{' '}
+            <span className="text-amber-400 inline-block rotate-180">❦</span>
           </p>
 
           {/* Level Filter Tabs */}
           <div className="flex justify-center mb-12">
-            <div className="inline-flex p-1.5 rounded-full bg-slate-950/10 border border-slate-950/10 backdrop-blur-md">
+            <div className="inline-flex p-1.5 rounded-full bg-white/5 border border-amber-400/25 backdrop-blur-md">
               <button
                 onClick={() => setProgramFilter('all')}
                 className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest font-ui transition-all ${
                   programFilter === 'all'
                     ? 'gold-gradient text-slate-950 shadow-lg'
-                    : 'text-slate-700 hover:text-amber-900'
+                    : 'text-amber-100/70 hover:text-amber-200'
                 }`}
               >
                 Barchasi ({programs.length})
@@ -309,7 +338,7 @@ export const HomePage: React.FC = () => {
                 className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest font-ui transition-all ${
                   programFilter === 'bachelor'
                     ? 'gold-gradient text-slate-950 shadow-lg'
-                    : 'text-slate-700 hover:text-amber-900'
+                    : 'text-amber-100/70 hover:text-amber-200'
                 }`}
               >
                 {t('level_bachelor')}
@@ -319,7 +348,7 @@ export const HomePage: React.FC = () => {
                 className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest font-ui transition-all ${
                   programFilter === 'master'
                     ? 'gold-gradient text-slate-950 shadow-lg'
-                    : 'text-slate-700 hover:text-amber-900'
+                    : 'text-amber-100/70 hover:text-amber-200'
                 }`}
               >
                 {t('level_master')}
@@ -344,8 +373,8 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ========== NAVOIY IQTIBOSI — TIL & ZAMONAVIY DUNYO ========== */}
-      <NavoiQuoteSection quote={navoiQuoteTil} variant="royal" />
+      {/* ========== NAVOIY — Meros · Modern world · Global dialogue (programs dan heritage fon) ========== */}
+      <NavoiQuoteSection quote={navoiQuoteTil} variant="heritage" atmosphere="heritage-strong" />
 
       {/* XALQARO HAMKORLAR */}
       <PartnersSection />

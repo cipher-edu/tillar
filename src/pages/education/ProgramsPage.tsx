@@ -216,7 +216,7 @@ export const ProgramsPage: React.FC = () => {
             key={program.id}
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
+            viewport={{ once: false, margin: '-40px' }}
             transition={{ delay: (i % 6) * 0.06, duration: 0.45 }}
           >
             <ProgramCard program={program} index={programs.indexOf(program)} variant="full" />

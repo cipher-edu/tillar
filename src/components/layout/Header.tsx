@@ -103,11 +103,20 @@ export const Header: React.FC = () => {
             className={`relative transition-all duration-500 rounded-[2.5rem] ${
               scrolled
                 ? 'bg-slate-900/85 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-amber-500/20 py-2 text-white'
-                : 'bg-white/75 backdrop-blur-xl border border-white/60 shadow-[0_15px_45px_-10px_rgba(15,23,42,0.08)] py-3 text-slate-900'
+                : 'bg-[#fdfaf3]/95 backdrop-blur-xl border border-amber-200/70 shadow-[0_12px_40px_-12px_rgba(166,124,0,0.18)] py-3 text-slate-900'
             }`}
           >
+            {/* Yorug' rejimda yengil oltin yuvish — kulrang o'rniga heritage */}
+            {!scrolled && (
+              <div
+                className="absolute inset-0 rounded-[2.5rem] overflow-hidden pointer-events-none bg-gradient-to-b from-white via-[#fdfaf3]/90 to-amber-50/50"
+                aria-hidden
+              />
+            )}
             <div
-              className="absolute inset-0 opacity-[0.03] pointer-events-none rounded-[2.5rem] overflow-hidden"
+              className={`absolute inset-0 pointer-events-none rounded-[2.5rem] overflow-hidden ${
+                scrolled ? 'opacity-[0.04]' : 'opacity-[0.06]'
+              }`}
               style={{
                 backgroundImage: PATTERNS.diamondSm,
                 backgroundSize: '60px 60px',
@@ -139,7 +148,9 @@ export const Header: React.FC = () => {
 
               {/* Central Navigation */}
               <nav className={`hidden xl:flex items-center gap-1 px-3 py-1.5 rounded-full transition-all duration-300 ${
-                scrolled ? 'bg-white/10 border border-white/10' : 'bg-slate-900/5 border border-slate-900/5'
+                scrolled
+                  ? 'bg-white/10 border border-white/10'
+                  : 'bg-white border border-amber-200/80 shadow-sm'
               }`}>
                 <NavLink
                   to="/"
@@ -147,8 +158,8 @@ export const Header: React.FC = () => {
                   className={({ isActive }) =>
                     `px-4 py-2 text-[11px] font-extrabold uppercase tracking-widest font-ui transition-all relative rounded-full ${
                       isActive
-                        ? scrolled ? 'text-amber-300 bg-amber-500/20' : 'text-amber-900 bg-amber-100/70'
-                        : scrolled ? 'text-slate-200 hover:text-amber-300' : 'text-slate-600 hover:text-amber-900'
+                        ? scrolled ? 'text-amber-300 bg-amber-500/20' : 'text-amber-950 bg-amber-100'
+                        : scrolled ? 'text-slate-200 hover:text-amber-300' : 'text-slate-700 hover:text-amber-900 hover:bg-amber-50/80'
                     }`
                   }
                 >
@@ -165,8 +176,8 @@ export const Header: React.FC = () => {
                     <button
                       className={`px-4 py-2 text-[11px] font-extrabold uppercase tracking-widest font-ui flex items-center gap-1.5 rounded-full transition-all ${
                         openMenu === menu.key
-                          ? scrolled ? 'text-amber-300 bg-amber-500/20' : 'text-amber-900 bg-amber-100/70'
-                          : scrolled ? 'text-slate-200 hover:text-amber-300' : 'text-slate-600 hover:text-amber-900'
+                          ? scrolled ? 'text-amber-300 bg-amber-500/20' : 'text-amber-950 bg-amber-100'
+                          : scrolled ? 'text-slate-200 hover:text-amber-300' : 'text-slate-700 hover:text-amber-900 hover:bg-amber-50/80'
                       }`}
                     >
                       {menu.label}
@@ -179,14 +190,16 @@ export const Header: React.FC = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 8, scale: 0.96 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 pt-3 min-w-[260px]"
+                          className="absolute top-full left-0 pt-3 min-w-[270px] z-[60]"
                         >
-                          <div className="glass-card-dark rounded-3xl p-2.5 shadow-2xl border border-amber-500/30 text-white">
+                          <div className="glass-card-dark rounded-3xl p-2.5 text-white ring-1 ring-amber-400/20">
+                            {/* Gold top accent */}
+                            <div className="h-0.5 w-full rounded-full gold-gradient mb-2 opacity-80" />
                             {menu.items.map((item) => (
                               <Link
                                 key={item.to}
                                 to={item.to}
-                                className="flex items-center justify-between px-4 py-3 rounded-2xl text-[11px] font-bold uppercase tracking-wider text-slate-200 hover:bg-amber-500/20 hover:text-amber-300 transition-all font-ui group"
+                                className="flex items-center justify-between px-4 py-3 rounded-2xl text-[11px] font-bold uppercase tracking-wider text-amber-50 hover:bg-amber-500/25 hover:text-amber-200 transition-all font-ui group"
                               >
                                 <span>{item.label}</span>
                                 <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-amber-400" />
@@ -206,8 +219,8 @@ export const Header: React.FC = () => {
                     className={({ isActive }) =>
                       `px-4 py-2 text-[11px] font-extrabold uppercase tracking-widest font-ui transition-all relative rounded-full ${
                         isActive
-                          ? scrolled ? 'text-amber-300 bg-amber-500/20' : 'text-amber-900 bg-amber-100/70'
-                          : scrolled ? 'text-slate-200 hover:text-amber-300' : 'text-slate-600 hover:text-amber-900'
+                          ? scrolled ? 'text-amber-300 bg-amber-500/20' : 'text-amber-950 bg-amber-100'
+                          : scrolled ? 'text-slate-200 hover:text-amber-300' : 'text-slate-700 hover:text-amber-900 hover:bg-amber-50/80'
                       }`
                     }
                   >
@@ -224,7 +237,7 @@ export const Header: React.FC = () => {
                   className={`flex items-center gap-2 px-3.5 py-2 rounded-full border text-[11px] font-extrabold font-ui transition-all ${
                     scrolled
                       ? 'border-amber-500/30 bg-white/10 text-slate-200 hover:bg-amber-500/20 hover:border-amber-400'
-                      : 'border-amber-900/15 bg-white/70 text-slate-700 hover:bg-amber-50 hover:border-amber-300'
+                      : 'border-amber-200 bg-white text-slate-800 hover:bg-amber-50 hover:border-amber-400 shadow-sm'
                   }`}
                   title="Qidiruv (Ctrl+K)"
                 >
@@ -242,7 +255,7 @@ export const Header: React.FC = () => {
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-full border text-[10px] font-extrabold uppercase tracking-widest font-ui transition-all ${
                       scrolled
                         ? 'border-amber-500/30 bg-white/10 text-slate-200 hover:bg-amber-500/20'
-                        : 'border-amber-900/15 bg-white/70 text-slate-700 hover:bg-amber-50'
+                        : 'border-amber-200 bg-white text-slate-800 hover:bg-amber-50 hover:border-amber-400 shadow-sm'
                     }`}
                   >
                     <Globe className="w-4 h-4 text-amber-500" />
@@ -254,7 +267,7 @@ export const Header: React.FC = () => {
                         initial={{ opacity: 0, y: 8, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 6, scale: 0.95 }}
-                        className="absolute right-0 mt-2 glass-card-dark rounded-2xl p-2 min-w-[150px] shadow-2xl z-50 border border-amber-500/30 text-white"
+                        className="absolute right-0 mt-2 glass-card-dark rounded-2xl p-2 min-w-[150px] z-[60] text-white ring-1 ring-amber-400/20"
                       >
                         {languages.map((lang) => (
                           <button
@@ -264,7 +277,9 @@ export const Header: React.FC = () => {
                               setLangOpen(false);
                             }}
                             className={`w-full text-left px-3 py-2 rounded-xl text-[11px] font-extrabold uppercase tracking-widest font-ui transition-colors ${
-                              language === lang.code ? 'bg-amber-500/30 text-amber-300 font-black' : 'text-slate-300 hover:bg-white/10'
+                              language === lang.code
+                                ? 'bg-amber-500/30 text-amber-200 font-black'
+                                : 'text-amber-50/90 hover:bg-amber-500/20 hover:text-amber-100'
                             }`}
                           >
                             {lang.label}
@@ -278,7 +293,7 @@ export const Header: React.FC = () => {
                 {/* Mobile Drawer Button */}
                 <button
                   className={`xl:hidden p-2.5 rounded-2xl border transition-colors ${
-                    scrolled ? 'border-amber-500/30 bg-white/10 text-white' : 'border-amber-900/20 bg-white/80 text-slate-900'
+                    scrolled ? 'border-amber-500/30 bg-white/10 text-white' : 'border-amber-200 bg-white text-slate-900 shadow-sm'
                   }`}
                   onClick={() => setMobileOpen((v) => !v)}
                   aria-label="Menu"

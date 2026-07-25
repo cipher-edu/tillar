@@ -176,7 +176,7 @@ export const NewsPage: React.FC = () => {
                   onClick={() => goToPage(page - 1)}
                   disabled={page <= 1}
                   aria-label={t('pagination_prev')}
-                  className="w-12 h-12 rounded-2xl border border-amber-200 bg-white/80 flex items-center justify-center text-slate-800 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-slate-950 hover:text-amber-200 hover:border-slate-950 transition-all"
+                  className="w-12 h-12 rounded-2xl border border-amber-200 bg-white/80 flex items-center justify-center text-slate-800 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-amber-50 hover:text-amber-950 hover:border-amber-400 transition-all"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
@@ -202,7 +202,7 @@ export const NewsPage: React.FC = () => {
                   onClick={() => goToPage(page + 1)}
                   disabled={page >= totalPages}
                   aria-label={t('pagination_next')}
-                  className="w-12 h-12 rounded-2xl border border-amber-200 bg-white/80 flex items-center justify-center text-slate-800 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-slate-950 hover:text-amber-200 hover:border-slate-950 transition-all"
+                  className="w-12 h-12 rounded-2xl border border-amber-200 bg-white/80 flex items-center justify-center text-slate-800 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-amber-50 hover:text-amber-950 hover:border-amber-400 transition-all"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>

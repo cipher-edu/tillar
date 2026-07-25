@@ -74,7 +74,7 @@ export const NavoiHeritageBand: React.FC<NavoiHeritageBandProps> = ({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
+          viewport={{ once: false, margin: '-40px' }}
           transition={{ duration: 0.55 }}
           className="text-center"
         >
@@ -126,7 +126,7 @@ export const NavoiHeritageBand: React.FC<NavoiHeritageBandProps> = ({
                     key={`${quote.id}-${i}`}
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.4, delay: 0.07 * i }}
                     className={`font-serif-classic italic text-amber-50 leading-relaxed ${
                       isCompact

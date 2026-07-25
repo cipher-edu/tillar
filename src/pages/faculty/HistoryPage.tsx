@@ -27,7 +27,7 @@ export const HistoryPage: React.FC = () => {
               type="button"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              viewport={{ once: false, margin: '-50px' }}
               transition={{ delay: i * 0.08 }}
               onClick={() => setSelected(event)}
               className={`relative w-full text-left pl-16 md:pl-0 ${i % 2 === 0 ? 'md:pr-[52%] md:text-right' : 'md:pl-[52%]'}`}
@@ -36,17 +36,17 @@ export const HistoryPage: React.FC = () => {
                 <div className="w-2 h-2 rounded-full bg-slate-950" />
               </div>
 
-              <div className="glass-card p-8 md:p-10 rounded-[2.5rem] border border-amber-300/70 hover:bg-slate-950 hover:border-amber-400 hover:text-white hover:shadow-2xl transition-all duration-500 group">
+              <div className="glass-card p-8 md:p-10 rounded-[2.5rem] border border-amber-300/70 hover:bg-white hover:border-amber-400 hover:shadow-[0_20px_48px_-14px_rgba(166,124,0,0.25)] hover:-translate-y-0.5 transition-all duration-500 group">
                 <span className="inline-block px-5 py-1.5 rounded-full gold-gradient text-slate-950 text-[10px] font-black tracking-widest mb-4 font-ui shadow-md">
                   {event.year} YIL
                 </span>
-                <h3 className="text-2xl md:text-3xl font-classic text-slate-950 group-hover:text-amber-300 font-bold mb-3 transition-colors">
+                <h3 className="text-2xl md:text-3xl font-classic text-slate-950 group-hover:text-amber-950 font-bold mb-3 transition-colors">
                   {L(event.title)}
                 </h3>
-                <p className="text-lg italic font-serif-classic text-slate-700 group-hover:text-slate-200 line-clamp-3 transition-colors">
+                <p className="text-lg italic font-serif-classic text-slate-700 group-hover:text-slate-800 line-clamp-3 transition-colors">
                   {L(event.description)}
                 </p>
-                <div className="mt-4 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-amber-800 group-hover:text-amber-400 font-ui transition-colors">
+                <div className="mt-4 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-amber-800 group-hover:text-amber-900 font-ui transition-colors">
                   <span>To'liq ma'lumot</span> →
                 </div>
               </div>
