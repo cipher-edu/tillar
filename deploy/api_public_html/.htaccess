@@ -1,0 +1,12 @@
+# Agar Django alohida subdomain da (masalan api.domen.uz)
+# va Python App Application URL = /  bo‘lsa —
+# cPanel odatda passenger avtomatik sozlaydi.
+# Kerak bo‘lsa media ni Django orqali berish uchun:
+
+# Passenger enabled by cPanel Python App
+
+# Katta yuklash (CKEditor rasmlar)
+<IfModule mod_php.c>
+  php_value upload_max_filesize 20M
+  php_value post_max_size 20M
+</IfModule>

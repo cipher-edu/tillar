@@ -1,0 +1,32 @@
+# React SPA (Vite dist) — public_html ildiziga dist/ ichidagi fayllar bilan birga
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Mavjud fayl/papka — o‘zgartirmasdan
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # API / admin / media / static — backend (Passenger) ga
+  # Agar API alohida subdomain (api.domen.uz) bo‘lsa, quyidagi 4 qatorni O‘CHIRING
+  # RewriteRule ^api/ - [L]
+  # RewriteRule ^admin/ - [L]
+  # RewriteRule ^media/ - [L]
+  # RewriteRule ^static/ - [L]
+  # RewriteRule ^ckeditor/ - [L]
+
+  # SPA fallback
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Keshlash (static assetlar)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+</IfModule>

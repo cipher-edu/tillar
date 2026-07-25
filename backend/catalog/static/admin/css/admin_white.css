@@ -1,0 +1,147 @@
+/* Admin — to‘liq oq fon */
+:root {
+  --admin-white: #ffffff;
+  --admin-border: #e9ecef;
+  --admin-text: #212529;
+}
+
+html,
+body,
+body.hold-transition,
+body.layout-fixed,
+.wrapper,
+.content-wrapper,
+.main-footer,
+.main-header,
+.content,
+.content .container-fluid {
+  background-color: var(--admin-white) !important;
+  color: var(--admin-text);
+}
+
+/* Sidebar oq */
+.main-sidebar,
+.main-sidebar .sidebar,
+.main-sidebar .brand-link,
+.main-sidebar .user-panel,
+.sidebar-light-primary,
+.sidebar-light-lightblue {
+  background-color: var(--admin-white) !important;
+  border-right: 1px solid var(--admin-border);
+}
+
+.main-sidebar .brand-link {
+  color: var(--admin-text) !important;
+  border-bottom: 1px solid var(--admin-border) !important;
+}
+
+.main-sidebar .nav-sidebar > .nav-item > .nav-link {
+  color: #343a40 !important;
+}
+
+.main-sidebar .nav-sidebar > .nav-item > .nav-link.active,
+.main-sidebar .nav-sidebar > .nav-item > .nav-link:hover {
+  background-color: #f8f9fa !important;
+  color: #0d6efd !important;
+}
+
+/* Navbar oq */
+.main-header.navbar,
+.navbar-white,
+.navbar-light {
+  background-color: var(--admin-white) !important;
+  border-bottom: 1px solid var(--admin-border) !important;
+  color: var(--admin-text) !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #495057 !important;
+}
+
+/* Kartochkalar va jadvallar */
+.card,
+.card-primary,
+.card-outline,
+.card-header,
+.card-body,
+.card-footer,
+.login-card-body,
+.login-box .card,
+.small-box,
+.info-box,
+.table,
+.table thead th,
+.module,
+#changelist,
+#changelist .results,
+#content-main,
+.form-row,
+fieldset,
+.inline-group,
+.dashboard #content {
+  background-color: var(--admin-white) !important;
+}
+
+.card {
+  border: 1px solid var(--admin-border) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+}
+
+.card-header {
+  border-bottom: 1px solid var(--admin-border) !important;
+  background-color: #fafafa !important;
+}
+
+/* Login sahifa */
+.login-page,
+.login-box,
+.register-page {
+  background-color: var(--admin-white) !important;
+}
+
+/* Breadcrumb / content header */
+.content-header,
+.content-header h1,
+.breadcrumb {
+  background-color: transparent !important;
+  color: var(--admin-text) !important;
+}
+
+/* Select2 / form controls */
+.select2-container--default .select2-selection--single,
+.form-control,
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='number'],
+input[type='url'],
+input[type='search'],
+textarea,
+select {
+  background-color: var(--admin-white) !important;
+}
+
+/* Pagination & filters */
+#changelist-filter,
+#changelist-filter h2,
+#changelist-filter h3,
+#toolbar,
+.paginator {
+  background-color: var(--admin-white) !important;
+}
+
+#changelist-filter {
+  border-left: 1px solid var(--admin-border);
+}
+
+/* Footer */
+.main-footer {
+  border-top: 1px solid var(--admin-border) !important;
+  color: #6c757d !important;
+}
+
+/* Locale triple (bizning widget) */
+.locale-triple > div {
+  background-color: #fafafa !important;
+  border-color: var(--admin-border) !important;
+}

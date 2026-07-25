@@ -1,0 +1,80 @@
+/*
+  Ichki kontent — oq fon.
+  Sidebar (yon menyu) — o‘zgartirilmaydi (Jazzmin flatly rangi saqlanadi).
+*/
+
+/* Asosiy ish maydoni */
+.content-wrapper,
+.content,
+.content .container-fluid,
+.content-header {
+  background-color: #ffffff !important;
+}
+
+/* Kartalar, jadvallar, formalar */
+.content-wrapper .card,
+.content-wrapper .card-body,
+.content-wrapper .card-footer,
+.content-wrapper .card-outline,
+.content-wrapper .module,
+.content-wrapper #content-main,
+.content-wrapper #changelist,
+.content-wrapper #changelist .results,
+.content-wrapper .table,
+.content-wrapper .inline-group,
+.content-wrapper fieldset,
+.content-wrapper .form-row,
+.content-wrapper .dashboard #content,
+.content-wrapper .small-box,
+.content-wrapper .info-box {
+  background-color: #ffffff !important;
+}
+
+/* Card header — biroz yumshoq oq-kulrang (ajratish uchun) */
+.content-wrapper .card-header {
+  background-color: #fafbfc !important;
+  border-bottom: 1px solid #e9ecef !important;
+}
+
+/* Filtr va toolbar */
+.content-wrapper #changelist-filter,
+.content-wrapper #changelist-filter h2,
+.content-wrapper #changelist-filter h3,
+.content-wrapper #toolbar,
+.content-wrapper .paginator {
+  background-color: #ffffff !important;
+}
+
+/* Input maydonlar oq */
+.content-wrapper .form-control,
+.content-wrapper input[type='text'],
+.content-wrapper input[type='password'],
+.content-wrapper input[type='email'],
+.content-wrapper input[type='number'],
+.content-wrapper input[type='url'],
+.content-wrapper input[type='search'],
+.content-wrapper input[type='date'],
+.content-wrapper textarea,
+.content-wrapper select,
+.content-wrapper .select2-container--default .select2-selection--single {
+  background-color: #ffffff !important;
+}
+
+/* Locale triple widget */
+.content-wrapper .locale-triple > div {
+  background-color: #fafbfc !important;
+  border-color: #e9ecef !important;
+}
+
+/* Footer kontent ostida — yengil */
+.main-footer {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e9ecef !important;
+}
+
+/* Login — oq */
+.login-page,
+.login-box .card,
+.login-card-body {
+  background-color: #ffffff !important;
+}
