@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uz" style="scroll-behavior: smooth;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NavDU Tillar Fakulteti — Navoiy davlat universiteti</title>
+    <meta
+      name="description"
+      content="Navoiy davlat universiteti Tillar fakulteti: 7 kafedra, 3394 talaba, 148 professor-o‘qituvchi. Bakalavriat va magistratura, xalqaro hamkorlik, ilm-fan."
+    />
+    <meta name="theme-color" content="#003366" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NavDU Tillar Fakulteti" />
+    <meta
+      property="og:description"
+      content="Navoiy davlat universiteti Tillar fakulteti rasmiy sayti — ta’lim, ilm-fan, rahbariyat va yangiliklar."
+    />
+    <meta property="og:locale" content="uz_UZ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NavDU Tillar Fakulteti" />
+    <meta
+      name="twitter:description"
+      content="Navoiy davlat universiteti Tillar fakulteti — tillar, adabiyot va xalqaro ta’lim."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --deep-blue: #003366;
+        --royal-teal: #004d61;
+        --parchment: #fcf8ee;
+        /* Simpozium "Navoiy Merosi" bo'limi asosiy foni */
+        --heritage: #fdfaf3;
+        --gold: #d4af37;
+        --antique-white: #f3eee6;
+      }
+      body {
+        font-family: 'Cormorant Garamond', serif;
+        background-color: var(--heritage);
+        color: #1a202c;
+        /* GlobalSiteBackground Layout ichida; body ham bir xil baza */
+      }
+      /* Simpozium uslubidagi yagona parchment body */
+      body.parchment-texture {
+        background-color: var(--heritage);
+      }
+      .heritage-surface {
+        background-color: var(--heritage);
+      }
+      h1, h2, h3, h4, .font-classic {
+        font-family: 'Cinzel Decorative', cursive;
+      }
+      .font-serif-classic {
+        font-family: 'Cormorant Garamond', serif;
+      }
+      .font-ui {
+        font-family: 'Inter', system-ui, sans-serif;
+      }
+      .gold-gradient {
+        background: linear-gradient(135deg, #a67c00 0%, #d4af37 50%, #ffbf00 100%);
+      }
+      .royal-gradient {
+        background: linear-gradient(135deg, var(--royal-teal) 0%, var(--deep-blue) 100%);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(166, 124, 0, 0.25);
+        box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.1);
+      }
+      .parchment-texture {
+        background-image: url("https://www.transparenttextures.com/patterns/p6.png");
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      @keyframes pattern-shift {
+        from { background-position: 0 0; }
+        to { background-position: 1000px 1000px; }
+      }
+      .animated-pattern {
+        animation: pattern-shift 120s linear infinite;
+      }
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 35s linear infinite;
+      }
+      @keyframes marquee-reverse {
+        from { transform: translateX(-50%); }
+        to { transform: translateX(0); }
+      }
+      .animate-marquee-reverse {
+        animation: marquee-reverse 45s linear infinite;
+      }
+      @keyframes hero-kenburns {
+        from { transform: scale(1.02) translate3d(0, 0, 0); }
+        to { transform: scale(1.12) translate3d(-1.2%, -0.8%, 0); }
+      }
+      .hero-kenburns {
+        animation: hero-kenburns 8.5s ease-out forwards;
+        will-change: transform;
+        transform-origin: center center;
+      }
+      .perspective-card {
+        perspective: 1200px;
+        transform-style: preserve-3d;
+      }
+      .program-card-3d {
+        transform-style: preserve-3d;
+        will-change: transform;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-kenburns,
+        .animated-pattern,
+        .animate-marquee,
+        .animate-marquee-reverse {
+          animation: none !important;
+        }
+        .perspective-card,
+        .program-card-3d {
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="parchment-texture">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
