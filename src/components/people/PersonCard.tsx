@@ -11,74 +11,57 @@ interface PersonCardProps {
   onQuickView?: (person: Person) => void;
 }
 
-/**
- * Yorug' heritage karta — hover da to'q invert YO'Q.
- * Oltin soyalar, yumshoq amber fon, matn o'qiladigan qoladi.
- */
+/** gov.uz uslubidagi shaxs kartasi — ko'k palitra, tilla yo'q */
 export const PersonCard: React.FC<PersonCardProps> = ({ person, onQuickView }) => {
   const { L } = useLanguage();
   const path = personPath(person);
 
   return (
     <div
-      className={`group relative rounded-[2.5rem] p-7 border-2 border-amber-300/70 bg-[#fdfbf7] backdrop-blur-xl shadow-md hover:bg-white hover:border-amber-400 hover:shadow-[0_20px_48px_-16px_rgba(166,124,0,0.28)] hover:-translate-y-1.5 transition-all duration-400 text-center flex flex-col justify-between overflow-hidden ${
+      className={`group gov-card p-5 sm:p-6 text-center flex flex-col justify-between ${
         person.isMemorial ? 'opacity-90' : ''
       }`}
     >
-      {/* Soft gold ambient glow on hover */}
-      <div
-        className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-amber-300/0 group-hover:bg-amber-300/25 blur-3xl pointer-events-none transition-all duration-500"
-        aria-hidden
-      />
-      <div
-        className="absolute -bottom-10 -left-6 w-36 h-36 rounded-full bg-amber-200/0 group-hover:bg-amber-200/30 blur-3xl pointer-events-none transition-all duration-500"
-        aria-hidden
-      />
-
       <button
         type="button"
         onClick={() => onQuickView?.(person)}
         className="w-full text-center relative z-10"
       >
-        {/* Photo — mihrab frame */}
-        <div className="relative w-40 h-44 mx-auto mb-6">
-          <div className="absolute inset-0 border-2 border-amber-400/40 rounded-t-[4.5rem] rounded-b-[1.75rem] group-hover:scale-[1.03] group-hover:border-amber-500/70 transition-all duration-500 shadow-sm" />
-
-          <div className="absolute inset-2 overflow-hidden rounded-t-[4rem] rounded-b-[1.5rem] shadow-lg border-2 border-amber-300/70 bg-amber-50 group-hover:border-amber-400 group-hover:shadow-[0_12px_28px_-8px_rgba(166,124,0,0.35)] transition-all">
-            <img
-              src={person.photo}
-              alt={L(person.name)}
-              className={`w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-105 contrast-[1.04] brightness-[1.02] ${
-                person.isMemorial ? 'grayscale opacity-80' : 'filter-none'
-              }`}
-            />
-          </div>
+        <div className="relative w-28 h-36 mx-auto mb-4 overflow-hidden rounded border border-[#e1e1e1] bg-[#f5f5f5]">
+          <img
+            src={person.photo}
+            alt={L(person.name)}
+            className={`w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105 ${
+              person.isMemorial ? 'grayscale opacity-80' : ''
+            }`}
+          />
+          <span className="absolute bottom-0 inset-x-0 bg-[#013d8c]/90 text-white text-[9px] text-center py-0.5 font-bold uppercase">
+            {person.isMemorial ? 'Xotira' : 'Rasmiy'}
+          </span>
         </div>
 
-        <h3 className="text-xl font-classic font-bold text-slate-950 uppercase mb-2 group-hover:text-amber-900 transition-colors duration-300 leading-snug">
+        <h3 className="text-sm font-extrabold text-[#131523] uppercase mb-1.5 group-hover:text-[#1675e0] transition-colors leading-snug">
           {L(person.name)}
         </h3>
 
         {person.position && (
-          <p className="text-[11px] font-black uppercase tracking-widest text-amber-900/90 group-hover:text-amber-800 mb-2 font-ui transition-colors">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-[#043b87] mb-1">
             {L(person.position)}
           </p>
         )}
 
         {person.degree && (
-          <p className="text-sm italic text-slate-600 group-hover:text-slate-700 font-serif-classic mb-3 transition-colors">
-            {L(person.degree)}
-          </p>
+          <p className="text-xs text-[#707070] font-medium mb-2">{L(person.degree)}</p>
         )}
 
         {person.yearsActive && (
-          <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-amber-800/80 mb-3 font-ui transition-colors">
+          <p className="text-[10px] font-semibold uppercase tracking-wider text-[#939393] mb-2">
             {person.yearsActive}
           </p>
         )}
 
         {person.badges && person.badges.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-1.5 mb-4">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-3">
             {person.badges.map((b) => (
               <StudentBadgePill key={b} badge={b} />
             ))}
@@ -86,15 +69,15 @@ export const PersonCard: React.FC<PersonCardProps> = ({ person, onQuickView }) =
         )}
       </button>
 
-      <div className="mt-4 pt-4 border-t border-amber-200/80 group-hover:border-amber-300 flex items-center justify-between relative z-10 transition-colors">
-        <span className="text-[10px] font-black uppercase tracking-widest text-amber-900 font-ui transition-colors">
+      <div className="mt-3 pt-3 border-t border-[#f0f0f0] flex items-center justify-between">
+        <span className="text-[10px] font-bold uppercase tracking-wider text-[#043b87]">
           Profilni ko'rish
         </span>
         <Link
           to={path}
-          className="w-10 h-10 rounded-xl flex items-center justify-center bg-amber-100 text-amber-950 border border-amber-300/70 group-hover:gold-gradient group-hover:border-amber-400 group-hover:text-slate-950 transition-all duration-300 shadow-sm hover:scale-105"
+          className="w-9 h-9 rounded-md flex items-center justify-center bg-[#eff7ff] text-[#013d8c] border border-[#d6e6f7] group-hover:bg-[#013d8c] group-hover:text-white group-hover:border-[#013d8c] transition-all"
         >
-          <ArrowRight className="w-4.5 h-4.5" />
+          <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </div>

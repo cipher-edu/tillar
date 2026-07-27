@@ -1,28 +1,27 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { GlobalSiteBackground } from '@/components/ui/PatternBackground';
-import { NavoiHeritageBand } from '@/components/ui/NavoiHeritageBand';
-import { Header } from './Header';
-import { Footer } from './Footer';
+import { GovThemeProvider } from '@/context/GovThemeContext';
+import { GovAccessibilityBar } from './GovAccessibilityBar';
+import { GovHeader } from './GovHeader';
+import { GovMarquee } from './GovMarquee';
+import { GovFooter } from './GovFooter';
 import { ScrollToTop } from './ScrollToTop';
 
 export const Layout: React.FC = () => {
   return (
-    <div className="min-h-screen relative flex flex-col overflow-x-hidden w-full max-w-[100vw] selection:bg-amber-200 selection:text-amber-900">
-      {/* Sahifalar almashganda avtomatik yuqoriga qaytarish */}
-      <ScrollToTop />
+    <GovThemeProvider>
+      <div className="min-h-screen w-full flex flex-col bg-white text-[#131523] font-sans selection:bg-[#013d8c] selection:text-white overflow-x-hidden">
+        <ScrollToTop />
+        <GovAccessibilityBar />
+        <GovHeader />
+        <GovMarquee />
 
-      {/* Bir xil global fon: krem + parchment + girih + yulduz + manuscript */}
-      <GlobalSiteBackground />
-      <Header />
+        <main className="flex-grow w-full min-w-0">
+          <Outlet />
+        </main>
 
-      <main className="flex-grow relative z-0">
-        <Outlet />
-      </main>
-
-      {/* Har sahifa oxiri: Navoiy merosi + hazrat misralari */}
-      <NavoiHeritageBand />
-      <Footer />
-    </div>
+        <GovFooter />
+      </div>
+    </GovThemeProvider>
   );
 };

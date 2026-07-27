@@ -30,7 +30,7 @@ function BootScreen({ message }: { message: string }) {
             height: 48,
             margin: '0 auto 16px',
             borderRadius: 12,
-            background: 'linear-gradient(135deg,#a67c00,#d4af37)',
+            background: 'linear-gradient(135deg,#a67c00,#1675e0)',
           }}
         />
         <p style={{ fontSize: 14, letterSpacing: '0.2em', textTransform: 'uppercase', opacity: 0.7 }}>
@@ -41,7 +41,7 @@ function BootScreen({ message }: { message: string }) {
   );
 }
 
-root.render(<BootScreen message="Yuklanmoqda…" />);
+root.render(<BootScreen message="YuklanmoqdaвЂ¦" />);
 
 hydrateFromApi().then((result) => {
   if (result.source === 'api') {

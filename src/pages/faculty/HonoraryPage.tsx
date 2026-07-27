@@ -23,9 +23,9 @@ export const HonoraryPage: React.FC = () => {
       </div>
 
       {memorial.length > 0 && (
-        <div className="pt-10 border-t border-amber-200/50">
+        <div className="pt-10 border-t border-[#d6e6f7]/50">
           <h2 className="text-3xl font-classic text-center text-slate-700 uppercase tracking-widest mb-10">
-            ✦ {t('honorary_memory')}
+            вњ¦ {t('honorary_memory')}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {memorial.map((p) => (

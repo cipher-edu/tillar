@@ -24,7 +24,7 @@ interface ProgramCardProps {
 }
 
 /**
- * 3D dastur kartasi — hover yorug' heritage (to'q invert yo'q).
+ * 3D dastur kartasi вЂ” hover yorug' heritage (to'q invert yo'q).
  */
 export const ProgramCard: React.FC<ProgramCardProps> = ({
   program,
@@ -70,7 +70,7 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
         className="relative h-full group"
       >
         <div
-          className="absolute -inset-1 rounded-[2.75rem] gold-gradient opacity-0 group-hover:opacity-35 blur-md transition-opacity duration-500"
+          className="absolute -inset-1 rounded-[2.75rem] gov-gradient opacity-0 group-hover:opacity-35 blur-md transition-opacity duration-500"
           style={{ transform: 'translateZ(-24px) scale(0.98)' }}
           aria-hidden
         />
@@ -79,13 +79,13 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
           to={programPath(program.slug)}
           className={`program-card-3d relative flex flex-col h-full rounded-[2.5rem] border-2 overflow-hidden transition-all duration-500 ${
             hovered
-              ? 'bg-white border-amber-400 shadow-[0_24px_50px_-14px_rgba(166,124,0,0.28)]'
-              : 'bg-[#fdfbf7] border-amber-300/80 shadow-lg'
+              ? 'bg-white border-[#1675e0] shadow-[0_24px_50px_-14px_rgba(166,124,0,0.28)]'
+              : 'bg-[#fdfbf7] border-[#b6c6d7]/80 shadow-lg'
           }`}
           style={{ transform: 'translateZ(0)' }}
         >
           <div
-            className="pointer-events-none absolute top-0 bottom-0 left-0 w-1.5 gold-gradient opacity-90"
+            className="pointer-events-none absolute top-0 bottom-0 left-0 w-1.5 gov-gradient opacity-90"
             style={{ transform: 'translateZ(8px)' }}
           />
 
@@ -102,8 +102,8 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
                 <div
                   className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-lg border-2 transition-all duration-300 ${
                     hovered
-                      ? 'gold-gradient text-slate-950 border-amber-400'
-                      : 'bg-amber-50 text-amber-900 border-amber-300/70'
+                      ? 'gov-gradient text-white border-[#1675e0]'
+                      : 'bg-[#eff7ff] text-[#013d8c] border-[#b6c6d7]/70'
                   }`}
                 >
                   <Icon className="w-7 h-7 drop-shadow-sm" />
@@ -111,14 +111,14 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
               </motion.div>
 
               <div className="text-right">
-                <span className="block font-classic text-3xl md:text-4xl font-black text-amber-900/15 group-hover:text-amber-800/25 leading-none select-none transition-colors">
+                <span className="block font-classic text-3xl md:text-4xl font-black text-[#013d8c]/15 group-hover:text-[#013d8c]/25 leading-none select-none transition-colors">
                   {num}
                 </span>
-                <span className="inline-flex mt-2 px-3.5 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.2em] font-ui gold-gradient text-slate-950 shadow-sm border border-amber-300/40">
+                <span className="inline-flex mt-2 px-3.5 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.2em] font-ui gov-gradient text-white shadow-sm border border-[#b6c6d7]/40">
                   {program.level === 'master' ? t('level_master') : t('level_bachelor')}
                 </span>
                 {(program.studyForm === 'evening' || program.studyForm === 'distance') && (
-                  <span className="inline-flex mt-1.5 px-3 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest font-ui border border-amber-300 bg-amber-50 text-amber-900">
+                  <span className="inline-flex mt-1.5 px-3 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest font-ui border border-[#b6c6d7] bg-[#eff7ff] text-[#013d8c]">
                     {program.studyForm === 'evening' ? t('form_evening') : t('form_distance')}
                   </span>
                 )}
@@ -126,7 +126,7 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
             </div>
 
             <h3
-              className={`font-classic text-slate-950 group-hover:text-amber-950 font-bold leading-snug mb-3 transition-colors ${
+              className={`font-classic text-slate-950 group-hover:text-[#021e44] font-bold leading-snug mb-3 transition-colors ${
                 variant === 'compact' ? 'text-xl md:text-2xl' : 'text-2xl md:text-[1.65rem]'
               }`}
             >
@@ -146,24 +146,24 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
                 {program.careers.slice(0, 3).map((c, i) => (
                   <span
                     key={i}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-ui text-amber-950 border border-amber-300/70 bg-amber-50/90 group-hover:bg-amber-100 group-hover:border-amber-400/70 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-ui text-[#021e44] border border-[#b6c6d7]/70 bg-[#eff7ff]/90 group-hover:bg-[#eff7ff] group-hover:border-[#1675e0]/70 transition-colors"
                   >
-                    <CheckCircle2 className="w-3 h-3 text-amber-600 shrink-0" />
+                    <CheckCircle2 className="w-3 h-3 text-[#043b87] shrink-0" />
                     {L(c)}
                   </span>
                 ))}
               </div>
             )}
 
-            <div className="mt-6 pt-5 border-t border-amber-200/80 group-hover:border-amber-300 flex items-center justify-between transition-colors">
-              <span className="text-[10px] font-black uppercase tracking-[0.28em] text-amber-900 font-ui">
+            <div className="mt-6 pt-5 border-t border-[#d6e6f7]/80 group-hover:border-[#b6c6d7] flex items-center justify-between transition-colors">
+              <span className="text-[10px] font-black uppercase tracking-[0.28em] text-[#013d8c] font-ui">
                 {t('home_read_more')}
               </span>
               <span
                 className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-md transition-all duration-300 border ${
                   hovered
-                    ? 'gold-gradient text-slate-950 border-amber-400'
-                    : 'bg-amber-50 text-amber-900 border-amber-300/60'
+                    ? 'gov-gradient text-white border-[#1675e0]'
+                    : 'bg-[#eff7ff] text-[#013d8c] border-[#b6c6d7]/60'
                 }`}
               >
                 <ArrowUpRight className="w-4.5 h-4.5" />
@@ -171,7 +171,7 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
             </div>
           </div>
 
-          <div className="h-1.5 w-full gold-gradient opacity-90" />
+          <div className="h-1.5 w-full gov-gradient opacity-90" />
         </Link>
       </motion.div>
     </div>

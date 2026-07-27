@@ -3,7 +3,7 @@ import type { StudentBadge } from '@/types';
 import { useLanguage } from '@/context/LanguageContext';
 
 const badgeStyles: Record<StudentBadge, string> = {
-  innovator: 'bg-amber-100 text-amber-900 border-amber-300',
+  innovator: 'bg-[#eff7ff] text-[#013d8c] border-[#b6c6d7]',
   gifted: 'bg-purple-100 text-purple-900 border-purple-300',
   scientific: 'bg-teal-100 text-teal-900 border-teal-300',
   creative: 'bg-rose-100 text-rose-900 border-rose-300',
@@ -33,16 +33,16 @@ export const StudentBadgePill: React.FC<{ badge: StudentBadge }> = ({ badge }) =
   );
 };
 
-export const StatusBadge: React.FC<{ children: React.ReactNode; tone?: 'gold' | 'royal' | 'muted' }> = ({
+export const StatusBadge: React.FC<{ children: React.ReactNode; tone?: 'blue' | 'royal' | 'muted' }> = ({
   children,
-  tone = 'gold',
+  tone = 'blue',
 }) => {
   const cls =
     tone === 'royal'
       ? 'royal-gradient text-white'
       : tone === 'muted'
         ? 'bg-slate-100 text-slate-600 border border-slate-200'
-        : 'bg-amber-100 text-amber-900 border border-amber-300';
+        : 'bg-[#eff7ff] text-[#013d8c] border border-[#b6c6d7]';
   return (
     <span className={`inline-flex px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest font-ui ${cls}`}>
       {children}

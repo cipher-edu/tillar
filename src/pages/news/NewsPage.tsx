@@ -64,8 +64,8 @@ export const NewsPage: React.FC = () => {
     return (
       <PageShell title={L(detail.title)}>
         <div className="mb-6">
-          <Link to="/yangiliklar" className="text-[11px] font-black uppercase tracking-widest text-amber-800 font-ui">
-            ← {t('back')}
+          <Link to="/yangiliklar" className="text-[11px] font-black uppercase tracking-widest text-[#013d8c] font-ui">
+            в†ђ {t('back')}
           </Link>
         </div>
         <article className="max-w-4xl mx-auto">
@@ -76,13 +76,13 @@ export const NewsPage: React.FC = () => {
               className="w-full h-64 md:h-96 object-cover rounded-[3rem] mb-10 shadow-2xl"
             />
           )}
-          <p className="text-[11px] font-black uppercase tracking-widest text-amber-700 mb-6 font-ui">{detail.date}</p>
+          <p className="text-[11px] font-black uppercase tracking-widest text-[#043b87] mb-6 font-ui">{detail.date}</p>
           {isHtml ? (
             <div
               className="news-rich-body prose prose-lg md:prose-xl max-w-none text-slate-800 font-serif-classic leading-relaxed mb-12
                 prose-headings:font-classic prose-headings:text-slate-950
-                prose-a:text-amber-800 prose-img:rounded-2xl prose-img:shadow-lg
-                prose-blockquote:border-amber-400 prose-blockquote:text-slate-700"
+                prose-a:text-[#013d8c] prose-img:rounded-2xl prose-img:shadow-lg
+                prose-blockquote:border-[#1675e0] prose-blockquote:text-slate-700"
               dangerouslySetInnerHTML={{ __html: bodyHtml }}
             />
           ) : (
@@ -91,8 +91,8 @@ export const NewsPage: React.FC = () => {
             </p>
           )}
           {related.length > 0 && (
-            <div className="glass-card p-8 rounded-[3rem] border-amber-200">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-amber-700 mb-4 font-ui">
+            <div className="glass-card p-8 rounded-[3rem] border-[#d6e6f7]">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-4 font-ui">
                 {t('news_related')}
               </h3>
               <div className="flex flex-wrap gap-3">
@@ -100,7 +100,7 @@ export const NewsPage: React.FC = () => {
                   <Link
                     key={p.id}
                     to={personPath(p)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white border border-amber-100 hover:border-amber-300"
+                    className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white border border-blue-100 hover:border-[#b6c6d7]"
                   >
                     <img src={p.photo} alt="" className="w-12 h-12 rounded-xl object-cover" />
                     <span className="font-classic text-lg">{L(p.name)}</span>
@@ -126,7 +126,7 @@ export const NewsPage: React.FC = () => {
             type="button"
             onClick={() => setCat(c.id)}
             className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest font-ui border ${
-              cat === c.id ? 'royal-gradient text-white border-transparent' : 'bg-white border-amber-200 text-slate-600'
+              cat === c.id ? 'royal-gradient text-white border-transparent' : 'bg-white border-[#d6e6f7] text-slate-600'
             }`}
           >
             {t(c.key)}
@@ -143,7 +143,7 @@ export const NewsPage: React.FC = () => {
               <Link
                 key={item.id}
                 to={newsPath(item.slug)}
-                className="glass-card rounded-[3rem] overflow-hidden border-amber-100 group hover:shadow-2xl transition-all"
+                className="glass-card rounded-[3rem] overflow-hidden border-blue-100 group hover:shadow-2xl transition-all"
               >
                 <div className="h-48 overflow-hidden">
                   <img
@@ -153,8 +153,8 @@ export const NewsPage: React.FC = () => {
                   />
                 </div>
                 <div className="p-8">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-amber-700 mb-3 font-ui">{item.date}</p>
-                  <h3 className="font-classic text-2xl leading-snug text-slate-900 mb-3 group-hover:text-amber-800">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-[#043b87] mb-3 font-ui">{item.date}</p>
+                  <h3 className="font-classic text-2xl leading-snug text-slate-900 mb-3 group-hover:text-[#013d8c]">
                     {L(item.title)}
                   </h3>
                   <p className="text-lg italic font-serif-classic text-slate-600 line-clamp-3">{L(item.excerpt)}</p>
@@ -163,11 +163,11 @@ export const NewsPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Pagination — har sahifada 8 ta yangilik */}
+          {/* Pagination вЂ” har sahifada 8 ta yangilik */}
           {totalPages > 1 && (
             <div className="mt-16 flex flex-col items-center gap-6">
               <p className="text-[11px] font-black uppercase tracking-[0.25em] text-slate-400 font-ui">
-                {t('pagination_showing')} {from}–{to} / {filtered.length}
+                {t('pagination_showing')} {from}вЂ“{to} / {filtered.length}
               </p>
 
               <div className="flex flex-wrap items-center justify-center gap-2">
@@ -176,7 +176,7 @@ export const NewsPage: React.FC = () => {
                   onClick={() => goToPage(page - 1)}
                   disabled={page <= 1}
                   aria-label={t('pagination_prev')}
-                  className="w-12 h-12 rounded-2xl border border-amber-200 bg-white/80 flex items-center justify-center text-slate-800 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-amber-50 hover:text-amber-950 hover:border-amber-400 transition-all"
+                  className="w-12 h-12 rounded-2xl border border-[#d6e6f7] bg-white/80 flex items-center justify-center text-slate-800 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-[#eff7ff] hover:text-[#021e44] hover:border-[#1675e0] transition-all"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
@@ -189,8 +189,8 @@ export const NewsPage: React.FC = () => {
                     aria-current={p === page ? 'page' : undefined}
                     className={`min-w-12 h-12 px-3 rounded-2xl text-sm font-black font-ui tracking-wider transition-all border ${
                       p === page
-                        ? 'gold-gradient text-slate-950 border-transparent shadow-lg'
-                        : 'bg-white/80 border-amber-200 text-slate-700 hover:border-amber-400'
+                        ? 'gov-gradient text-white border-transparent shadow-lg'
+                        : 'bg-white/80 border-[#d6e6f7] text-slate-700 hover:border-[#1675e0]'
                     }`}
                   >
                     {p}
@@ -202,7 +202,7 @@ export const NewsPage: React.FC = () => {
                   onClick={() => goToPage(page + 1)}
                   disabled={page >= totalPages}
                   aria-label={t('pagination_next')}
-                  className="w-12 h-12 rounded-2xl border border-amber-200 bg-white/80 flex items-center justify-center text-slate-800 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-amber-50 hover:text-amber-950 hover:border-amber-400 transition-all"
+                  className="w-12 h-12 rounded-2xl border border-[#d6e6f7] bg-white/80 flex items-center justify-center text-slate-800 disabled:opacity-35 disabled:cursor-not-allowed hover:bg-[#eff7ff] hover:text-[#021e44] hover:border-[#1675e0] transition-all"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>

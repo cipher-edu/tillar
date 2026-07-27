@@ -46,10 +46,10 @@ export const Modal: React.FC<ModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 12 }}
             className={`relative w-full ${maxWidthClass} ${
-              dark ? 'bg-[#001c30] border-amber-500/30 text-white' : 'bg-[#fffdfa] border-amber-200'
+              dark ? 'bg-[#001c30] border-[#013d8c]/30 text-white' : 'bg-[#fffdfa] border-[#d6e6f7]'
             } rounded-[3rem] border overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)] max-h-[90vh] flex flex-col z-10`}
           >
-            {!dark && <div className="gold-gradient h-1.5 w-full shrink-0" />}
+            {!dark && <div className="gov-gradient h-1.5 w-full shrink-0" />}
             <button
               onClick={onClose}
               className={`absolute top-6 right-6 z-20 p-3 rounded-full border transition-all active:scale-90 ${

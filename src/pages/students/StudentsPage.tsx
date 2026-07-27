@@ -48,11 +48,11 @@ export const StudentsPage: React.FC = () => {
     return (
       <PageShell title={L(detail.name)}>
         <div className="mb-6">
-          <Link to="/talabalar" className="text-[11px] font-black uppercase tracking-widest text-amber-800 font-ui">
-            ← {t('back')}
+          <Link to="/talabalar" className="text-[11px] font-black uppercase tracking-widest text-[#013d8c] font-ui">
+            в†ђ {t('back')}
           </Link>
         </div>
-        <div className="glass-card rounded-[3rem] border-amber-200 p-6 md:p-10">
+        <div className="glass-card rounded-[3rem] border-[#d6e6f7] p-6 md:p-10">
           <PersonProfile person={detail} />
         </div>
       </PageShell>
@@ -63,19 +63,19 @@ export const StudentsPage: React.FC = () => {
     <PageShell title={t('nav_students')} subtitle={t('students_subtitle')}>
       <div className="space-y-4 mb-12 max-w-5xl mx-auto">
         <div className="relative">
-          <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-amber-600 w-5 h-5" />
+          <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-[#043b87] w-5 h-5" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t('search_placeholder')}
-            className="w-full pl-14 pr-5 py-4 rounded-2xl border border-amber-200 bg-white/70 outline-none focus:border-amber-500 font-serif-classic text-xl italic"
+            className="w-full pl-14 pr-5 py-4 rounded-2xl border border-[#d6e6f7] bg-white/70 outline-none focus:border-[#013d8c] font-serif-classic text-xl italic"
           />
         </div>
         <div className="flex flex-wrap gap-2 justify-center">
           <button
             onClick={() => setBadge('all')}
             className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest font-ui border ${
-              badge === 'all' ? 'royal-gradient text-white border-transparent' : 'bg-white border-amber-200 text-slate-600'
+              badge === 'all' ? 'royal-gradient text-white border-transparent' : 'bg-white border-[#d6e6f7] text-slate-600'
             }`}
           >
             {t('filter_all')}
@@ -85,7 +85,7 @@ export const StudentsPage: React.FC = () => {
               key={b}
               onClick={() => setBadge(b)}
               className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest font-ui border ${
-                badge === b ? 'gold-gradient text-slate-950 border-transparent' : 'bg-white border-amber-200 text-slate-600'
+                badge === b ? 'gov-gradient text-white border-transparent' : 'bg-white border-[#d6e6f7] text-slate-600'
               }`}
             >
               {t(`badge_${b === 'gifted' ? 'gifted' : b}`)}
@@ -96,7 +96,7 @@ export const StudentsPage: React.FC = () => {
           <select
             value={program}
             onChange={(e) => setProgram(e.target.value)}
-            className="px-4 py-3 rounded-2xl border border-amber-200 bg-white/70 font-ui text-xs font-bold uppercase tracking-widest"
+            className="px-4 py-3 rounded-2xl border border-[#d6e6f7] bg-white/70 font-ui text-xs font-bold uppercase tracking-widest"
           >
             <option value="all">{t('filter_program')}</option>
             {programs.map((p) => (
@@ -108,7 +108,7 @@ export const StudentsPage: React.FC = () => {
           <select
             value={course}
             onChange={(e) => setCourse(e.target.value)}
-            className="px-4 py-3 rounded-2xl border border-amber-200 bg-white/70 font-ui text-xs font-bold uppercase tracking-widest"
+            className="px-4 py-3 rounded-2xl border border-[#d6e6f7] bg-white/70 font-ui text-xs font-bold uppercase tracking-widest"
           >
             <option value="all">{t('filter_course')}</option>
             {[1, 2, 3, 4].map((c) => (

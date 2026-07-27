@@ -9,8 +9,8 @@ import { news } from '@/data/news';
 import type { Language } from '@/types';
 
 const languages: { code: Language; label: string }[] = [
-  { code: 'uz', label: 'Oʻzbek' },
-  { code: 'ru', label: 'Русский' },
+  { code: 'uz', label: 'OК»zbek' },
+  { code: 'ru', label: 'Р СѓСЃСЃРєРёР№' },
   { code: 'en', label: 'English' },
 ];
 
@@ -112,14 +112,18 @@ export const Header: React.FC = () => {
           <div
             className={`relative transition-all duration-500 rounded-2xl sm:rounded-[2.5rem] ${
               scrolled || mobileOpen
-                ? 'bg-[#001524]/97 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.45)] border border-amber-500/30 py-1.5 sm:py-2 text-white'
-                : 'bg-[#fdfaf3]/97 backdrop-blur-xl border border-amber-200/70 shadow-[0_12px_40px_-12px_rgba(166,124,0,0.18)] py-2 sm:py-3 text-slate-900'
+                ? 'bg-[#001524]/97 backdrop-blur-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.45)] border border-[#013d8c]/30 py-1.5 sm:py-2 text-white'
+                : 'bg-[#fdfaf3]/97 backdrop-blur-xl border border-[#d6e6f7]/70 shadow-[0_12px_40px_-12px_rgba(166,124,0,0.18)] py-2 sm:py-3 text-slate-900'
             }`}
           >
             {/* Yorug' rejimda yengil oltin yuvish (faqat desktop yopiq menyu) */}
             {!scrolled && !mobileOpen && (
               <div
-                className="absolute inset-0 rounded-[2.5rem] overflow-hidden pointer-events-none bg-gradient-to-b from-white via-[#fdfaf3]/90 to-amber-50/50"
+                className="absolute inset-0 rounded-[2.5rem] overflow-hidden pointer-events-none bg-gradient-to-b from-white via-[#fdfaf3]/90 to-
+    param($m)
+    # fallback generic
+    'blue-200'
+  "
                 aria-hidden
               />
             )}
@@ -144,21 +148,21 @@ export const Header: React.FC = () => {
               {/* Brand Logo & Name */}
               <Link to="/" className="flex items-center gap-2 sm:gap-3.5 group z-10 min-w-0 shrink">
                 <div className="relative shrink-0">
-                  <div className="absolute inset-0 gold-gradient blur-xl opacity-40 group-hover:opacity-80 transition-opacity rounded-full" />
-                  <div className="relative w-10 h-10 sm:w-11 sm:h-11 gold-gradient rounded-full flex items-center justify-center shadow-lg border-2 border-amber-200/60 transition-transform duration-300 group-hover:scale-105">
+                  <div className="absolute inset-0 gov-gradient blur-xl opacity-40 group-hover:opacity-80 transition-opacity rounded-full" />
+                  <div className="relative w-10 h-10 sm:w-11 sm:h-11 gov-gradient rounded-full flex items-center justify-center shadow-lg border-2 border-[#d6e6f7]/60 transition-transform duration-300 group-hover:scale-105">
                     <span className="text-slate-950 font-classic font-black text-sm sm:text-base">TF</span>
                   </div>
                 </div>
                 <div className="min-w-0">
                   <h1 className={`text-[11px] sm:text-sm md:text-base font-classic font-bold leading-tight tracking-tight transition-colors uppercase truncate max-w-[46vw] sm:max-w-none ${
-                    scrolled || mobileOpen ? 'text-amber-100 group-hover:text-amber-400' : 'text-slate-900 group-hover:text-amber-800'
+                    scrolled || mobileOpen ? 'text-blue-100 group-hover:text-[#1675e0]' : 'text-slate-900 group-hover:text-[#013d8c]'
                   }`}>
                     {t('site_name')}
                   </h1>
                   <p className={`hidden sm:flex text-[9px] tracking-[0.25em] uppercase font-bold mt-0.5 items-center gap-1 font-ui truncate ${
-                    scrolled || mobileOpen ? 'text-amber-400/90' : 'text-amber-800'
+                    scrolled || mobileOpen ? 'text-[#1675e0]/90' : 'text-[#013d8c]'
                   }`}>
-                    <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
+                    <Sparkles className="w-3 h-3 text-blue-500 shrink-0" />
                     <span className="truncate">{t('site_uni')}</span>
                   </p>
                 </div>
@@ -168,7 +172,7 @@ export const Header: React.FC = () => {
               <nav className={`hidden xl:flex items-center gap-1 px-3 py-1.5 rounded-full transition-all duration-300 ${
                 scrolled
                   ? 'bg-white/10 border border-white/10'
-                  : 'bg-white border border-amber-200/80 shadow-sm'
+                  : 'bg-white border border-[#d6e6f7]/80 shadow-sm'
               }`}>
                 <NavLink
                   to="/"
@@ -176,8 +180,8 @@ export const Header: React.FC = () => {
                   className={({ isActive }) =>
                     `px-4 py-2 text-[11px] font-extrabold uppercase tracking-widest font-ui transition-all relative rounded-full ${
                       isActive
-                        ? scrolled ? 'text-amber-300 bg-amber-500/20' : 'text-amber-950 bg-amber-100'
-                        : scrolled ? 'text-slate-200 hover:text-amber-300' : 'text-slate-700 hover:text-amber-900 hover:bg-amber-50/80'
+                        ? scrolled ? 'text-blue-200 bg-[#eff7ff]0/20' : 'text-[#021e44] bg-[#eff7ff]'
+                        : scrolled ? 'text-slate-200 hover:text-blue-200' : 'text-slate-700 hover:text-[#013d8c] hover:bg-[#eff7ff]/80'
                     }`
                   }
                 >
@@ -194,12 +198,12 @@ export const Header: React.FC = () => {
                     <button
                       className={`px-4 py-2 text-[11px] font-extrabold uppercase tracking-widest font-ui flex items-center gap-1.5 rounded-full transition-all ${
                         openMenu === menu.key
-                          ? scrolled ? 'text-amber-300 bg-amber-500/20' : 'text-amber-950 bg-amber-100'
-                          : scrolled ? 'text-slate-200 hover:text-amber-300' : 'text-slate-700 hover:text-amber-900 hover:bg-amber-50/80'
+                          ? scrolled ? 'text-blue-200 bg-[#eff7ff]0/20' : 'text-[#021e44] bg-[#eff7ff]'
+                          : scrolled ? 'text-slate-200 hover:text-blue-200' : 'text-slate-700 hover:text-[#013d8c] hover:bg-[#eff7ff]/80'
                       }`}
                     >
                       {menu.label}
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openMenu === menu.key ? 'rotate-180 text-amber-500' : ''}`} />
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openMenu === menu.key ? 'rotate-180 text-blue-500' : ''}`} />
                     </button>
                     <AnimatePresence>
                       {openMenu === menu.key && (
@@ -210,17 +214,21 @@ export const Header: React.FC = () => {
                           transition={{ duration: 0.2 }}
                           className="absolute top-full left-0 pt-3 min-w-[270px] z-[60]"
                         >
-                          <div className="glass-card-dark rounded-3xl p-2.5 text-white ring-1 ring-amber-400/20">
+                          <div className="glass-card-dark rounded-3xl p-2.5 text-white ring-1 ring-
+    param($m)
+    # fallback generic
+    'blue-200'
+  ">
                             {/* Gold top accent */}
-                            <div className="h-0.5 w-full rounded-full gold-gradient mb-2 opacity-80" />
+                            <div className="h-0.5 w-full rounded-full gov-gradient mb-2 opacity-80" />
                             {menu.items.map((item) => (
                               <Link
                                 key={item.to}
                                 to={item.to}
-                                className="flex items-center justify-between px-4 py-3 rounded-2xl text-[11px] font-bold uppercase tracking-wider text-amber-50 hover:bg-amber-500/25 hover:text-amber-200 transition-all font-ui group"
+                                className="flex items-center justify-between px-4 py-3 rounded-2xl text-[11px] font-bold uppercase tracking-wider text-blue-50 hover:bg-[#eff7ff]0/25 hover:text-blue-200 transition-all font-ui group"
                               >
                                 <span>{item.label}</span>
-                                <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-amber-400" />
+                                <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-[#1675e0]" />
                               </Link>
                             ))}
                           </div>
@@ -237,8 +245,8 @@ export const Header: React.FC = () => {
                     className={({ isActive }) =>
                       `px-4 py-2 text-[11px] font-extrabold uppercase tracking-widest font-ui transition-all relative rounded-full ${
                         isActive
-                          ? scrolled ? 'text-amber-300 bg-amber-500/20' : 'text-amber-950 bg-amber-100'
-                          : scrolled ? 'text-slate-200 hover:text-amber-300' : 'text-slate-700 hover:text-amber-900 hover:bg-amber-50/80'
+                          ? scrolled ? 'text-blue-200 bg-[#eff7ff]0/20' : 'text-[#021e44] bg-[#eff7ff]'
+                          : scrolled ? 'text-slate-200 hover:text-blue-200' : 'text-slate-700 hover:text-[#013d8c] hover:bg-[#eff7ff]/80'
                       }`
                     }
                   >
@@ -254,16 +262,16 @@ export const Header: React.FC = () => {
                   onClick={() => setSearchOpen(true)}
                   className={`flex items-center justify-center gap-2 min-w-11 min-h-11 sm:min-w-0 sm:min-h-0 px-2.5 sm:px-3.5 py-2 rounded-full border text-[11px] font-extrabold font-ui transition-all ${
                     scrolled || mobileOpen
-                      ? 'border-amber-500/30 bg-white/10 text-slate-200 hover:bg-amber-500/20 hover:border-amber-400'
-                      : 'border-amber-200 bg-white text-slate-800 hover:bg-amber-50 hover:border-amber-400 shadow-sm'
+                      ? 'border-[#013d8c]/30 bg-white/10 text-slate-200 hover:bg-[#eff7ff]0/20 hover:border-[#1675e0]'
+                      : 'border-[#d6e6f7] bg-white text-slate-800 hover:bg-[#eff7ff] hover:border-[#1675e0] shadow-sm'
                   }`}
                   title="Qidiruv (Ctrl+K)"
                   aria-label="Qidiruv"
                 >
-                  <Search className="w-4 h-4 text-amber-500" />
+                  <Search className="w-4 h-4 text-blue-500" />
                   <span className="hidden md:inline uppercase tracking-wider text-[10px]">Qidiruv</span>
                   <kbd className="hidden lg:inline-block px-1.5 py-0.5 text-[9px] bg-slate-900/20 dark:bg-white/20 rounded font-mono text-slate-400">
-                    ⌘K
+                    вЊK
                   </kbd>
                 </button>
 
@@ -273,12 +281,12 @@ export const Header: React.FC = () => {
                     onClick={() => setLangOpen((v) => !v)}
                     className={`flex items-center justify-center gap-1.5 sm:gap-2 min-w-11 min-h-11 sm:min-w-0 sm:min-h-0 px-2.5 sm:px-3.5 py-2 rounded-full border text-[10px] font-extrabold uppercase tracking-widest font-ui transition-all ${
                       scrolled || mobileOpen
-                        ? 'border-amber-500/30 bg-white/10 text-slate-200 hover:bg-amber-500/20'
-                        : 'border-amber-200 bg-white text-slate-800 hover:bg-amber-50 hover:border-amber-400 shadow-sm'
+                        ? 'border-[#013d8c]/30 bg-white/10 text-slate-200 hover:bg-[#eff7ff]0/20'
+                        : 'border-[#d6e6f7] bg-white text-slate-800 hover:bg-[#eff7ff] hover:border-[#1675e0] shadow-sm'
                     }`}
                     aria-label="Til"
                   >
-                    <Globe className="w-4 h-4 text-amber-500" />
+                    <Globe className="w-4 h-4 text-blue-500" />
                     <span className="text-[10px]">{language.toUpperCase()}</span>
                   </button>
                   <AnimatePresence>
@@ -287,7 +295,11 @@ export const Header: React.FC = () => {
                         initial={{ opacity: 0, y: 8, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 6, scale: 0.95 }}
-                        className="absolute right-0 mt-2 glass-card-dark rounded-2xl p-2 min-w-[150px] z-[60] text-white ring-1 ring-amber-400/20"
+                        className="absolute right-0 mt-2 glass-card-dark rounded-2xl p-2 min-w-[150px] z-[60] text-white ring-1 ring-
+    param($m)
+    # fallback generic
+    'blue-200'
+  "
                       >
                         {languages.map((lang) => (
                           <button
@@ -298,8 +310,8 @@ export const Header: React.FC = () => {
                             }}
                             className={`w-full text-left px-3 py-2 rounded-xl text-[11px] font-extrabold uppercase tracking-widest font-ui transition-colors ${
                               language === lang.code
-                                ? 'bg-amber-500/30 text-amber-200 font-black'
-                                : 'text-amber-50/90 hover:bg-amber-500/20 hover:text-amber-100'
+                                ? 'bg-[#eff7ff]0/30 text-blue-200 font-black'
+                                : 'text-blue-50/90 hover:bg-[#eff7ff]0/20 hover:text-blue-100'
                             }`}
                           >
                             {lang.label}
@@ -314,19 +326,19 @@ export const Header: React.FC = () => {
                 <button
                   className={`xl:hidden flex items-center justify-center min-w-11 min-h-11 p-2.5 rounded-2xl border transition-colors ${
                     scrolled || mobileOpen
-                      ? 'border-amber-500/30 bg-white/10 text-white'
-                      : 'border-amber-200 bg-white text-slate-900 shadow-sm'
+                      ? 'border-[#013d8c]/30 bg-white/10 text-white'
+                      : 'border-[#d6e6f7] bg-white text-slate-900 shadow-sm'
                   }`}
                   onClick={() => setMobileOpen((v) => !v)}
                   aria-label="Menu"
                   aria-expanded={mobileOpen}
                 >
-                  {mobileOpen ? <X className="w-5 h-5 text-amber-400" /> : <Menu className="w-5 h-5" />}
+                  {mobileOpen ? <X className="w-5 h-5 text-[#1675e0]" /> : <Menu className="w-5 h-5" />}
                 </button>
               </div>
             </div>
 
-            {/* Mobile Navigation Drawer — doim to'q royal fon (oppoq emas) */}
+            {/* Mobile Navigation Drawer вЂ” doim to'q royal fon (oppoq emas) */}
             <AnimatePresence>
               {mobileOpen && (
                 <motion.div
@@ -334,39 +346,39 @@ export const Header: React.FC = () => {
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="xl:hidden relative z-10 overflow-hidden border-t border-amber-500/25"
+                  className="xl:hidden relative z-10 overflow-hidden border-t border-[#013d8c]/25"
                 >
                   <div className="absolute inset-0 bg-gradient-to-b from-[#001524] to-[#0a1628] pointer-events-none" aria-hidden />
                   <div className="relative p-3 sm:p-5 space-y-1.5 max-h-[min(75vh,calc(100dvh-6rem))] overflow-y-auto overscroll-contain safe-pb">
-                    <div className="h-0.5 w-full rounded-full gold-gradient mb-2 opacity-80" />
+                    <div className="h-0.5 w-full rounded-full gov-gradient mb-2 opacity-80" />
                     <Link
                       to="/"
-                      className="block px-4 py-3.5 rounded-2xl font-ui text-xs font-black uppercase tracking-widest text-amber-200 bg-amber-500/15 border border-amber-400/25"
+                      className="block px-4 py-3.5 rounded-2xl font-ui text-xs font-black uppercase tracking-widest text-blue-200 bg-[#eff7ff]0/15 border border-[#1675e0]/25"
                     >
                       {t('nav_home')}
                     </Link>
                     {dropdowns.map((menu) => (
                       <div key={menu.key} className="pt-2">
-                        <p className="px-4 py-1.5 font-ui text-[10px] font-black uppercase tracking-[0.2em] text-amber-400/80">
+                        <p className="px-4 py-1.5 font-ui text-[10px] font-black uppercase tracking-[0.2em] text-[#1675e0]/80">
                           {menu.label}
                         </p>
                         {menu.items.map((item) => (
                           <Link
                             key={item.to}
                             to={item.to}
-                            className="block px-4 py-3 rounded-2xl font-ui text-xs font-extrabold uppercase tracking-widest text-amber-50/95 hover:bg-amber-500/20 hover:text-amber-200 transition-colors active:bg-amber-500/25"
+                            className="block px-4 py-3 rounded-2xl font-ui text-xs font-extrabold uppercase tracking-widest text-blue-50/95 hover:bg-[#eff7ff]0/20 hover:text-blue-200 transition-colors active:bg-[#eff7ff]0/25"
                           >
                             {item.label}
                           </Link>
                         ))}
                       </div>
                     ))}
-                    <div className="pt-2 border-t border-amber-500/15 mt-1">
+                    <div className="pt-2 border-t border-[#013d8c]/15 mt-1">
                       {plainLinks.map((item) => (
                         <Link
                           key={item.to}
                           to={item.to}
-                          className="block px-4 py-3.5 rounded-2xl font-ui text-xs font-extrabold uppercase tracking-widest text-amber-50/95 hover:bg-amber-500/20 hover:text-amber-200 transition-colors active:bg-amber-500/25"
+                          className="block px-4 py-3.5 rounded-2xl font-ui text-xs font-extrabold uppercase tracking-widest text-blue-50/95 hover:bg-[#eff7ff]0/20 hover:text-blue-200 transition-colors active:bg-[#eff7ff]0/25"
                         >
                           {item.label}
                         </Link>
@@ -388,7 +400,7 @@ export const Header: React.FC = () => {
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              className="w-full max-w-2xl bg-slate-900 border border-amber-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl text-white relative my-4"
+              className="w-full max-w-2xl bg-slate-900 border border-[#013d8c]/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl text-white relative my-4"
             >
               <button
                 onClick={() => setSearchOpen(false)}
@@ -397,8 +409,8 @@ export const Header: React.FC = () => {
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="flex items-center gap-3 border-b border-amber-500/20 pb-4 mb-6">
-                <Search className="w-6 h-6 text-amber-400" />
+              <div className="flex items-center gap-3 border-b border-[#013d8c]/20 pb-4 mb-6">
+                <Search className="w-6 h-6 text-[#1675e0]" />
                 <input
                   type="text"
                   autoFocus
@@ -416,21 +428,21 @@ export const Header: React.FC = () => {
                     <div className="flex flex-wrap justify-center gap-2 mt-4">
                       <button
                         onClick={() => { navigate('/talim/yonalishlar'); setSearchOpen(false); }}
-                        className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400 text-xs font-bold font-ui text-slate-300 flex items-center gap-2"
+                        className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#1675e0] text-xs font-bold font-ui text-slate-300 flex items-center gap-2"
                       >
-                        <GraduationCap className="w-4 h-4 text-amber-400" /> O'quv Yo'nalishlari
+                        <GraduationCap className="w-4 h-4 text-[#1675e0]" /> O'quv Yo'nalishlari
                       </button>
                       <button
                         onClick={() => { navigate('/yangiliklar'); setSearchOpen(false); }}
-                        className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400 text-xs font-bold font-ui text-slate-300 flex items-center gap-2"
+                        className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#1675e0] text-xs font-bold font-ui text-slate-300 flex items-center gap-2"
                       >
-                        <Newspaper className="w-4 h-4 text-amber-400" /> Yangiliklar
+                        <Newspaper className="w-4 h-4 text-[#1675e0]" /> Yangiliklar
                       </button>
                       <button
                         onClick={() => { navigate('/fakultet/rahbariyat'); setSearchOpen(false); }}
-                        className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400 text-xs font-bold font-ui text-slate-300 flex items-center gap-2"
+                        className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 hover:border-[#1675e0] text-xs font-bold font-ui text-slate-300 flex items-center gap-2"
                       >
-                        <UserCheck className="w-4 h-4 text-amber-400" /> Rahbariyat
+                        <UserCheck className="w-4 h-4 text-[#1675e0]" /> Rahbariyat
                       </button>
                     </div>
                   </div>
@@ -438,7 +450,7 @@ export const Header: React.FC = () => {
                   <>
                     {filteredPrograms.length > 0 && (
                       <div>
-                        <h4 className="text-xs font-black uppercase tracking-widest text-amber-400 mb-2 font-ui flex items-center gap-2">
+                        <h4 className="text-xs font-black uppercase tracking-widest text-[#1675e0] mb-2 font-ui flex items-center gap-2">
                           <BookOpen className="w-4 h-4" /> Ta'lim Yo'nalishlari
                         </h4>
                         <div className="space-y-2">
@@ -447,7 +459,7 @@ export const Header: React.FC = () => {
                               key={p.id}
                               to={`/talim/yonalishlar/${p.slug}`}
                               onClick={() => setSearchOpen(false)}
-                              className="block p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 font-ui text-sm text-slate-200 font-bold"
+                              className="block p-3 rounded-2xl bg-white/5 hover:bg-[#eff7ff]0/20 border border-white/10 font-ui text-sm text-slate-200 font-bold"
                             >
                               {L(p.name)}
                             </Link>
@@ -458,7 +470,7 @@ export const Header: React.FC = () => {
 
                     {filteredNews.length > 0 && (
                       <div className="mt-4">
-                        <h4 className="text-xs font-black uppercase tracking-widest text-amber-400 mb-2 font-ui flex items-center gap-2">
+                        <h4 className="text-xs font-black uppercase tracking-widest text-[#1675e0] mb-2 font-ui flex items-center gap-2">
                           <Newspaper className="w-4 h-4" /> Yangilik va voqealar
                         </h4>
                         <div className="space-y-2">
@@ -467,7 +479,7 @@ export const Header: React.FC = () => {
                               key={n.id}
                               to={`/yangiliklar/${n.slug}`}
                               onClick={() => setSearchOpen(false)}
-                              className="block p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 border border-white/10 font-ui text-sm text-slate-200"
+                              className="block p-3 rounded-2xl bg-white/5 hover:bg-[#eff7ff]0/20 border border-white/10 font-ui text-sm text-slate-200"
                             >
                               {L(n.title)}
                             </Link>
