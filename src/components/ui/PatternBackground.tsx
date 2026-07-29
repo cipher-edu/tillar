@@ -349,7 +349,7 @@ export const IslimiyDivider: React.FC<{ topic?: string; lang?: 'uz' | 'ru' | 'en
 
   return (
     <div className="my-20 relative z-10 px-4">
-      <div className="max-w-4xl mx-auto rounded-[3rem] border-2 border-amber-400/40 bg-slate-950 text-white p-8 sm:p-14 shadow-2xl relative overflow-hidden text-center group hover:border-amber-300 transition-all duration-500">
+      <div className="max-w-4xl mx-auto rounded-[3rem] border-2 border-amber-400/40 bg-slate-950 text-white p-8 sm:p-14 relative overflow-hidden text-center group hover:border-amber-300 transition-all duration-500">
         {/* Background Patterns */}
         <div
           className="absolute inset-0 opacity-[0.1] pointer-events-none animated-pattern"
@@ -381,7 +381,7 @@ export const IslimiyDivider: React.FC<{ topic?: string; lang?: 'uz' | 'ru' | 'en
           <div className="h-0.5 w-48 bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-8 opacity-90 shadow-[0_0_10px_#d4af37]" />
 
           {/* Verse Quote */}
-          <blockquote className="text-xl sm:text-2xl md:text-3xl font-serif-classic italic text-amber-50 leading-relaxed max-w-3xl whitespace-pre-line mb-8 font-semibold drop-shadow-lg">
+          <blockquote className="text-xl sm:text-2xl md:text-3xl font-serif-classic italic text-amber-50 leading-relaxed max-w-3xl whitespace-pre-line mb-8 font-semibold">
             <span className="text-amber-400 not-italic mr-2 text-3xl">“</span>
             {verseText}
             <span className="text-amber-400 not-italic ml-2 text-3xl">”</span>
@@ -389,14 +389,14 @@ export const IslimiyDivider: React.FC<{ topic?: string; lang?: 'uz' | 'ru' | 'en
 
           {/* Source & Copy Actions */}
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gold-gradient text-slate-950 text-[10px] font-black uppercase tracking-[0.25em] font-ui shadow-lg">
+            <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gold-gradient text-slate-950 text-[10px] font-black uppercase tracking-[0.25em] font-ui ">
               <BookOpen className="w-3.5 h-3.5" />
               {item.source}
             </div>
 
             <button
               onClick={handleCopy}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-amber-400/40 bg-white/10 hover:bg-amber-400 hover:text-slate-950 text-amber-300 text-[10px] font-black uppercase tracking-[0.2em] font-ui transition-all duration-300 shadow-md"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-amber-400/40 bg-white/10 hover:bg-amber-400 hover:text-slate-950 text-amber-300 text-[10px] font-black uppercase tracking-[0.2em] font-ui transition-all duration-300 "
               title="Hikmatni nusxalash"
             >
               {copied ? (

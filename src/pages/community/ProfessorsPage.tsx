@@ -33,12 +33,12 @@ export const ProfessorsPage: React.FC = () => {
   if (detail && detail.roles.includes('professor')) {
     return (
       <PageShell title={L(detail.name)}>
-        <div className="mb-6">
-          <Link to="/jamoa/professorlar" className="text-[11px] font-black uppercase tracking-widest text-[#013d8c] font-ui">
-            в†ђ {t('back')}
+        <div className="mb-6 font-sans">
+          <Link to="/jamoa/professorlar" className="text-[11px] font-black uppercase tracking-widest text-[#002E69] hover:underline ">
+            ← {t('back')}
           </Link>
         </div>
-        <div className="glass-card rounded-[3rem] border-[#d6e6f7] p-6 md:p-10">
+        <div className="bg-white border border-[#E1E1E1] p-6 md:p-10 font-sans">
           <PersonProfile person={detail} />
         </div>
       </PageShell>
@@ -47,20 +47,20 @@ export const ProfessorsPage: React.FC = () => {
 
   return (
     <PageShell title={t('nav_professors')}>
-      <div className="flex flex-col md:flex-row gap-4 mb-12 max-w-4xl mx-auto">
+      <div className="flex flex-col md:flex-row gap-3 mb-10 max-w-4xl mx-auto font-sans">
         <div className="relative flex-grow">
-          <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-[#043b87] w-5 h-5" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#002E69] w-4 h-4" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t('search_placeholder')}
-            className="w-full pl-14 pr-5 py-4 rounded-2xl border border-[#d6e6f7] bg-white/70 outline-none focus:border-[#013d8c] font-serif-classic text-xl italic"
+            className="w-full pl-11 pr-4 py-3 border border-[#E1E1E1] bg-white outline-none focus:border-[#013D8C] focus:ring-1 focus:ring-[#013D8C] font-medium text-sm text-slate-900 shadow-2xs"
           />
         </div>
         <select
           value={dept}
           onChange={(e) => setDept(e.target.value)}
-          className="px-5 py-4 rounded-2xl border border-[#d6e6f7] bg-white/70 font-ui text-sm font-bold uppercase tracking-widest text-slate-700"
+          className="px-4 py-3 border border-[#E1E1E1] bg-white text-xs font-bold uppercase tracking-wider text-slate-700 outline-none focus:border-[#013D8C] shadow-2xs"
         >
           <option value="all">{t('filter_all')}</option>
           {departments.map((d) => (
@@ -71,29 +71,29 @@ export const ProfessorsPage: React.FC = () => {
         </select>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 font-sans">
         {filtered.map((p) => (
           <PersonCard key={p.id} person={p} onQuickView={setQuick} />
         ))}
       </div>
       {filtered.length === 0 && (
-        <p className="text-center text-2xl italic text-slate-400 mt-16">{t('empty')}</p>
+        <p className="text-center text-base font-semibold text-slate-400 mt-16 font-sans">{t('empty')}</p>
       )}
 
-      <Modal open={!!quick} onClose={() => setQuick(null)} maxWidthClass="max-w-5xl">
+      <Modal open={!!quick} onClose={() => setQuick(null)} maxWidthClass="max-w-4xl">
         {quick && (
-          <>
+          <div className="font-sans">
             <PersonProfile person={quick} compact />
-            <div className="px-10 pb-10">
+            <div className="px-8 pb-8 pt-2">
               <Link
                 to={personPath(quick)}
-                className="inline-flex px-8 py-4 royal-gradient text-white rounded-2xl text-[11px] font-black uppercase tracking-widest font-ui"
+                className="inline-flex px-6 py-3 bg-[#002E69] text-white text-xs font-black uppercase tracking-wider hover:bg-[#013D8C] transition-colors "
                 onClick={() => setQuick(null)}
               >
                 {t('profile_full')}
               </Link>
             </div>
-          </>
+          </div>
         )}
       </Modal>
     </PageShell>

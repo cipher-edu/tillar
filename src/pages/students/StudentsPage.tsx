@@ -47,12 +47,12 @@ export const StudentsPage: React.FC = () => {
   if (detail && detail.roles.includes('student')) {
     return (
       <PageShell title={L(detail.name)}>
-        <div className="mb-6">
-          <Link to="/talabalar" className="text-[11px] font-black uppercase tracking-widest text-[#013d8c] font-ui">
-            в†ђ {t('back')}
+        <div className="mb-6 font-sans">
+          <Link to="/talabalar" className="text-[11px] font-black uppercase tracking-widest text-[#002E69] hover:underline ">
+            ← {t('back')}
           </Link>
         </div>
-        <div className="glass-card rounded-[3rem] border-[#d6e6f7] p-6 md:p-10">
+        <div className="bg-white border border-[#E1E1E1] p-6 md:p-10 font-sans">
           <PersonProfile person={detail} />
         </div>
       </PageShell>
@@ -61,21 +61,21 @@ export const StudentsPage: React.FC = () => {
 
   return (
     <PageShell title={t('nav_students')} subtitle={t('students_subtitle')}>
-      <div className="space-y-4 mb-12 max-w-5xl mx-auto">
+      <div className="space-y-4 mb-10 max-w-5xl mx-auto font-sans">
         <div className="relative">
-          <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-[#043b87] w-5 h-5" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#002E69] w-4 h-4" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t('search_placeholder')}
-            className="w-full pl-14 pr-5 py-4 rounded-2xl border border-[#d6e6f7] bg-white/70 outline-none focus:border-[#013d8c] font-serif-classic text-xl italic"
+            className="w-full pl-11 pr-4 py-3 border border-[#E1E1E1] bg-white outline-none focus:border-[#013D8C] font-medium text-sm text-slate-900 shadow-2xs"
           />
         </div>
-        <div className="flex flex-wrap gap-2 justify-center">
+        <div className="flex flex-wrap gap-1.5 justify-center">
           <button
             onClick={() => setBadge('all')}
-            className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest font-ui border ${
-              badge === 'all' ? 'royal-gradient text-white border-transparent' : 'bg-white border-[#d6e6f7] text-slate-600'
+            className={`px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider border transition-colors ${
+              badge === 'all' ? 'bg-[#002E69] text-white border-transparent ' : 'bg-white border-[#E1E1E1] text-slate-700 hover:bg-[#F0F6FE]'
             }`}
           >
             {t('filter_all')}
@@ -84,8 +84,8 @@ export const StudentsPage: React.FC = () => {
             <button
               key={b}
               onClick={() => setBadge(b)}
-              className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest font-ui border ${
-                badge === b ? 'gov-gradient text-white border-transparent' : 'bg-white border-[#d6e6f7] text-slate-600'
+              className={`px-3.5 py-1.5 text-[10px] font-black uppercase tracking-wider border transition-colors ${
+                badge === b ? 'bg-[#002E69] text-white border-transparent ' : 'bg-white border-[#E1E1E1] text-slate-700 hover:bg-[#F0F6FE]'
               }`}
             >
               {t(`badge_${b === 'gifted' ? 'gifted' : b}`)}
@@ -96,7 +96,7 @@ export const StudentsPage: React.FC = () => {
           <select
             value={program}
             onChange={(e) => setProgram(e.target.value)}
-            className="px-4 py-3 rounded-2xl border border-[#d6e6f7] bg-white/70 font-ui text-xs font-bold uppercase tracking-widest"
+            className="px-4 py-2.5 border border-[#E1E1E1] bg-white text-xs font-bold uppercase tracking-wider text-slate-700 outline-none focus:border-[#013D8C]"
           >
             <option value="all">{t('filter_program')}</option>
             {programs.map((p) => (
@@ -108,7 +108,7 @@ export const StudentsPage: React.FC = () => {
           <select
             value={course}
             onChange={(e) => setCourse(e.target.value)}
-            className="px-4 py-3 rounded-2xl border border-[#d6e6f7] bg-white/70 font-ui text-xs font-bold uppercase tracking-widest"
+            className="px-4 py-2.5 border border-[#E1E1E1] bg-white text-xs font-bold uppercase tracking-wider text-slate-700 outline-none focus:border-[#013D8C]"
           >
             <option value="all">{t('filter_course')}</option>
             {[1, 2, 3, 4].map((c) => (
@@ -120,27 +120,27 @@ export const StudentsPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 font-sans">
         {filtered.map((s) => (
           <PersonCard key={s.id} person={s} onQuickView={setQuick} />
         ))}
       </div>
-      {filtered.length === 0 && <p className="text-center text-2xl italic text-slate-400 mt-16">{t('empty')}</p>}
+      {filtered.length === 0 && <p className="text-center text-base font-semibold text-slate-400 mt-16 font-sans">{t('empty')}</p>}
 
-      <Modal open={!!quick} onClose={() => setQuick(null)} maxWidthClass="max-w-5xl">
+      <Modal open={!!quick} onClose={() => setQuick(null)} maxWidthClass="max-w-4xl">
         {quick && (
-          <>
+          <div className="font-sans">
             <PersonProfile person={quick} compact />
-            <div className="px-10 pb-10">
+            <div className="px-8 pb-8 pt-2">
               <Link
                 to={personPath(quick)}
-                className="inline-flex px-8 py-4 royal-gradient text-white rounded-2xl text-[11px] font-black uppercase tracking-widest font-ui"
+                className="inline-flex px-6 py-3 bg-[#002E69] text-white text-xs font-black uppercase tracking-wider hover:bg-[#013D8C] transition-colors "
                 onClick={() => setQuick(null)}
               >
                 {t('profile_full')}
               </Link>
             </div>
-          </>
+          </div>
         )}
       </Modal>
     </PageShell>

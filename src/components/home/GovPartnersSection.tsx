@@ -13,10 +13,10 @@ const govLinks = [
 
 export const GovPartnersSection: React.FC = () => {
   return (
-    <section className="gov-section gov-pattern-soft border-t border-[#e1e1e1]">
+    <section className="gov-section bg-[#F0F0F0] border-t border-[#E1E1E1] font-sans py-10 sm:py-12">
       <div className="gov-shell">
         {/* Government portals */}
-        <div className="mb-12">
+        <div className="mb-10">
           <GovSectionHeader
             kicker="Davlat axborot resurslari"
             title="Rasmiy davlat portallari va havolalar"
@@ -29,16 +29,16 @@ export const GovPartnersSection: React.FC = () => {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="gov-card p-3.5 flex items-center gap-3 group"
+                className="p-3.5 rounded-none border border-[#E1E1E1] flex items-center gap-3 group bg-white hover:bg-[#F0F0F0] transition-colors"
               >
-                <div className="w-11 h-11 rounded-md bg-gradient-to-br from-[#013d8c] to-[#021e44] text-white flex items-center justify-center font-black text-[10px] tracking-wide shrink-0 border border-white/10 shadow-gov transition-transform duration-200 group-hover:scale-105">
+                <div className="w-11 h-11 rounded-none bg-[#013D8C] text-white flex items-center justify-center font-bold text-xs shrink-0 font-sans">
                   {item.badge}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <span className="text-[11px] font-extrabold text-[#131523] group-hover:text-[#1675e0] block leading-snug line-clamp-2 transition-colors">
+                  <span className="text-xs font-bold text-[#000000] group-hover:text-[#013D8C] block leading-snug line-clamp-2 transition-colors font-sans">
                     {item.name}
                   </span>
-                  <span className="text-[9px] text-[#939393] font-semibold inline-flex items-center gap-1 mt-1 group-hover:text-[#043b87] transition-colors">
+                  <span className="text-[10px] text-[#707070] font-medium inline-flex items-center gap-1 mt-1 group-hover:text-[#013D8C] transition-colors">
                     O‘tish
                     <ExternalLink className="w-2.5 h-2.5" />
                   </span>
@@ -50,37 +50,41 @@ export const GovPartnersSection: React.FC = () => {
 
         {/* International partners */}
         <div className="pt-2">
-          <div className="gov-section-head">
+          <div className="gov-section-head mb-6 pb-4 border-b border-[#E1E1E1]">
             <div className="min-w-0 max-w-3xl">
-              <span className="gov-section-kicker inline-flex items-center gap-1.5">
+              <span className="gov-section-kicker inline-flex items-center gap-1.5 text-[#013D8C] font-bold text-xs mb-1">
                 <Globe2 className="w-3.5 h-3.5" />
                 Xalqaro integratsiya
               </span>
-              <h2 className="gov-section-title">
+              <h2 className="gov-section-title text-[#043B87] font-sans font-extrabold uppercase text-xl sm:text-2xl">
                 Xalqaro hamkor universitetlar ({partners.length})
               </h2>
             </div>
-            <p className="text-xs text-[#707070] max-w-md font-medium leading-relaxed">
-              Rossiya, Buyuk Britaniya, Ozarbayjon, Qozog‘iston, Indoneziya va Malayziya OTMlari
-            </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
             {partners.map((p) => (
-              <div
-                key={p.id}
-                className="gov-card p-3.5 text-center flex flex-col items-center justify-between min-h-[132px] group"
+              <a
+                key={p.name}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-none border border-[#E1E1E1] text-center group bg-white hover:bg-[#F0F0F0] transition-colors flex flex-col items-center justify-center"
               >
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-[#013d8c] to-[#143797] text-white font-bold text-[10px] flex items-center justify-center mb-2 border-2 border-white shadow-gov ring-1 ring-[#e1e1e1] transition-transform duration-200 group-hover:scale-110 group-hover:ring-[#013d8c]/40">
-                  {p.logoText || 'OTM'}
+                <div className="w-12 h-12 rounded-none bg-[#F0F0F0] p-1.5 flex items-center justify-center mb-2 border border-[#E1E1E1]">
+                  <img
+                    src={p.logo}
+                    alt={p.name}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-                <span className="text-[11px] font-bold text-[#131523] group-hover:text-[#043b87] leading-snug line-clamp-2 transition-colors">
+                <span className="text-xs font-bold text-[#000000] group-hover:text-[#013D8C] block leading-snug line-clamp-2 font-sans">
                   {p.name}
                 </span>
-                <span className="text-[9px] font-medium text-[#939393] uppercase tracking-wider block mt-1.5">
-                  {p.country || 'Xalqaro OTM'}
+                <span className="text-[10px] text-[#707070] font-medium block mt-0.5">
+                  {p.country}
                 </span>
-              </div>
+              </a>
             ))}
           </div>
         </div>

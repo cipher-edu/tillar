@@ -3,10 +3,10 @@ import { Bell } from 'lucide-react';
 
 export const GovMarquee: React.FC = () => {
   return (
-    <div className="bg-[#043b87] text-white text-xs py-1.5 overflow-hidden border-b border-[#021e44] relative flex items-center">
-      <div className="bg-[#043b87] z-10 px-3 font-bold flex items-center gap-1.5 shrink-0 shadow-md">
+    <div className="bg-[#002E69] text-white text-xs py-1.5 overflow-hidden border-b border-[#013D8C] relative flex items-center font-sans">
+      <div className="bg-[#002E69] z-10 px-3 font-bold flex items-center gap-1.5 shrink-0 ">
         <Bell className="w-3.5 h-3.5 text-white" />
-        <span className="uppercase text-[10px] tracking-wider text-white/95">E'lonlar:</span>
+        <span className="uppercase text-[10px] tracking-wider text-white/95 ">E'lonlar:</span>
       </div>
       <div className="overflow-hidden whitespace-nowrap flex-1 relative">
         <div className="animate-gov-ticker text-[11px] font-medium tracking-wide">

@@ -47,7 +47,7 @@ Hurmat va ehtirom bilan,`,
 
 Today’s world is an age of rapid change, digital transformation and knowledge-based competition. In such times higher education is not merely a system that awards diplomas — it is the heart of social progress, the vital institution that strengthens national capacity and prepares the young generation for the future.
 
-A university must unite modern knowledge, critical thinking, innovation and moral maturity. In particular, languages, translation and intercultural communication play an irreplaceable role in our country’s openness, scientific cooperation and international standing in a globalised world. He who knows a language knows a people; he who masters knowledge can help change the world.
+A university must unite modern knowledge, critical thinking, innovation and intercultural communication. In particular, languages, translation and intercultural communication play an irreplaceable role in our country’s openness, scientific cooperation and international standing in a globalised world. He who knows a language knows a people; he who masters knowledge can help change the world.
 
 The Faculty of Languages of Navoi State University, in the spirit of Alisher Navoi’s heritage, strives to advance modern linguistics, translation studies and international education. Our goal is to educate specialists who are not only professionally strong, but also patriotic, cultured and competitive.
 

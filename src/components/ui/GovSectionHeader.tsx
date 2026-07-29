@@ -22,23 +22,23 @@ export const GovSectionHeader: React.FC<GovSectionHeaderProps> = ({
   children,
 }) => {
   return (
-    <div className={`gov-section-head ${className}`}>
+    <div className={`gov-section-head ${className} font-sans mb-8 pb-4 border-b border-[#E1E1E1]`}>
       <div className="min-w-0 flex-1 max-w-4xl">
-        <span className="gov-section-kicker">{kicker}</span>
-        <h2 className="gov-section-title">{title}</h2>
+        <span className="gov-section-kicker text-[#013D8C] font-bold text-xs tracking-wider block mb-1">{kicker}</span>
+        <h2 className="gov-section-title text-[#043B87] font-sans font-extrabold uppercase text-xl sm:text-2xl md:text-3xl tracking-wide">{title}</h2>
         {description ? (
-          <p className="mt-2 text-xs sm:text-sm text-[#707070] font-medium leading-relaxed max-w-2xl">
+          <p className="mt-2 text-xs sm:text-sm text-[#707070] font-normal leading-relaxed max-w-3xl">
             {description}
           </p>
         ) : null}
       </div>
 
-      <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-2 sm:gap-3 w-full sm:w-auto sm:shrink-0">
+      <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-2 sm:gap-3 w-full sm:w-auto sm:shrink-0 mt-3 sm:mt-0">
         {children}
         {actionLabel && actionTo ? (
-          <Link to={actionTo} className="gov-btn gov-btn-primary px-4 py-2.5 whitespace-nowrap">
+          <Link to={actionTo} className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#013D8C] hover:bg-[#002E69] text-white text-xs font-semibold rounded-none transition-colors border border-[#013D8C]">
             <span>{actionLabel}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         ) : null}
       </div>

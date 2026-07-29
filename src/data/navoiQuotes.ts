@@ -407,26 +407,257 @@ export const NAVOIY_PAGE_BANDS: Record<string, NavoiBandQuote> = {
     attribution: src('Alisher Navoiy merosi ruhida', 'В духе наследия Навои', 'In the spirit of Navoi’s heritage'),
     source: src('Ustoz-shogird an’anasi', 'Традиция наставничества', 'Mentor–student tradition'),
   },
+  curricula: {
+    id: 'band-curricula',
+    lines: [
+      {
+        uz: 'Bir-bir asos qo‘ymoq bila bino butun bo‘lur,',
+        ru: 'Шаг за шагом закладывая основу, здание становится целым,',
+        en: 'Laying the foundation step by step, the building becomes whole,',
+      },
+      {
+        uz: 'Tartib bila o‘qigan — maqsadga voqif bo‘lur.',
+        ru: 'Кто учится по порядку — постигает цель.',
+        en: 'Who studies in order comes to know the goal.',
+      },
+      {
+        uz: 'Reja — yo‘lchining chirog‘i, sabr — yo‘ldoshi,',
+        ru: 'План — светильник путника, терпение — его спутник,',
+        en: 'A plan is the traveller’s lamp, patience their companion,',
+      },
+      {
+        uz: 'Izchillik bila yetar har kim murodiga.',
+        ru: 'Последовательностью каждый достигает своей цели.',
+        en: 'Through consistency everyone reaches their aim.',
+      },
+    ],
+    attribution: src('Alisher Navoiy merosi ruhida', 'В духе наследия Навои', 'In the spirit of Navoi’s heritage'),
+    source: src('«Hayrat ul-abror» ruhida', 'В духе «Хайрат ул-абрар»', 'In the spirit of «Hayrat ul-Abrar»'),
+  },
+  honorary: {
+    id: 'band-honorary',
+    lines: [
+      {
+        uz: 'Kimniki umri ilm bila o‘tdi rost,',
+        ru: 'Чья жизнь поистине прошла в знании,',
+        en: 'Whoever’s life truly passed in learning,',
+      },
+      {
+        uz: 'Nomi jahonda abadiy qolur, do‘st.',
+        ru: 'Имя того навеки останется в мире, друг мой.',
+        en: 'Their name remains in the world forever, my friend.',
+      },
+      {
+        uz: 'Xizmat qilg‘on — hurmatga munosibdur,',
+        ru: 'Кто служил — достоин уважения,',
+        en: 'Whoever served is worthy of honour,',
+      },
+      {
+        uz: 'Fazl ahli — har zamonda aziz erur.',
+        ru: 'Люди добродетели дороги во все времена.',
+        en: 'People of virtue are cherished in every age.',
+      },
+    ],
+    attribution: src('Alisher Navoiy', 'Алишер Навои', 'Alisher Navoi'),
+    source: src('«Majolis un-nafois»', '«Маджолис ун-нафоис»', '«Majolis un-Nafais»'),
+  },
+  community: {
+    id: 'band-community',
+    lines: [
+      {
+        uz: 'Jamiki el bila totuv bo‘lg‘on kishi,',
+        ru: 'Тот, кто в согласии со всем народом,',
+        en: 'One who lives in harmony with all people,',
+      },
+      {
+        uz: 'Har ishda toparfalohu xushluq eshigi.',
+        ru: 'В каждом деле находит дверь блага и радости.',
+        en: 'Finds in every task the door of goodness and joy.',
+      },
+      {
+        uz: 'Birlik — kuchdur, ayrilik — ne’matdin judolik,',
+        ru: 'Единство — сила, разобщение — лишение блага,',
+        en: 'Unity is strength; division is the loss of blessing,',
+      },
+      {
+        uz: 'Hamjihatlik bila el topar ulug‘lik.',
+        ru: 'В сплочённости народ обретает величие.',
+        en: 'Through solidarity a people attains greatness.',
+      },
+    ],
+    attribution: src('Alisher Navoiy merosi ruhida', 'В духе наследия Навои', 'In the spirit of Navoi’s heritage'),
+    source: src('«Munshaot» ruhida', 'В духе «Муншаат»', 'In the spirit of «Munshaot»'),
+  },
+  research: {
+    id: 'band-research',
+    lines: [
+      {
+        uz: 'Har kim izlar chin bila haqiqatni,',
+        ru: 'Кто ищет истину искренне и настойчиво,',
+        en: 'Whoever seeks truth with sincerity,',
+      },
+      {
+        uz: 'Toparoxir topqusi ne niyat etsa.',
+        ru: 'В итоге обретает то, к чему стремился.',
+        en: 'In the end attains what they intended.',
+      },
+      {
+        uz: 'Tadqiqot — sabr ila mehnatning mevasi,',
+        ru: 'Исследование — плод терпения и труда,',
+        en: 'Research is the fruit of patience and toil,',
+      },
+      {
+        uz: 'Har kashfiyot — kelajakka bir chiroq.',
+        ru: 'Каждое открытие — светильник для будущего.',
+        en: 'Every discovery is a lamp for the future.',
+      },
+    ],
+    attribution: src('Alisher Navoiy merosi ruhida', 'В духе наследия Навои', 'In the spirit of Navoi’s heritage'),
+    source: src('«Nasoyim ul-muhabbat» ruhida', 'В духе «Насойим ул-мухаббат»', 'In the spirit of «Nasa’im ul-Muhabbat»'),
+  },
+  heritage: {
+    id: 'band-heritage',
+    lines: [
+      {
+        uz: 'Meros — ajdodlardin qolg‘on ganjina,',
+        ru: 'Наследие — сокровищница, оставленная предками,',
+        en: 'Heritage is a treasury left by ancestors,',
+      },
+      {
+        uz: 'Asramoq — har avlodning burchi hamisha.',
+        ru: 'Хранить его — вечный долг каждого поколения.',
+        en: 'To preserve it is every generation’s enduring duty.',
+      },
+      {
+        uz: 'O‘tganni bilmagan — kelajakni qurolmas,',
+        ru: 'Кто не знает прошлого — не построит будущего,',
+        en: 'Who does not know the past cannot build the future,',
+      },
+      {
+        uz: 'Tarix — kelajakka yo‘l ko‘rsatgan chiroq.',
+        ru: 'История — светильник, указывающий путь в будущее.',
+        en: 'History is a lamp lighting the way to the future.',
+      },
+    ],
+    attribution: src('Alisher Navoiy merosi ruhida', 'В духе наследия Навои', 'In the spirit of Navoi’s heritage'),
+    source: src('«Xamsa» merosi ruhida', 'В духе «Хамсы»', 'In the spirit of «Khamsa»'),
+  },
+  language: {
+    id: 'band-language',
+    lines: [
+      {
+        uz: 'Ikki til bilgan kishi — ikki jahon ahli,',
+        ru: 'Кто знает два языка — принадлежит двум мирам,',
+        en: 'Whoever knows two tongues belongs to two worlds,',
+      },
+      {
+        uz: 'Har tilning o‘z husni, o‘z ma’no gunji bor.',
+        ru: 'У каждого языка своя красота, своя сокровищница смысла.',
+        en: 'Each language has its own beauty, its own treasury of meaning.',
+      },
+      {
+        uz: 'Tarjima — ikki dil orasidagi ko‘prikdur,',
+        ru: 'Перевод — мост между двумя сердцами,',
+        en: 'Translation is a bridge between two hearts,',
+      },
+      {
+        uz: 'So‘z bilgan — dunyoni yaqin qilur.',
+        ru: 'Кто владеет словом — сближает мир.',
+        en: 'Whoever masters words brings the world closer together.',
+      },
+    ],
+    attribution: src('Alisher Navoiy', 'Алишер Навои', 'Alisher Navoi'),
+    source: src('«Muhokamat ul-lug‘atayn»', '«Мухокамат ул-лугатайн»', '«Muhakamat al-Lughatayn»'),
+  },
+  events: {
+    id: 'band-events',
+    lines: [
+      {
+        uz: 'Yig‘in — ko‘ngillar birlashgan bir maskan,',
+        ru: 'Собрание — обитель, где соединяются сердца,',
+        en: 'A gathering is a place where hearts unite,',
+      },
+      {
+        uz: 'Suhbat ila ortar hikmatu ma’rifat.',
+        ru: 'Беседой умножаются мудрость и просвещение.',
+        en: 'Through conversation wisdom and enlightenment grow.',
+      },
+      {
+        uz: 'Har uchrashuv — yangi bir bilim eshigi,',
+        ru: 'Каждая встреча — новая дверь к знанию,',
+        en: 'Every meeting is a new door to knowledge,',
+      },
+      {
+        uz: 'Hamnafaslik — ulug‘ ishlarning boshlanishi.',
+        ru: 'Единодушие — начало великих дел.',
+        en: 'Unity of spirit is the beginning of great deeds.',
+      },
+    ],
+    attribution: src('Alisher Navoiy merosi ruhida', 'В духе наследия Навои', 'In the spirit of Navoi’s heritage'),
+    source: src('«Majolis un-nafois» ruhida', 'В духе «Маджолис ун-нафоис»', 'In the spirit of «Majolis un-Nafais»'),
+  },
+  future: {
+    id: 'band-future',
+    lines: [
+      {
+        uz: 'Kelajak — bugungi mehnatning mevasi,',
+        ru: 'Будущее — плод сегодняшнего труда,',
+        en: 'The future is the fruit of today’s labour,',
+      },
+      {
+        uz: 'Yoshlik — ulug‘ ishlarning boshlanishi.',
+        ru: 'Юность — начало великих свершений.',
+        en: 'Youth is the beginning of great undertakings.',
+      },
+      {
+        uz: 'Har yangi avlod — yangi bir tong nuri,',
+        ru: 'Каждое новое поколение — свет нового рассвета,',
+        en: 'Every new generation is the light of a new dawn,',
+      },
+      {
+        uz: 'Ilm-u g‘ayrat bila kelajak quriladi.',
+        ru: 'Знанием и усердием строится будущее.',
+        en: 'With knowledge and zeal the future is built.',
+      },
+    ],
+    attribution: src('Alisher Navoiy merosi ruhida', 'В духе наследия Навои', 'In the spirit of Navoi’s heritage'),
+    source: src('«Saddi Iskandariy» ruhida', 'В духе «Садди Искандарий»', 'In the spirit of «Sadd-i Iskandari»'),
+  },
 };
 
 /** Marshrut bo‘yicha sahifa oxiri iqtibosini tanlash */
+export const ALL_NAVOIY_BANDS_LIST = Object.values(NAVOIY_PAGE_BANDS);
+
+const LAST_BAND_KEY = 'navdu_last_navoi_band_id';
+
+/** Random tanlaydi, lekin joriy sessiyada oxirgi ko'rsatilgan iqtibosni takrorlamaydi */
+export function getRandomNavoiBand(): NavoiBandQuote {
+  let lastId: string | null = null;
+  try {
+    lastId = sessionStorage.getItem(LAST_BAND_KEY);
+  } catch {
+    lastId = null;
+  }
+
+  const pool =
+    lastId && ALL_NAVOIY_BANDS_LIST.length > 1
+      ? ALL_NAVOIY_BANDS_LIST.filter((q) => q.id !== lastId)
+      : ALL_NAVOIY_BANDS_LIST;
+
+  const chosen = pool[Math.floor(Math.random() * pool.length)];
+
+  try {
+    sessionStorage.setItem(LAST_BAND_KEY, chosen.id);
+  } catch {
+    // sessionStorage mavjud bo'lmasa e'tiborsiz qoldiriladi
+  }
+
+  return chosen;
+}
+
 export function getNavoiBandForPath(pathname: string): NavoiBandQuote {
-  if (pathname === '/' || pathname === '') return NAVOIY_PAGE_BANDS.home;
-  if (pathname.startsWith('/fakultet/tarix') || pathname.startsWith('/fakultet/faxriy')) {
-    return NAVOIY_PAGE_BANDS.history;
-  }
-  if (pathname.startsWith('/fakultet/rahbariyat')) return NAVOIY_PAGE_BANDS.leadership;
-  if (pathname.startsWith('/fakultet/tuzilma')) return NAVOIY_PAGE_BANDS.structure;
-  if (pathname.startsWith('/talim')) return NAVOIY_PAGE_BANDS.programs;
-  if (pathname.startsWith('/jamoa/professor')) return NAVOIY_PAGE_BANDS.professors;
-  if (pathname.startsWith('/jamoa/tyutor') || pathname.startsWith('/jamoa/guruh')) {
-    return NAVOIY_PAGE_BANDS.tutors;
-  }
-  if (pathname.startsWith('/talabalar')) return NAVOIY_PAGE_BANDS.students;
-  if (pathname.startsWith('/ilm-fan')) return NAVOIY_PAGE_BANDS.science;
-  if (pathname.startsWith('/yangiliklar')) return NAVOIY_PAGE_BANDS.news;
-  if (pathname.startsWith('/aloqa')) return NAVOIY_PAGE_BANDS.contact;
-  return NAVOIY_PAGE_BANDS.home;
+  // Tasodifiy ko'rinish uchun random navoi band qaytariladi (oxirgisi takrorlanmaydi)
+  return getRandomNavoiBand();
 }
 
 /** @deprecated — Layout path asosida ishlating */

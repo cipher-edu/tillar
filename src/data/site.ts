@@ -1,8 +1,8 @@
 import type { ContactInfo, FacultyStats, Partner, LocaleString } from '@/types';
 
 /**
- * Manba: Tillar fakulteti 2025вЂ“2026 oвЂquv yili hisoboti (UMUMIY MAвЂ™LUMOTLAR)
- * Navoiy davlat universiteti вЂ” Tillar fakulteti
+ * Manba: Tillar fakulteti 2025–2026 o‘quv yili hisoboti (UMUMIY MA’LUMOTLAR)
+ * Navoiy davlat universiteti — Tillar fakulteti
  */
 export const stats: FacultyStats = {
   students: 3394,
@@ -15,14 +15,14 @@ export const stats: FacultyStats = {
 
 /** Fakultet haqida qisqa matn (landing / tarix) */
 export const facultyOverview: LocaleString = {
-  uz: "Tillar fakulteti Navoiy davlat universitetining chet tillari, oвЂzbek va rus tilshunosligi yoвЂnalishlarida kadrlar tayyorlovchi yetakchi fakultetlaridan biri hisoblanadi. Fakultet tarkibida 7 ta kafedra faoliyat yuritadi. 2025вЂ“2026 oвЂquv yilida jami 3394 nafar talaba tahsil oldi (3217 bakalavriat, 177 magistratura); 148 nafar professor-oвЂqituvchi ishlaydi, ilmiy salohiyat 40%.",
-  ru: 'Р¤Р°РєСѓР»СЊС‚РµС‚ СЏР·С‹РєРѕРІ вЂ” РѕРґРёРЅ РёР· РІРµРґСѓС‰РёС… С„Р°РєСѓР»СЊС‚РµС‚РѕРІ РќР°РІРѕРёР№СЃРєРѕРіРѕ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅРѕРіРѕ СѓРЅРёРІРµСЂСЃРёС‚РµС‚Р° РїРѕ РїРѕРґРіРѕС‚РѕРІРєРµ РєР°РґСЂРѕРІ РІ РѕР±Р»Р°СЃС‚Рё РёРЅРѕСЃС‚СЂР°РЅРЅС‹С… СЏР·С‹РєРѕРІ, СѓР·Р±РµРєСЃРєРѕРіРѕ Рё СЂСѓСЃСЃРєРѕРіРѕ СЏР·С‹РєРѕР·РЅР°РЅРёСЏ. Р’ СЃРѕСЃС‚Р°РІРµ 7 РєР°С„РµРґСЂ. Р’ 2025вЂ“2026 СѓС‡. Рі. РѕР±СѓС‡Р°Р»РѕСЃСЊ 3394 СЃС‚СѓРґРµРЅС‚Р° (3217 Р±Р°РєР°Р»Р°РІСЂРёР°С‚, 177 РјР°РіРёСЃС‚СЂР°С‚СѓСЂР°); 148 РїСЂРµРїРѕРґР°РІР°С‚РµР»РµР№, РЅР°СѓС‡РЅС‹Р№ РїРѕС‚РµРЅС†РёР°Р» 40%.',
-  en: 'The Faculty of Languages is one of the leading faculties of Navoi State University training specialists in foreign languages and Uzbek and Russian linguistics. It comprises 7 departments. In 2025вЂ“2026, 3,394 students studied (3,217 bachelor, 177 master); 148 academic staff; research capacity 40%.',
+  uz: "Tillar fakulteti Navoiy davlat universitetining chet tillari, o‘zbek va rus tilshunosligi yo‘nalishlarida kadrlar tayyorlovchi yetakchi fakultetlaridan biri hisoblanadi. Fakultet tarkibida 7 ta kafedra faoliyat yuritadi. 2025–2026 o‘quv yilida jami 3394 nafar talaba tahsil oldi (3217 bakalavriat, 177 magistratura); 148 nafar professor-o‘qituvchi ishlaydi, ilmiy salohiyat 40%.",
+  ru: 'Факультет языков — один из ведущих факультетов Навоийского государственного университета по подготовке кадров в области иностранных языков, узбекского и русского языкознания. В составе 7 кафедр. В 2025–2026 уч. г. обучалось 3394 студента (3217 бакалавриат, 177 магистратура); 148 преподавателей, научный потенциал 40%.',
+  en: 'The Faculty of Languages is one of the leading faculties of Navoi State University training specialists in foreign languages and Uzbek and Russian linguistics. It comprises 7 departments. In 2025–2026, 3,394 students studied (3,217 bachelor, 177 master); 148 academic staff; research capacity 40%.',
 };
 
-/** QoвЂshimcha faktlar вЂ” 2025вЂ“2026 hisobot */
+/** Qo‘shimcha faktlar — 2025–2026 hisobot */
 export const facultyFacts = {
-  academicYear: '2025вЂ“2026',
+  academicYear: '2025–2026',
   bachelorStudents: 3217,
   masterStudents: 177,
   /** Bakalavriat kurslar kesimida */
@@ -60,13 +60,13 @@ export const facultyFacts = {
   clubs: 10,
   clubMembers: 470,
   initiatives: 5,
-  /** Oliy oвЂquv yurtidan keyingi taвЂ™lim вЂ” jami 105 */
+  /** Oliy o‘quv yurtidan keyingi ta’lim — jami 105 */
   postgradTotal: 105,
   dscStudents: 6,
   phdStudents: 77,
   independentResearchers: 19,
   internResearchers: 3,
-  /** Professor-oвЂqituvchilar tarkibi */
+  /** Professor-o‘qituvchilar tarkibi */
   staffDoctors: 8,
   staffDoctorsPercent: 5.4,
   staffCandidates: 61,
@@ -80,7 +80,7 @@ export const facultyFacts = {
   graduatesEmployed: 549,
   graduatesMonitoring: 468,
   privilegedDiplomas: 16,
-  /** Kafedralar boвЂyicha ilmiy salohiyat (%) */
+  /** Kafedralar bo‘yicha ilmiy salohiyat (%) */
   deptPotential: {
     englishLing: 24,
     englishPractical: 18,
@@ -92,11 +92,11 @@ export const facultyFacts = {
   },
 };
 
-/** Xalqaro hamkorlik вЂ” hisobotdagi 9 ta xorijiy OTM/markaz */
+/** Xalqaro hamkorlik — hisobotdagi 9 ta xorijiy OTM/markaz */
 export const partners: Partner[] = [
   { id: 'pt-1', name: 'Kazan Federal University', logoText: 'KFU', country: 'Russia', region: 'cis' },
   { id: 'pt-2', name: 'M. Auezov South Kazakhstan University', logoText: 'AUEZOV', country: 'Kazakhstan', region: 'cis' },
-  { id: 'pt-3', name: 'NILE вЂ” Norwich Institute for Language Education', logoText: 'NILE', country: 'United Kingdom', region: 'europe' },
+  { id: 'pt-3', name: 'NILE — Norwich Institute for Language Education', logoText: 'NILE', country: 'United Kingdom', region: 'europe' },
   { id: 'pt-4', name: 'Baku State University', logoText: 'BSU', country: 'Azerbaijan', region: 'cis' },
   { id: 'pt-5', name: 'St. Petersburg State University of Economics', logoText: 'UNECON', country: 'Russia', region: 'cis' },
   { id: 'pt-6', name: 'Novosibirsk State University', logoText: 'NSU', country: 'Russia', region: 'cis' },
@@ -108,7 +108,7 @@ export const partners: Partner[] = [
 export const contactInfo: ContactInfo = {
   address: {
     uz: 'Navoiy shahri, Navoiy davlat universiteti, Tillar fakulteti',
-    ru: 'Рі. РќР°РІРѕРё, РќР°РІРѕРёР№СЃРєРёР№ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹Р№ СѓРЅРёРІРµСЂСЃРёС‚РµС‚, Р¤Р°РєСѓР»СЊС‚РµС‚ СЏР·С‹РєРѕРІ',
+    ru: 'г. Навои, Навоийский государственный университет, Факультет языков',
     en: 'Navoi city, Navoi State University, Faculty of Languages',
   },
   phone: '+998 79 123 45 67',
@@ -121,24 +121,24 @@ export const contactInfo: ContactInfo = {
   ],
   units: [
     {
-      name: { uz: 'Dekanat', ru: 'Р”РµРєР°РЅР°С‚', en: "DeanвЂ™s office" },
+      name: { uz: 'Dekanat', ru: 'Деканат', en: "Dean’s office" },
       phone: '+998 79 123 45 01',
       email: 'dekanat@navoiyuni.uz',
     },
     {
-      name: { uz: "O'quv bo'limi", ru: 'РЈС‡РµР±РЅС‹Р№ РѕС‚РґРµР»', en: 'Academic office' },
+      name: { uz: "O'quv bo'limi", ru: 'Учебный отдел', en: 'Academic office' },
       phone: '+998 79 123 45 02',
       email: 'edu@navoiyuni.uz',
     },
     {
-      name: { uz: 'Ilmiy boвЂlim', ru: 'РќР°СѓС‡РЅС‹Р№ РѕС‚РґРµР»', en: 'Research office' },
+      name: { uz: 'Ilmiy bo‘lim', ru: 'Научный отдел', en: 'Research office' },
       phone: '+998 79 123 45 03',
       email: 'science@navoiyuni.uz',
     },
   ],
 };
 
-/** Hero slayder вЂ” 2025вЂ“2026 hisobot raqamlari */
+/** Hero slayder — 2025–2026 hisobot raqamlari */
 export const heroSlides = [
   {
     id: 'heritage',
@@ -147,22 +147,22 @@ export const heroSlides = [
     accent: 'blue' as const,
     tag: {
       uz: 'Meros va madaniyat',
-      ru: 'РќР°СЃР»РµРґРёРµ Рё РєСѓР»СЊС‚СѓСЂР°',
+      ru: 'Наследие и культура',
       en: 'Heritage & culture',
     },
     title: {
       uz: 'Tillar orqali\ndunyoga ochilamiz',
-      ru: 'РћС‚РєСЂС‹РІР°РµРј РјРёСЂ\nС‡РµСЂРµР· СЏР·С‹РєРё',
+      ru: 'Открываем мир\nчерез языки',
       en: 'Opening the world\nthrough languages',
     },
     description: {
-      uz: 'Navoiy davlat universiteti Tillar fakulteti вЂ” 3394 talaba, 148 professor-oвЂqituvchi, 7 kafedra, ilmiy salohiyat 40%.',
-      ru: 'Р¤Р°РєСѓР»СЊС‚РµС‚ СЏР·С‹РєРѕРІ РќР°РІРѕРёР№СЃРєРѕРіРѕ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅРѕРіРѕ СѓРЅРёРІРµСЂСЃРёС‚РµС‚Р° вЂ” 3394 СЃС‚СѓРґРµРЅС‚Р°, 148 РїСЂРµРїРѕРґР°РІР°С‚РµР»РµР№, 7 РєР°С„РµРґСЂ, РЅР°СѓС‡РЅС‹Р№ РїРѕС‚РµРЅС†РёР°Р» 40%.',
-      en: 'Faculty of Languages at Navoi State University вЂ” 3,394 students, 148 faculty members, 7 departments, 40% research capacity.',
+      uz: 'Navoiy davlat universiteti Tillar fakulteti — 3394 talaba, 148 professor-o‘qituvchi, 7 kafedra, ilmiy salohiyat 40%.',
+      ru: 'Факультет языков Навоийского государственного университета — 3394 студента, 148 преподавателей, 7 кафедр, научный потенциал 40%.',
+      en: 'Faculty of Languages at Navoi State University — 3,394 students, 148 faculty members, 7 departments, 40% research capacity.',
     },
     ctaLabel: {
       uz: 'Fakultet haqida',
-      ru: 'Рћ С„Р°РєСѓР»СЊС‚РµС‚Рµ',
+      ru: 'О факультете',
       en: 'About the Faculty',
     },
     ctaTo: '/fakultet/tarix',
@@ -174,22 +174,22 @@ export const heroSlides = [
     accent: 'teal' as const,
     tag: {
       uz: "Ta'lim yo'nalishlari",
-      ru: 'РќР°РїСЂР°РІР»РµРЅРёСЏ РѕР±СѓС‡РµРЅРёСЏ',
+      ru: 'Направления обучения',
       en: 'Study programs',
     },
     title: {
       uz: "Zamonaviy til\nta'limi",
-      ru: 'РЎРѕРІСЂРµРјРµРЅРЅРѕРµ\nСЏР·С‹РєРѕРІРѕРµ РѕР±СЂР°Р·РѕРІР°РЅРёРµ',
+      ru: 'Современное\nязыковое образование',
       en: 'Modern language\neducation',
     },
     description: {
       uz: 'Bakalavriat 3217, magistratura 177 talaba. 8 kunduzgi, 2 kechki, 1 sirtqi bakalavriat va 3 magistratura mutaxassisligi.',
-      ru: 'Р‘Р°РєР°Р»Р°РІСЂРёР°С‚ 3217, РјР°РіРёСЃС‚СЂР°С‚СѓСЂР° 177. 8 РѕС‡РЅС‹С…, 2 РІРµС‡РµСЂРЅРёС…, 1 Р·Р°РѕС‡РЅР°СЏ РїСЂРѕРіСЂР°РјРјР° Р±Р°РєР°Р»Р°РІСЂРёР°С‚Р° Рё 3 РјР°РіРёСЃС‚РµСЂСЃРєРёРµ СЃРїРµС†РёР°Р»СЊРЅРѕСЃС‚Рё.',
+      ru: 'Бакалавриат 3217, магистратура 177. 8 очных, 2 вечерних, 1 заочная программа бакалавриата и 3 магистерские специальности.',
       en: 'Bachelor 3,217, master 177 students. 8 full-time, 2 evening, 1 distance bachelor tracks and 3 master specializations.',
     },
     ctaLabel: {
       uz: "Yo'nalishlarni ko'rish",
-      ru: 'РЎРјРѕС‚СЂРµС‚СЊ РЅР°РїСЂР°РІР»РµРЅРёСЏ',
+      ru: 'Смотреть направления',
       en: 'Explore programs',
     },
     ctaTo: '/talim/yonalishlar',
@@ -201,22 +201,22 @@ export const heroSlides = [
     accent: 'blue' as const,
     tag: {
       uz: 'Jamoa va talabalar',
-      ru: 'РЎРѕРѕР±С‰РµСЃС‚РІРѕ Рё СЃС‚СѓРґРµРЅС‚С‹',
+      ru: 'Сообщество и студенты',
       en: 'Community & students',
     },
     title: {
       uz: 'Iqtidor va\njamoa markazi',
-      ru: 'РџСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕ\nС‚Р°Р»Р°РЅС‚РѕРІ',
+      ru: 'Пространство\nталантов',
       en: 'A home for\ntalent',
     },
     description: {
-      uz: '120 maвЂ™naviy-maвЂ™rifiy tadbir (1500+ talaba), 110 sport sovrindori, вЂњYosh koвЂmakchiвЂќ 110 volontyor, 10 toвЂgarak (470 talaba).',
-      ru: '120 РґСѓС…РѕРІРЅРѕ-РїСЂРѕСЃРІРµС‚РёС‚РµР»СЊСЃРєРёС… РјРµСЂРѕРїСЂРёСЏС‚РёР№ (1500+ СЃС‚СѓРґРµРЅС‚РѕРІ), 110 СЃРїРѕСЂС‚РёРІРЅС‹С… РїСЂРёР·С‘СЂРѕРІ, 110 РІРѕР»РѕРЅС‚С‘СЂРѕРІ, 10 РєСЂСѓР¶РєРѕРІ (470 СЃС‚СѓРґРµРЅС‚РѕРІ).',
+      uz: '120 ma’naviy-ma’rifiy tadbir (1500+ talaba), 110 sport sovrindori, “Yosh ko‘makchi” 110 volontyor, 10 to‘garak (470 talaba).',
+      ru: '120 духовно-просветительских мероприятий (1500+ студентов), 110 спортивных призёров, 110 волонтёров, 10 кружков (470 студентов).',
       en: '120 cultural events (1,500+ students), 110 sports awardees, 110 volunteers, 10 clubs (470 members).',
     },
     ctaLabel: {
       uz: 'Talabalar',
-      ru: 'РЎС‚СѓРґРµРЅС‚С‹',
+      ru: 'Студенты',
       en: 'Students',
     },
     ctaTo: '/talabalar',
@@ -228,22 +228,22 @@ export const heroSlides = [
     accent: 'royal' as const,
     tag: {
       uz: 'Xalqaro hamkorlik',
-      ru: 'РњРµР¶РґСѓРЅР°СЂРѕРґРЅРѕРµ СЃРѕС‚СЂСѓРґРЅРёС‡РµСЃС‚РІРѕ',
+      ru: 'Международное сотрудничество',
       en: 'International partners',
     },
     title: {
       uz: "Jahon tillari\nbir tomonda",
-      ru: 'РњРёСЂРѕРІС‹Рµ СЏР·С‹РєРё\nРІ РѕРґРЅРѕРј РјРµСЃС‚Рµ',
+      ru: 'Мировые языки\nв одном месте',
       en: 'World languages\nunder one roof',
     },
     description: {
       uz: '9 xorijiy OTM: KFU, Auezov, NILE, Baku DU, UNECON, NSU, UCSI (Malayziya), Muhammadiyah Jakarta va UMY. 18 xodim malaka oshirdi, 13 xorijiy professor dars berdi.',
-      ru: '9 Р·Р°СЂСѓР±РµР¶РЅС‹С… РІСѓР·РѕРІ: РљР¤РЈ, РђСѓСЌР·РѕРІ, NILE, Р‘Р“РЈ, РЎРџР±Р“Р­РЈ, РќР“РЈ, UCSI, Muhammadiyah Jakarta Рё UMY. 18 СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РїРѕРІС‹СЃРёР»Рё РєРІР°Р»РёС„РёРєР°С†РёСЋ, 13 Р·Р°СЂСѓР±РµР¶РЅС‹С… РїСЂРѕС„РµСЃСЃРѕСЂРѕРІ РїСЂРѕРІРµР»Рё Р·Р°РЅСЏС‚РёСЏ.',
+      ru: '9 зарубежных вузов: КФУ, Ауэзов, NILE, БГУ, СПбГЭУ, НГУ, UCSI, Muhammadiyah Jakarta и UMY. 18 сотрудников повысили квалификацию, 13 зарубежных профессоров провели занятия.',
       en: '9 foreign HEIs: KFU, Auezov, NILE, Baku State, UNECON, NSU, UCSI, Muhammadiyah Jakarta and UMY. 18 staff trained abroad; 13 foreign professors taught.',
     },
     ctaLabel: {
       uz: 'Professorlar',
-      ru: 'РџСЂРµРїРѕРґР°РІР°С‚РµР»Рё',
+      ru: 'Преподаватели',
       en: 'Professors',
     },
     ctaTo: '/jamoa/professorlar',

@@ -19,7 +19,7 @@ export const TutorsPage: React.FC = () => {
     if (!tutor || !group) {
       return (
         <PageShell title={t('empty')}>
-          <p className="text-center text-xl italic text-slate-400">{t('empty')}</p>
+          <p className="text-center text-sm font-semibold text-slate-400">{t('empty')}</p>
         </PageShell>
       );
     }
@@ -28,44 +28,44 @@ export const TutorsPage: React.FC = () => {
 
     return (
       <PageShell title={L(group.name)}>
-        <div className="mb-6">
-          <Link to={personPath(tutor)} className="text-[11px] font-black uppercase tracking-widest text-[#013d8c] font-ui">
-            в†ђ {L(tutor.name)}
+        <div className="mb-6 font-sans">
+          <Link to={personPath(tutor)} className="text-[11px] font-black uppercase tracking-widest text-[#002E69] hover:underline ">
+            ← {L(tutor.name)}
           </Link>
         </div>
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 font-sans">
           <div className="lg:col-span-2 space-y-8">
-            <div className="glass-card p-8 rounded-[3rem] border-[#d6e6f7]">
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-[#043b87] mb-4 font-ui">{t('nav_students')}</h3>
+            <div className="bg-white p-8 border border-[#E1E1E1] ">
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-4 ">{t('nav_students')}</h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 {students.map((s) => (
-                  <Link key={s.id} to={personPath(s)} className="flex items-center gap-3 p-3 rounded-2xl bg-white border border-blue-100 hover:border-[#b6c6d7]">
-                    <img src={s.photo} alt="" className="w-12 h-12 rounded-xl object-cover" />
-                    <span className="font-classic">{L(s.name)}</span>
+                  <Link key={s.id} to={personPath(s)} className="flex items-center gap-3 p-3 bg-white border border-[#E1E1E1] hover:border-[#013D8C]/40 transition-all">
+                    <img src={s.photo} alt="" className="w-10 h-10 object-cover" />
+                    <span className="font-bold text-slate-900 text-sm ">{L(s.name)}</span>
                   </Link>
                 ))}
               </div>
             </div>
-            <div className="glass-card p-8 rounded-[3rem] border-[#d6e6f7]">
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-[#043b87] mb-4 font-ui">{t('tutors_activity')}</h3>
+            <div className="bg-white p-8 border border-[#E1E1E1] ">
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-4 ">{t('tutors_activity')}</h3>
               <div className="space-y-4">
                 {activities.map((a) => (
-                  <div key={a.id} className="p-5 rounded-2xl bg-[#eff7ff]/50 border border-blue-100">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1 font-ui">{a.date}</p>
-                    <h4 className="font-classic text-xl mb-2">{L(a.title)}</h4>
-                    <p className="italic font-serif-classic text-slate-600">{L(a.description)}</p>
+                  <div key={a.id} className="p-4 bg-[#F0F6FE] border border-[#013D8C]/20">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-[#002E69] mb-1 ">{a.date}</p>
+                    <h4 className="font-black text-slate-900 text-base mb-1 ">{L(a.title)}</h4>
+                    <p className="text-xs text-slate-600 font-medium leading-relaxed">{L(a.description)}</p>
                   </div>
                 ))}
-                {activities.length === 0 && <p className="italic text-slate-400">{t('empty')}</p>}
+                {activities.length === 0 && <p className="text-xs text-slate-400 font-medium">{t('empty')}</p>}
               </div>
             </div>
           </div>
-          <div className="glass-card p-8 rounded-[3rem] border-[#d6e6f7] h-fit">
-            <h3 className="text-[10px] font-black uppercase tracking-widest text-[#043b87] mb-4 font-ui">{t('profile_achievements')}</h3>
-            <ul className="space-y-3">
+          <div className="bg-white p-8 border border-[#E1E1E1] h-fit">
+            <h3 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-4 ">{t('profile_achievements')}</h3>
+            <ul className="space-y-2.5">
               {group.achievements.map((ach, i) => (
-                <li key={i} className="flex gap-2 text-lg italic font-serif-classic text-slate-700">
-                  <span className="text-[#043b87]">вњ¦</span> {L(ach)}
+                <li key={i} className="flex gap-2 text-xs font-semibold text-slate-700">
+                  <span className="text-[#013D8C]">✓</span> {L(ach)}
                 </li>
               ))}
             </ul>
@@ -90,37 +90,37 @@ export const TutorsPage: React.FC = () => {
 
     return (
       <PageShell title={L(tutor.name)}>
-        <div className="mb-6">
-          <Link to="/jamoa/tyutorlar" className="text-[11px] font-black uppercase tracking-widest text-[#013d8c] font-ui">
-            в†ђ {t('back')}
+        <div className="mb-6 font-sans">
+          <Link to="/jamoa/tyutorlar" className="text-[11px] font-black uppercase tracking-widest text-[#002E69] hover:underline ">
+            ← {t('back')}
           </Link>
         </div>
-        <div className="glass-card rounded-[3rem] border-[#d6e6f7] p-6 md:p-10 mb-10">
+        <div className="bg-white border border-[#E1E1E1] p-6 md:p-10 mb-8 font-sans">
           <PersonProfile person={tutor} />
         </div>
-        <div className="grid lg:grid-cols-2 gap-8">
-          <div className="glass-card p-8 rounded-[3rem] border-[#d6e6f7]">
-            <h3 className="text-[10px] font-black uppercase tracking-widest text-[#043b87] mb-4 font-ui">{t('tutors_groups')}</h3>
+        <div className="grid lg:grid-cols-2 gap-8 font-sans">
+          <div className="bg-white p-8 border border-[#E1E1E1] ">
+            <h3 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-4 ">{t('tutors_groups')}</h3>
             <div className="space-y-3">
               {tutorGroups.map((g) => (
                 <Link
                   key={g.id}
                   to={groupPath(tutor.slug, g.id)}
-                  className="block p-5 rounded-2xl bg-white border border-blue-100 hover:border-[#b6c6d7]"
+                  className="block p-4 bg-white border border-[#E1E1E1] hover:border-[#013D8C]/40 shadow-2xs transition-all"
                 >
-                  <p className="font-classic text-xl">{L(g.name)}</p>
-                  <p className="text-sm text-slate-500 mt-1">{g.studentIds.length} {t('nav_students').toLowerCase()}</p>
+                  <p className="font-black text-slate-900 text-base ">{L(g.name)}</p>
+                  <p className="text-xs text-slate-500 font-medium mt-1">{g.studentIds.length} {t('nav_students').toLowerCase()}</p>
                 </Link>
               ))}
             </div>
           </div>
-          <div className="glass-card p-8 rounded-[3rem] border-[#d6e6f7]">
-            <h3 className="text-[10px] font-black uppercase tracking-widest text-[#043b87] mb-4 font-ui">{t('tutors_activity')}</h3>
+          <div className="bg-white p-8 border border-[#E1E1E1] ">
+            <h3 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-4 ">{t('tutors_activity')}</h3>
             <div className="space-y-3">
               {activities.map((a) => (
-                <div key={a.id} className="p-4 rounded-2xl bg-[#eff7ff]/40 border border-blue-100">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 font-ui">{a.date}</p>
-                  <p className="font-classic text-lg mt-1">{L(a.title)}</p>
+                <div key={a.id} className="p-3.5 bg-[#F0F6FE] border border-[#013D8C]/20">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#002E69] ">{a.date}</p>
+                  <p className="font-bold text-slate-900 text-xs mt-1 ">{L(a.title)}</p>
                 </div>
               ))}
             </div>
@@ -132,23 +132,25 @@ export const TutorsPage: React.FC = () => {
 
   return (
     <PageShell title={t('nav_tutors')}>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 font-sans">
         {tutors.map((tutor) => {
           const count = groups.filter((g) => g.tutorId === tutor.id).length;
           return (
             <Link
               key={tutor.id}
               to={personPath(tutor)}
-              className="glass-card p-8 rounded-[3rem] border-[#d6e6f7] text-center hover:shadow-2xl transition-all group"
+              className="gov-card p-6 border border-[#E1E1E1] bg-white text-center hover:transition-all group flex flex-col items-center justify-between"
             >
-              <img
-                src={tutor.photo}
-                alt=""
-                className="w-32 h-32 rounded-[2rem] object-cover mx-auto mb-6 border-2 border-[#d6e6f7] grayscale group-hover:grayscale-0 transition-all"
-              />
-              <h3 className="text-2xl font-classic text-slate-900 group-hover:text-[#013d8c]">{L(tutor.name)}</h3>
-              <p className="text-sm italic text-slate-500 mt-2 mb-4">{L(tutor.position)}</p>
-              <span className="inline-flex px-4 py-1.5 rounded-full bg-[#eff7ff] text-[#013d8c] text-[10px] font-black uppercase tracking-widest font-ui">
+              <div>
+                <img
+                  src={tutor.photo}
+                  alt=""
+                  className="w-28 h-28 object-cover mx-auto mb-4 border border-[#E1E1E1] group-transition-all duration-300"
+                />
+                <h3 className="text-base font-black text-slate-900 group-hover:text-[#013D8C] transition-colors ">{L(tutor.name)}</h3>
+                <p className="text-xs text-slate-500 font-medium mt-1 mb-4">{L(tutor.position)}</p>
+              </div>
+              <span className="inline-flex px-3 py-1 rounded-full bg-[#F0F6FE] text-[#002E69] border border-[#013D8C]/25 text-[10px] font-extrabold uppercase tracking-wider ">
                 {count} {t('tutors_groups').toLowerCase()}
               </span>
             </Link>

@@ -93,7 +93,7 @@ export const NavoiHeritageBand: React.FC<NavoiHeritageBandProps> = ({
 
           {/* 4 misra kartasi */}
           <div
-            className={`relative mx-auto rounded-[2rem] md:rounded-[2.75rem] border-2 border-amber-400/40 bg-slate-950/90 backdrop-blur-md shadow-2xl overflow-hidden group hover:border-amber-300/70 transition-colors duration-500 ${
+            className={`relative mx-auto rounded-[2rem] md:rounded-[2.75rem] border-2 border-amber-400/40 bg-slate-950/90 backdrop-blur-md overflow-hidden group hover:border-amber-300/70 transition-colors duration-500 ${
               isCompact ? 'px-6 py-8 md:px-10 md:py-9' : 'px-7 py-10 md:px-14 md:py-12'
             }`}
           >

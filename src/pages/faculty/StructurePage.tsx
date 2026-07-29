@@ -17,39 +17,39 @@ export const StructurePage: React.FC = () => {
 
     return (
       <PageShell title={L(detail.name)}>
-        <div className="mb-6">
-          <Link to="/fakultet/tuzilma" className="text-[11px] font-black uppercase tracking-widest text-[#013d8c] font-ui">
-            в†ђ {t('back')}
+        <div className="mb-6 font-sans">
+          <Link to="/fakultet/tuzilma" className="text-[11px] font-black uppercase tracking-widest text-[#002E69] hover:underline ">
+            ← {t('back')}
           </Link>
         </div>
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 font-sans">
           <div className="lg:col-span-2 space-y-8">
-            <div className="glass-card p-10 rounded-[3rem] border-[#d6e6f7]">
-              <p className="text-2xl italic font-serif-classic text-slate-700 leading-relaxed">{L(detail.description)}</p>
+            <div className="bg-white p-8 md:p-10 border border-[#E1E1E1] ">
+              <p className="text-sm md:text-base text-slate-700 leading-relaxed font-medium">{L(detail.description)}</p>
             </div>
             <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-4 font-ui">
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-4 ">
                 {t('structure_research')}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {detail.researchAreas.map((area, i) => (
-                  <span key={i} className="px-5 py-2 rounded-full bg-slate-900 text-blue-100 text-[10px] font-black uppercase tracking-widest font-ui">
+                  <span key={i} className="px-4 py-2 bg-[#F0F6FE] text-[#002E69] border border-[#013D8C]/20 text-[10px] font-extrabold uppercase tracking-wider ">
                     {L(area)}
                   </span>
                 ))}
               </div>
             </div>
             <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-4 font-ui">
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-4 ">
                 {t('structure_staff')}
               </h3>
               <div className="grid sm:grid-cols-2 gap-4">
                 {staff.map((p) => (
-                  <Link key={p.id} to={personPath(p)} className="flex items-center gap-4 p-4 glass-card rounded-[2rem] border-blue-100 hover:border-[#b6c6d7]">
-                    <img src={p.photo} alt="" className="w-14 h-14 rounded-2xl object-cover" />
+                  <Link key={p.id} to={personPath(p)} className="flex items-center gap-4 p-4 bg-white border border-[#E1E1E1] hover:border-[#013D8C]/40 transition-all">
+                    <img src={p.photo} alt="" className="w-14 h-14 object-cover" />
                     <div>
-                      <p className="font-classic text-lg">{L(p.name)}</p>
-                      <p className="text-sm italic text-slate-500">{L(p.position)}</p>
+                      <p className="font-bold text-slate-900 text-sm ">{L(p.name)}</p>
+                      <p className="text-xs text-slate-500 font-medium">{L(p.position)}</p>
                     </div>
                   </Link>
                 ))}
@@ -57,12 +57,12 @@ export const StructurePage: React.FC = () => {
             </div>
           </div>
           {head && (
-            <div className="glass-card p-8 rounded-[3rem] border-[#d6e6f7] h-fit">
-              <p className="text-[10px] font-black uppercase tracking-widest text-[#043b87] mb-4 font-ui">{t('structure_head')}</p>
+            <div className="bg-white p-8 border border-[#E1E1E1] h-fit">
+              <p className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-4 ">{t('structure_head')}</p>
               <Link to={personPath(head)} className="block text-center group">
-                <img src={head.photo} alt="" className="w-32 h-32 rounded-[2rem] object-cover mx-auto mb-4 border-2 border-[#d6e6f7]" />
-                <h3 className="font-classic text-2xl group-hover:text-[#013d8c]">{L(head.name)}</h3>
-                <p className="text-sm italic text-slate-500 mt-2">{L(head.degree)}</p>
+                <img src={head.photo} alt="" className="w-32 h-32 object-cover mx-auto mb-4 border border-[#E1E1E1] " />
+                <h3 className="font-black text-lg text-slate-900 group-hover:text-[#013D8C] transition-colors ">{L(head.name)}</h3>
+                <p className="text-xs text-slate-500 font-medium mt-1">{L(head.degree)}</p>
               </Link>
             </div>
           )}
@@ -73,24 +73,30 @@ export const StructurePage: React.FC = () => {
 
   return (
     <PageShell title={t('nav_structure')}>
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-6 font-sans">
         {departments.map((dep) => {
           const head = getPerson(dep.headId);
           return (
             <Link
               key={dep.id}
               to={`/fakultet/tuzilma/${dep.slug}`}
-              className="glass-card p-10 md:p-12 rounded-[3rem] border-[#d6e6f7] hover:shadow-2xl transition-all group relative overflow-hidden"
+              className="gov-card p-6 md:p-8 border border-[#E1E1E1] bg-white hover:transition-all group relative overflow-hidden flex flex-col justify-between"
             >
-              <div className="absolute inset-0 royal-gradient opacity-0 group-hover:opacity-[0.03] transition-opacity" />
-              <h3 className="text-2xl md:text-3xl font-classic text-slate-900 mb-4 group-hover:text-[#013d8c] transition-colors">
-                {L(dep.name)}
-              </h3>
-              <p className="text-lg italic font-serif-classic text-slate-600 mb-6 line-clamp-3">{L(dep.description)}</p>
+              <div>
+                <h3 className="text-lg md:text-xl font-black text-slate-900 mb-3 group-hover:text-[#013D8C] transition-colors ">
+                  {L(dep.name)}
+                </h3>
+                <p className="text-xs text-slate-600 font-medium mb-6 line-clamp-3 leading-relaxed">{L(dep.description)}</p>
+              </div>
               {head && (
-                <p className="text-[11px] font-black uppercase tracking-widest text-[#043b87] font-ui">
-                  {t('structure_head')}: {L(head.name)}
-                </p>
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#002E69] ">
+                    {t('structure_head')}: {L(head.name)}
+                  </span>
+                  <span className="text-[10px] font-bold text-[#013D8C] group-hover:underline">
+                    Batafsil →
+                  </span>
+                </div>
               )}
             </Link>
           );

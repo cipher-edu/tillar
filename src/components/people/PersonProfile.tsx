@@ -27,157 +27,204 @@ export const PersonProfile: React.FC<PersonProfileProps> = ({ person, compact = 
   const tutor = group ? getPerson(group.tutorId) : undefined;
 
   return (
-    <div className={compact ? 'p-8 md:p-12' : ''}>
-      <div className={`grid ${compact ? 'lg:grid-cols-[280px_1fr]' : 'lg:grid-cols-[320px_1fr]'} gap-10`}>
-        <div className="space-y-6">
-          <div className={`overflow-hidden rounded-[2.5rem] shadow-2xl border-2 border-[#d6e6f7] ${person.isMemorial ? 'grayscale' : ''}`}>
-            <img src={person.photo} alt={L(person.name)} className="w-full aspect-square object-cover" />
+    <div className={`font-sans text-slate-900 ${compact ? 'p-5 sm:p-6' : ''}`}>
+      {/* Official gov.uz Header Hero Persona Card */}
+      <div className="border border-[#E1E1E1] bg-white overflow-hidden mb-8">
+        <div className="bg-gradient-to-r from-[#002E69] via-[#013D8C] to-[#002E69] px-6 py-3 text-white flex items-center justify-between gap-4 ">
+          <div className="flex items-center gap-2">
+            <div className="w-2.5 h-2.5 rounded-full bg-[#013D8C] animate-pulse" />
+            <span className="text-[10px] font-black uppercase tracking-widest text-blue-100">
+              Navoiy davlat universiteti Tillar fakulteti
+            </span>
           </div>
-          <div className="space-y-3">
-            {person.email && (
-              <a href={`mailto:${person.email}`} className="flex items-center gap-3 text-slate-700 hover:text-[#013d8c]">
-                <Mail className="w-4 h-4 text-[#043b87]" /> {person.email}
-              </a>
-            )}
-            {person.phone && (
-              <p className="flex items-center gap-3 text-slate-700">
-                <Phone className="w-4 h-4 text-[#043b87]" /> {person.phone}
-              </p>
-            )}
-            {person.officeHours && (
-              <p className="flex items-center gap-3 text-slate-700">
-                <Clock className="w-4 h-4 text-[#043b87]" /> {L(person.officeHours)}
-              </p>
-            )}
-            {person.external?.scholar && (
-              <a href={person.external.scholar} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-[#013d8c] hover:underline">
-                <ExternalLink className="w-4 h-4" /> Google Scholar
-              </a>
-            )}
-            {person.external?.orcid && (
-              <a href={person.external.orcid} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-[#013d8c] hover:underline">
-                <ExternalLink className="w-4 h-4" /> ORCID
-              </a>
-            )}
-          </div>
+          <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-300 hidden sm:inline">
+            Rasmiy Rahbariyat Profili
+          </span>
         </div>
 
-        <div className="space-y-8">
-          <div>
+        <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+          {/* Portrait Photo */}
+          <div className="relative shrink-0 w-36 h-48 sm:w-44 sm:h-56 mx-auto md:mx-0 overflow-hidden border-2 border-white bg-slate-100 ring-1 ring-[#E1E1E1]">
+            <img
+              src={person.photo}
+              alt={L(person.name)}
+              className={`w-full h-full object-cover object-top ${
+                person.isMemorial ? 'grayscale' : ''
+              }`}
+            />
             {person.isMemorial && (
-              <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-slate-200 text-slate-700 text-[10px] font-black uppercase tracking-widest font-ui">
-                вњ¦ {t('honorary_memory')}
+              <span className="absolute bottom-0 inset-x-0 bg-slate-900/90 text-white text-[9px] text-center py-1 font-extrabold uppercase tracking-wider">
+                ❖ Xotira
               </span>
             )}
-            <h2 className="text-4xl md:text-6xl font-classic font-black text-slate-950 uppercase leading-none mb-3">
-              {L(person.name)}
-            </h2>
-            {person.position && (
-              <p className="text-2xl italic font-serif-classic text-[#013d8c] mb-2">{L(person.position)}</p>
-            )}
-            {person.degree && (
-              <p className="flex items-center gap-2 text-slate-500 uppercase tracking-widest text-xs font-ui">
-                <GraduationCap className="w-4 h-4 text-[#043b87]" /> {L(person.degree)}
-              </p>
-            )}
-            {person.yearsActive && (
-              <p className="mt-2 text-sm font-black uppercase tracking-widest text-slate-400 font-ui">{person.yearsActive}</p>
-            )}
-            {person.badges && (
-              <div className="flex flex-wrap gap-2 mt-4">
-                {person.badges.map((b) => (
-                  <StudentBadgePill key={b} badge={b} />
-                ))}
+          </div>
+
+          {/* Core Info & Direct Contact Actions */}
+          <div className="flex-1 min-w-0 space-y-3.5 text-center md:text-left">
+            <div>
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-2">
+                <span className="px-2.5 py-0.5 rounded bg-[#F0F6FE] text-[#002E69] border border-[#013D8C]/25 text-[10px] font-black uppercase tracking-wider ">
+                  {person.position ? L(person.position) : 'Rahbariyat'}
+                </span>
+                {person.degree && (
+                  <span className="px-2.5 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-bold uppercase tracking-wider ">
+                    {L(person.degree)}
+                  </span>
+                )}
+              </div>
+
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 uppercase leading-snug ">
+                {L(person.name)}
+              </h1>
+            </div>
+
+            {/* Quick Contact & Reception Hours Badges */}
+            <div className="grid sm:grid-cols-2 gap-2.5 pt-2 text-xs font-medium">
+              {person.officeHours && (
+                <div className="flex items-center gap-2 p-2.5 bg-[#F0F6FE] border border-[#013D8C]/20 text-slate-800">
+                  <Clock className="w-4 h-4 text-[#002E69] shrink-0" />
+                  <span className="truncate"><strong>Qabul:</strong> {L(person.officeHours)}</span>
+                </div>
+              )}
+              {person.phone && (
+                <a href={`tel:${person.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 p-2.5 bg-[#F0F6FE] border border-[#013D8C]/20 text-slate-800 hover:text-[#013D8C] transition-colors ">
+                  <Phone className="w-4 h-4 text-[#002E69] shrink-0" />
+                  <span className="truncate"><strong>Tel:</strong> {person.phone}</span>
+                </a>
+              )}
+              {person.email && (
+                <a href={`mailto:${person.email}`} className="flex items-center gap-2 p-2.5 bg-[#F0F6FE] border border-[#013D8C]/20 text-slate-800 hover:text-[#013D8C] transition-colors truncate">
+                  <Mail className="w-4 h-4 text-[#002E69] shrink-0" />
+                  <span className="truncate"><strong>Email:</strong> {person.email}</span>
+                </a>
+              )}
+              <Link to="/aloqa" className="flex items-center justify-center gap-1.5 p-2.5 bg-[#002E69] text-white hover:bg-[#013D8C] transition-colors font-bold text-xs uppercase tracking-wider shadow-2xs">
+                <span>Qabulxonaga yozilish</span>
+              </Link>
+            </div>
+
+            {/* External Academic Links */}
+            {(person.external?.scholar || person.external?.orcid) && (
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-1">
+                {person.external?.scholar && (
+                  <a href={person.external.scholar} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#013D8C] hover:underline ">
+                    <ExternalLink className="w-3.5 h-3.5" /> Google Scholar Profil
+                  </a>
+                )}
+                {person.external?.orcid && (
+                  <a href={person.external.orcid} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#013D8C] hover:underline ">
+                    <ExternalLink className="w-3.5 h-3.5" /> ORCID iD
+                  </a>
+                )}
               </div>
             )}
           </div>
-
-          {(department || program || group) && (
-            <div className="flex flex-wrap gap-3 text-sm">
-              {department && (
-                <Link to={`/fakultet/tuzilma/${department.slug}`} className="px-4 py-2 rounded-full bg-white border border-[#d6e6f7] text-[#013d8c] hover:bg-[#eff7ff]">
-                  {L(department.name)}
-                </Link>
-              )}
-              {program && (
-                <Link to={`/talim/yonalishlar/${program.slug}`} className="px-4 py-2 rounded-full bg-white border border-[#d6e6f7] text-[#013d8c] hover:bg-[#eff7ff]">
-                  {L(program.name)}
-                  {person.course ? ` В· ${person.course}` : ''}
-                </Link>
-              )}
-              {group && tutor && (
-                <Link to={groupPath(tutor.slug, group.id)} className="px-4 py-2 rounded-full bg-white border border-[#d6e6f7] text-[#013d8c] hover:bg-[#eff7ff]">
-                  {t('profile_group')}: {L(group.name)}
-                </Link>
-              )}
-            </div>
-          )}
-
-          {person.bio && (
-            <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-3 font-ui">{t('profile_bio')}</h3>
-              <p className="text-xl md:text-2xl italic font-serif-classic text-slate-700 leading-relaxed">{L(person.bio)}</p>
-            </div>
-          )}
-
-          {person.interests && person.interests.length > 0 && (
-            <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-3 font-ui">{t('profile_interests')}</h3>
-              <div className="flex flex-wrap gap-2">
-                {person.interests.map((interest, i) => (
-                  <span key={i} className="px-5 py-2 rounded-full bg-slate-900 text-blue-100 text-[10px] font-black uppercase tracking-widest font-ui">
-                    # {L(interest)}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {supervisor && (
-            <div className="glass-card p-6 rounded-[2rem] border-[#d6e6f7]">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-3 font-ui">{t('profile_supervisor')}</h3>
-              <Link to={personPath(supervisor)} className="flex items-center gap-4 group">
-                <img src={supervisor.photo} alt="" className="w-14 h-14 rounded-2xl object-cover" />
-                <div>
-                  <p className="font-classic text-lg group-hover:text-[#013d8c]">{L(supervisor.name)}</p>
-                  <p className="text-sm italic text-slate-500">{L(supervisor.position)}</p>
-                </div>
-              </Link>
-            </div>
-          )}
-
-          {students.length > 0 && (
-            <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-4 font-ui flex items-center gap-2">
-                <Users className="w-4 h-4" /> {t('profile_students')}
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {students.map((s) => (
-                  <Link key={s.id} to={personPath(s)} className="flex items-center gap-3 p-3 rounded-2xl bg-white border border-blue-100 hover:border-[#b6c6d7] transition-all">
-                    <img src={s.photo} alt="" className="w-12 h-12 rounded-xl object-cover" />
-                    <span className="font-classic text-sm">{L(s.name)}</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {relatedNews.length > 0 && (
-            <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-4 font-ui flex items-center gap-2">
-                <BookOpen className="w-4 h-4" /> {t('profile_related_news')}
-              </h3>
-              <div className="space-y-3">
-                {relatedNews.map((n) => (
-                  <Link key={n.id} to={newsPath(n.slug)} className="block p-4 rounded-2xl bg-white border border-blue-100 hover:border-[#b6c6d7]">
-                    <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1 font-ui">{n.date}</p>
-                    <p className="font-classic text-lg leading-snug">{L(n.title)}</p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
+      </div>
+
+      {/* Structural & Bio Detail Cards */}
+      <div className="space-y-6">
+        {/* Department / Program Badges */}
+        {(department || program || group) && (
+          <div className="flex flex-wrap gap-2 text-xs">
+            {department && (
+              <Link to={`/fakultet/tuzilma/${department.slug}`} className="px-3.5 py-1.5 bg-[#F0F6FE] border border-[#013D8C]/30 text-[#002E69] font-bold hover:bg-[#002E69] hover:text-white transition-colors ">
+                Kafedra: {L(department.name)}
+              </Link>
+            )}
+            {program && (
+              <Link to={`/talim/yonalishlar/${program.slug}`} className="px-3.5 py-1.5 bg-[#F0F6FE] border border-[#013D8C]/30 text-[#002E69] font-bold hover:bg-[#002E69] hover:text-white transition-colors ">
+                Yo‘nalish: {L(program.name)} {person.course ? `· ${person.course}-kurs` : ''}
+              </Link>
+            )}
+            {group && tutor && (
+              <Link to={groupPath(tutor.slug, group.id)} className="px-3.5 py-1.5 bg-[#F0F6FE] border border-[#013D8C]/30 text-[#002E69] font-bold hover:bg-[#002E69] hover:text-white transition-colors ">
+                Guruh: {L(group.name)}
+              </Link>
+            )}
+          </div>
+        )}
+
+        {/* Bio / Biography Section */}
+        {person.bio && (
+          <div className="bg-white p-6 border border-[#E1E1E1] space-y-3">
+            <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#002E69]" />
+              <h3 className="text-xs font-black uppercase tracking-widest text-[#002E69] ">
+                {t('profile_bio')} / Mehnat Faoliyati
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+              {L(person.bio)}
+            </p>
+          </div>
+        )}
+
+        {/* Scientific Interests & Badges */}
+        {person.interests && person.interests.length > 0 && (
+          <div className="bg-white p-6 border border-[#E1E1E1] space-y-3">
+            <h3 className="text-xs font-black uppercase tracking-widest text-[#002E69] ">
+              {t('profile_interests')} va Ilmiy Yo‘nalishlari
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {person.interests.map((interest, i) => (
+                <span key={i} className="px-3 py-1.5 bg-[#F0F6FE] text-[#002E69] border border-[#013D8C]/25 text-[11px] font-black uppercase tracking-wider ">
+                  # {L(interest)}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Supervisor */}
+        {supervisor && (
+          <div className="p-5 bg-white border border-[#E1E1E1] space-y-2">
+            <h3 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] ">
+              {t('profile_supervisor')}
+            </h3>
+            <Link to={personPath(supervisor)} className="flex items-center gap-3 group">
+              <img src={supervisor.photo} alt="" className="w-11 h-11 object-cover border border-slate-200" />
+              <div>
+                <p className="font-bold text-xs text-slate-900 group-hover:text-[#013D8C] transition-colors ">{L(supervisor.name)}</p>
+                <p className="text-[11px] text-slate-500 font-medium">{L(supervisor.position)}</p>
+              </div>
+            </Link>
+          </div>
+        )}
+
+        {/* Subordinate Students Grid */}
+        {students.length > 0 && (
+          <div className="bg-white p-6 border border-[#E1E1E1] space-y-3">
+            <h3 className="text-xs font-black uppercase tracking-widest text-[#002E69] flex items-center gap-2">
+              <Users className="w-4 h-4 text-[#013D8C]" /> {t('profile_students')} ({students.length})
+            </h3>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+              {students.map((s) => (
+                <Link key={s.id} to={personPath(s)} className="flex items-center gap-3 p-3 bg-[#F0F6FE] border border-[#013D8C]/20 hover:bg-[#002E69] hover:text-white group transition-all">
+                  <img src={s.photo} alt="" className="w-9 h-9 object-cover shrink-0 border border-white" />
+                  <span className="font-bold text-xs text-slate-900 group-hover:text-white truncate">{L(s.name)}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Related News & Speeches */}
+        {relatedNews.length > 0 && (
+          <div className="bg-white p-6 border border-[#E1E1E1] space-y-3">
+            <h3 className="text-xs font-black uppercase tracking-widest text-[#002E69] flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-[#013D8C]" /> {t('profile_related_news')} ({relatedNews.length})
+            </h3>
+            <div className="grid md:grid-cols-2 gap-3">
+              {relatedNews.map((n) => (
+                <Link key={n.id} to={newsPath(n.slug)} className="block p-3.5 bg-white border border-[#E1E1E1] hover:border-[#013D8C] hover:bg-[#F0F6FE] transition-all shadow-2xs group">
+                  <p className="text-[9px] font-extrabold uppercase tracking-wider text-[#002E69] mb-1 ">{n.date}</p>
+                  <p className="font-black text-xs text-slate-900 group-hover:text-[#013D8C] leading-snug transition-colors">{L(n.title)}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -12,39 +12,39 @@ export const GovFooter: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#143797] text-white pt-12 pb-6 border-t-4 border-[#013d8c]">
+    <footer className="bg-[#013D8C] text-white pt-12 pb-6 border-t-4 border-[#002E69] font-sans">
       <div className="gov-shell">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-white/15">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-white/10">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white p-1 shrink-0">
+              <div className="w-12 h-12 shrink-0">
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/7/77/Emblem_of_Uzbekistan.svg"
-                  alt="Gerb"
+                  src="/logo-navdu.png"
+                  alt="Navoiy davlat universiteti logosu"
                   className="w-full h-full object-contain"
                 />
               </div>
               <div>
-                <h3 className="text-xs font-extrabold uppercase text-white tracking-wider">
+                <h3 className="text-xs font-bold uppercase text-white tracking-wider font-sans">
                   NavDU Tillar Fakulteti
                 </h3>
-                <span className="text-[10px] text-blue-100/80 block">Rasmiy ta'lim portali</span>
+                <span className="text-[10px] text-blue-100 block font-medium">Rasmiy ta'lim portali</span>
               </div>
             </div>
-            <p className="text-[11px] text-blue-50/90 leading-relaxed font-normal">
+            <p className="text-xs text-blue-100 leading-relaxed font-normal">
               Navoiy davlat universiteti Tillar fakulteti ta'lim, ilm-fan va madaniyat sohasida malakali
               kadrlar tayyorlash rasmiy portali.
             </p>
-            <div className="text-[10px] text-blue-100 font-mono bg-[#0f2d7a] p-2 rounded border border-white/10">
+            <div className="text-[10px] text-blue-100 font-mono bg-[#002E69] p-2 rounded-none border border-white/10">
               gov.uz standarti · Platforma v2.0
             </div>
           </div>
 
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-white border-b border-white/20 pb-1">
+            <h4 className="text-xs font-bold text-white border-b border-white/15 pb-1 font-sans">
               Fakultet va ta'lim
             </h4>
-            <ul className="space-y-2 text-xs text-blue-50/90">
+            <ul className="space-y-2 text-xs text-blue-100">
               <li>
                 <Link to="/fakultet/tarix" className="hover:text-white hover:underline transition-colors">
                   · Tarix va akkreditatsiya
@@ -74,10 +74,10 @@ export const GovFooter: React.FC = () => {
           </div>
 
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-white border-b border-white/20 pb-1">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white border-b border-white/15 pb-1 ">
               Bog'lanish
             </h4>
-            <ul className="space-y-2 text-xs text-blue-50/90">
+            <ul className="space-y-2 text-xs text-blue-100/90">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-white/80 shrink-0 mt-0.5" />
                 <span>{L(contactInfo.address)}</span>
@@ -102,10 +102,10 @@ export const GovFooter: React.FC = () => {
           </div>
 
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-white border-b border-white/20 pb-1">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-white border-b border-white/15 pb-1 ">
               Joylashuv
             </h4>
-            <div className="w-full h-36 rounded overflow-hidden border border-white/15 bg-[#0f2d7a] relative">
+            <div className="w-full h-36 overflow-hidden border border-white/15 bg-[#001736] relative">
               <iframe
                 title="NavDU Xaritasi"
                 src="https://yandex.ru/map-widget/v1/?um=constructor%3ACTfeeSZh&amp;source=constructor"
@@ -118,16 +118,16 @@ export const GovFooter: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-blue-100/80 font-normal">
+        <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-blue-200/80 font-normal">
           <div className="text-center md:text-left space-y-1">
             <p>© 2026 Navoiy davlat universiteti Tillar fakulteti. Barcha huquqlar himoyalangan.</p>
-            <p className="text-[10px] text-blue-100/60">
+            <p className="text-[10px] text-blue-300/60">
               Veb-sayt materiallaridan foydalanilganda manba ko'rsatilishi shart.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="px-3 py-1.5 rounded bg-[#0f2d7a] border border-white/10 text-[11px] text-white font-medium flex items-center gap-1.5">
+            <div className="px-3 py-1.5 bg-[#001736] border border-white/10 text-[11px] text-white font-medium flex items-center gap-1.5">
               <Code2 className="w-3.5 h-3.5 text-white/80" />
               <span>
                 Dasturchi: <strong>Oybek Abduraimov</strong>
@@ -135,7 +135,7 @@ export const GovFooter: React.FC = () => {
             </div>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded bg-[#013d8c] hover:bg-white hover:text-[#013d8c] text-white transition-colors border border-white/10"
+              className="p-2 bg-[#002E69] hover:bg-white hover:text-[#002E69] text-white transition-colors border border-white/10 "
               title="Yuqoriga qaytish"
             >
               <ArrowUp className="w-4 h-4" />

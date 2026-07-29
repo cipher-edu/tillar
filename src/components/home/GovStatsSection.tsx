@@ -106,15 +106,15 @@ export const GovStatsSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={ref} className="gov-section bg-white select-none">
+    <section ref={ref} className="gov-section bg-white select-none font-sans py-10 sm:py-12 border-b border-[#E1E1E1]">
       <div className="gov-shell">
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#eff7ff] text-[#043b87] text-[10px] font-extrabold uppercase tracking-[0.14em] rounded-full mb-3 border border-[#b6c6d7]/50">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#F0F0F0] text-[#013D8C] text-xs font-semibold rounded-none mb-3 border border-[#E1E1E1]">
             <TrendingUp className="w-3.5 h-3.5" />
             <span>2025–2026 o‘quv yili monitoringi</span>
           </div>
-          <h2 className="gov-section-title justify-center">Fakultetning asosiy ko‘rsatkichlari</h2>
-          <p className="text-xs sm:text-sm text-[#707070] font-medium mt-2">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold uppercase text-[#043B87] font-sans justify-center">Fakultetning asosiy ko‘rsatkichlari</h2>
+          <p className="text-xs sm:text-sm text-[#707070] font-normal mt-2">
             Ilmiy salohiyat, ta’lim va xalqaro munosabatlardagi rasmiy statistika
           </p>
         </div>
@@ -135,32 +135,25 @@ const StatCard: React.FC<{
 }> = ({ item, enabled }) => {
   const count = useCountUp(item.value, enabled);
   const Icon = item.icon;
-  const isGreen = item.variant === 'green';
 
   return (
     <div
-      className={`gov-stat-box ${isGreen ? 'gov-stat-box--green' : ''} p-4 sm:p-5 text-center group cursor-default`}
+      className="p-4 sm:p-5 text-center group cursor-default rounded-none border border-[#E1E1E1] bg-white transition-colors hover:bg-[#F0F0F0]"
     >
       <div
-        className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mx-auto mb-3 border shadow-sm transition-transform duration-200 group-hover:scale-110 ${
-          isGreen
-            ? 'bg-emerald-50 border-emerald-300 text-[#048708]'
-            : 'bg-white border-[#b6c6d7] text-[#013d8c]'
-        }`}
+        className="w-11 h-11 sm:w-12 sm:h-12 rounded-none bg-[#F0F0F0] border border-[#E1E1E1] text-[#013D8C] flex items-center justify-center mx-auto mb-3 transition-colors group-hover:bg-[#013D8C] group-hover:text-white"
       >
         <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
       </div>
 
       <span
-        className={`text-2xl md:text-3xl font-extrabold block leading-none tabular-nums tracking-tight ${
-          isGreen ? 'text-[#048708]' : 'text-[#013d8c]'
-        }`}
+        className="text-2xl md:text-3xl font-black block leading-none tabular-nums tracking-tight font-sans text-[#013D8C]"
       >
         {count}
         {item.suffix}
       </span>
 
-      <span className="text-[11px] sm:text-xs font-extrabold uppercase text-[#131523] tracking-wider block mt-2">
+      <span className="text-xs font-bold text-[#000000] block mt-2 font-sans">
         {item.label}
       </span>
       <span className="text-[10px] text-[#707070] font-medium block mt-1 leading-snug">{item.sub}</span>

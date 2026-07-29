@@ -24,7 +24,7 @@ interface ProgramCardProps {
 }
 
 /**
- * 3D dastur kartasi вЂ” hover yorug' heritage (to'q invert yo'q).
+ * 3D dastur kartasi — hover yorug' heritage (to'q invert yo'q).
  */
 export const ProgramCard: React.FC<ProgramCardProps> = ({
   program,
@@ -77,48 +77,48 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
 
         <Link
           to={programPath(program.slug)}
-          className={`program-card-3d relative flex flex-col h-full rounded-[2.5rem] border-2 overflow-hidden transition-all duration-500 ${
+          className={`program-card-3d relative flex flex-col h-full border overflow-hidden transition-all duration-300 ${
             hovered
-              ? 'bg-white border-[#1675e0] shadow-[0_24px_50px_-14px_rgba(166,124,0,0.28)]'
-              : 'bg-[#fdfbf7] border-[#b6c6d7]/80 shadow-lg'
+              ? 'bg-white border-[#013D8C] '
+              : 'bg-white border-[#E1E1E1] '
           }`}
           style={{ transform: 'translateZ(0)' }}
         >
           <div
-            className="pointer-events-none absolute top-0 bottom-0 left-0 w-1.5 gov-gradient opacity-90"
+            className="pointer-events-none absolute top-0 bottom-0 left-0 w-1 bg-[#002E69]"
             style={{ transform: 'translateZ(8px)' }}
           />
 
           <div
-            className={`relative flex flex-col flex-1 ${variant === 'compact' ? 'p-7 md:p-8' : 'p-8 md:p-10'}`}
+            className={`relative flex flex-col flex-1 ${variant === 'compact' ? 'p-6' : 'p-6 md:p-8'}`}
             style={{ transform: 'translateZ(30px)' }}
           >
-            <div className="flex items-start justify-between gap-4 mb-6">
+            <div className="flex items-start justify-between gap-4 mb-5">
               <motion.div
-                animate={hovered ? { y: -3, rotateY: 8 } : { y: 0, rotateY: 0 }}
+                animate={hovered ? { y: -3 } : { y: 0 }}
                 transition={{ type: 'spring', stiffness: 220, damping: 16 }}
                 className="relative"
               >
                 <div
-                  className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-lg border-2 transition-all duration-300 ${
+                  className={`w-12 h-12 flex items-center justify-center border transition-all duration-300 ${
                     hovered
-                      ? 'gov-gradient text-white border-[#1675e0]'
-                      : 'bg-[#eff7ff] text-[#013d8c] border-[#b6c6d7]/70'
+                      ? 'bg-[#002E69] text-white border-[#002E69]'
+                      : 'bg-[#F0F6FE] text-[#002E69] border-[#013D8C]/30'
                   }`}
                 >
-                  <Icon className="w-7 h-7 drop-shadow-sm" />
+                  <Icon className="w-6 h-6" />
                 </div>
               </motion.div>
 
               <div className="text-right">
-                <span className="block font-classic text-3xl md:text-4xl font-black text-[#013d8c]/15 group-hover:text-[#013d8c]/25 leading-none select-none transition-colors">
+                <span className="block text-2xl font-black text-[#002E69]/20 group-hover:text-[#002E69]/40 leading-none select-none transition-colors">
                   {num}
                 </span>
-                <span className="inline-flex mt-2 px-3.5 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.2em] font-ui gov-gradient text-white shadow-sm border border-[#b6c6d7]/40">
+                <span className="inline-flex mt-2 px-3 py-1 rounded-full text-[9px] font-extrabold uppercase tracking-wider bg-[#002E69] text-white ">
                   {program.level === 'master' ? t('level_master') : t('level_bachelor')}
                 </span>
                 {(program.studyForm === 'evening' || program.studyForm === 'distance') && (
-                  <span className="inline-flex mt-1.5 px-3 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest font-ui border border-[#b6c6d7] bg-[#eff7ff] text-[#013d8c]">
+                  <span className="inline-flex mt-1.5 px-2.5 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider border border-[#013D8C]/25 bg-[#F0F6FE] text-[#002E69]">
                     {program.studyForm === 'evening' ? t('form_evening') : t('form_distance')}
                   </span>
                 )}
@@ -126,52 +126,50 @@ export const ProgramCard: React.FC<ProgramCardProps> = ({
             </div>
 
             <h3
-              className={`font-classic text-slate-950 group-hover:text-[#021e44] font-bold leading-snug mb-3 transition-colors ${
-                variant === 'compact' ? 'text-xl md:text-2xl' : 'text-2xl md:text-[1.65rem]'
+              className={`text-slate-900 group-hover:text-[#013D8C] font-black leading-snug mb-2 transition-colors ${
+                variant === 'compact' ? 'text-lg md:text-xl' : 'text-xl md:text-2xl'
               }`}
             >
               {L(program.name)}
             </h3>
 
             <p
-              className={`italic font-serif-classic text-slate-600 group-hover:text-slate-700 leading-relaxed flex-1 transition-colors ${
-                variant === 'compact' ? 'text-base line-clamp-3' : 'text-lg line-clamp-4'
+              className={`text-slate-600 group-hover:text-slate-700 leading-relaxed font-medium flex-1 transition-colors ${
+                variant === 'compact' ? 'text-xs line-clamp-3' : 'text-xs md:text-sm line-clamp-4'
               }`}
             >
               {L(program.description)}
             </p>
 
             {variant === 'full' && program.careers.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-5">
+              <div className="flex flex-wrap gap-1.5 mt-4">
                 {program.careers.slice(0, 3).map((c, i) => (
                   <span
                     key={i}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider font-ui text-[#021e44] border border-[#b6c6d7]/70 bg-[#eff7ff]/90 group-hover:bg-[#eff7ff] group-hover:border-[#1675e0]/70 transition-colors"
+                    className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider text-[#002E69] border border-[#013D8C]/20 bg-[#F0F6FE]"
                   >
-                    <CheckCircle2 className="w-3 h-3 text-[#043b87] shrink-0" />
+                    <CheckCircle2 className="w-3 h-3 text-[#013D8C] shrink-0" />
                     {L(c)}
                   </span>
                 ))}
               </div>
             )}
 
-            <div className="mt-6 pt-5 border-t border-[#d6e6f7]/80 group-hover:border-[#b6c6d7] flex items-center justify-between transition-colors">
-              <span className="text-[10px] font-black uppercase tracking-[0.28em] text-[#013d8c] font-ui">
+            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between transition-colors">
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#002E69] ">
                 {t('home_read_more')}
               </span>
               <span
-                className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-md transition-all duration-300 border ${
+                className={`w-8 h-8 flex items-center justify-center transition-all duration-300 border ${
                   hovered
-                    ? 'gov-gradient text-white border-[#1675e0]'
-                    : 'bg-[#eff7ff] text-[#013d8c] border-[#b6c6d7]/60'
+                    ? 'bg-[#002E69] text-white border-[#002E69]'
+                    : 'bg-[#F0F6FE] text-[#002E69] border-[#013D8C]/30'
                 }`}
               >
-                <ArrowUpRight className="w-4.5 h-4.5" />
+                <ArrowUpRight className="w-4 h-4" />
               </span>
             </div>
           </div>
-
-          <div className="h-1.5 w-full gov-gradient opacity-90" />
         </Link>
       </motion.div>
     </div>

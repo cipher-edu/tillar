@@ -96,10 +96,9 @@ export const GovHeroSlider: React.FC = () => {
           </div>
         ))}
         <div className="absolute inset-0 z-[2] gov-hero-gradient" />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#013d8c] via-[#013d8c]/30 to-[#021e44]/35" />
       </div>
 
-      <div className="relative z-20 w-full h-full min-h-[inherit] flex flex-col">
+      <div className="relative z-20 w-full h-full min-h-[inherit] flex flex-col font-sans">
         <div className="gov-shell flex-1 flex flex-col justify-between gap-5 sm:gap-6 py-5 sm:py-7 md:py-9">
           {/* Meta */}
           <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-[11px] font-semibold tracking-wide text-blue-100/90">
@@ -119,33 +118,33 @@ export const GovHeroSlider: React.FC = () => {
             key={slide.id}
             className="w-full max-w-3xl xl:max-w-4xl mr-auto lg:mr-0 lg:ml-auto gov-fade-up space-y-3.5 sm:space-y-4 md:space-y-5"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-[#013d8c] text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.1em] shadow-gov border border-white/80">
-              <GraduationCap className="w-3.5 h-3.5 shrink-0" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none bg-white text-[#013D8C] text-xs font-bold tracking-wide border border-white">
+              <GraduationCap className="w-4 h-4 shrink-0" />
               <span className="line-clamp-1">{L(slide.tag)}</span>
             </div>
 
-            <h1 className="text-[1.65rem] leading-[1.12] sm:text-4xl md:text-5xl lg:text-[3.15rem] font-extrabold uppercase tracking-wide drop-shadow-lg">
+            <h1 className="text-[1.65rem] leading-[1.12] sm:text-4xl md:text-5xl lg:text-[3.15rem] font-extrabold uppercase tracking-wide">
               {L(slide.title)}
             </h1>
 
-            <p className="text-[13px] sm:text-sm md:text-base text-blue-50/95 font-medium leading-relaxed max-w-2xl line-clamp-4 sm:line-clamp-none">
+            <p className="text-[13px] sm:text-sm md:text-base text-blue-50/95 font-normal leading-relaxed max-w-2xl line-clamp-4 sm:line-clamp-none">
               {L(slide.description)}
             </p>
 
-            <div className="pt-0.5 flex flex-wrap gap-2.5 sm:gap-3">
+            <div className="pt-1 flex flex-wrap gap-2.5 sm:gap-3">
               <Link
                 to={slide.ctaTo}
-                className="gov-btn px-4 sm:px-6 py-3 sm:py-3.5 bg-white text-[#013d8c] border border-white shadow-gov hover:bg-[#eff7ff] hover:-translate-y-0.5 group text-[11px] sm:text-xs"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white text-[#013D8C] text-xs font-bold rounded-none border border-white hover:bg-[#F0F0F0] transition-colors"
               >
                 <span>{L(slide.ctaLabel)}</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
 
               <Link
                 to="/talim/yonalishlar"
-                className="gov-btn gov-btn-outline px-4 sm:px-5 py-3 sm:py-3.5 backdrop-blur-md group text-[11px] sm:text-xs"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-transparent text-white text-xs font-bold rounded-none border border-white hover:bg-white/10 transition-colors"
               >
-                <BookOpen className="w-4 h-4 text-white/90" />
+                <BookOpen className="w-4 h-4 text-white" />
                 <span>Ta'lim yo'nalishlari</span>
               </Link>
             </div>
@@ -153,10 +152,10 @@ export const GovHeroSlider: React.FC = () => {
 
           {/* Search — full width panel */}
           <div className="w-full">
-            <div className="w-full bg-[#013d8c]/92 backdrop-blur-xl rounded-xl border border-white/20 shadow-gov-lg p-3 sm:p-4 md:p-5">
+            <div className="w-full bg-[#013D8C] rounded-none border border-white/30 p-3 sm:p-4">
               <form
                 onSubmit={handleSearch}
-                className="flex flex-col sm:flex-row sm:items-center gap-2 bg-white rounded-lg p-1.5 sm:p-2 shadow-inner focus-within:ring-2 focus-within:ring-[#1675e0] transition-shadow"
+                className="flex flex-col sm:flex-row sm:items-center gap-2 bg-white rounded-none p-1.5 sm:p-2 focus-within:ring-2 focus-within:ring-white transition-shadow"
               >
                 <div className="flex items-center gap-2 flex-1 min-w-0 px-1">
                   <Search className="w-5 h-5 text-[#707070] shrink-0 ml-1" />
@@ -165,13 +164,13 @@ export const GovHeroSlider: React.FC = () => {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Yo'nalish, kafedra, professor yoki xizmat..."
-                    className="w-full min-w-0 text-xs sm:text-sm text-[#131523] placeholder:text-[#9ca3af] focus:outline-none py-2.5 font-medium bg-transparent"
+                    className="w-full min-w-0 text-xs sm:text-sm text-[#000000] placeholder:text-[#707070] focus:outline-none py-2 font-medium bg-transparent font-sans"
                     aria-label="Qidiruv"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="gov-btn w-full sm:w-auto shrink-0 px-6 py-3 bg-[#013d8c] text-white border border-[#013d8c] hover:bg-[#021e44]"
+                  className="w-full sm:w-auto shrink-0 px-6 py-3 bg-[#013D8C] text-white font-bold text-xs rounded-none hover:bg-[#012a61] transition-colors"
                 >
                   Qidirish
                 </button>
@@ -188,7 +187,7 @@ export const GovHeroSlider: React.FC = () => {
                     <Link
                       key={item.to + item.label}
                       to={item.to}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] font-semibold text-blue-50 bg-white/10 border border-white/15 hover:bg-white hover:text-[#013d8c] transition-all duration-200 shrink-0 whitespace-nowrap"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-semibold text-blue-50 bg-white/10 border border-white/15 hover:bg-white hover:text-[#013D8C] transition-colors shrink-0 whitespace-nowrap"
                     >
                       <Icon className="w-3 h-3 opacity-90" />
                       <span className="sm:hidden">{item.short}</span>
@@ -206,7 +205,7 @@ export const GovHeroSlider: React.FC = () => {
       <button
         type="button"
         onClick={prev}
-        className="hidden sm:flex absolute left-2 md:left-4 lg:left-6 top-1/2 -translate-y-[60%] z-30 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#013d8c] backdrop-blur-md border border-white/25 items-center justify-center transition-all hover:scale-105 shadow-gov"
+        className="hidden sm:flex absolute left-2 md:left-4 lg:left-6 top-1/2 -translate-y-[60%] z-30 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#013D8C] border border-white/25 items-center justify-center transition-colors"
         aria-label="Oldingi slayd"
       >
         <ChevronLeft className="w-6 h-6" />
@@ -214,7 +213,7 @@ export const GovHeroSlider: React.FC = () => {
       <button
         type="button"
         onClick={next}
-        className="hidden sm:flex absolute right-2 md:right-4 lg:right-6 top-1/2 -translate-y-[60%] z-30 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#013d8c] backdrop-blur-md border border-white/25 items-center justify-center transition-all hover:scale-105 shadow-gov"
+        className="hidden sm:flex absolute right-2 md:right-4 lg:right-6 top-1/2 -translate-y-[60%] z-30 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#013D8C] border border-white/25 items-center justify-center transition-colors"
         aria-label="Keyingi slayd"
       >
         <ChevronRight className="w-6 h-6" />
@@ -222,7 +221,7 @@ export const GovHeroSlider: React.FC = () => {
 
       {/* Indicators */}
       <div className="absolute bottom-0 inset-x-0 z-30 pointer-events-none">
-        <div className="gov-shell pb-3 sm:pb-4 pt-12 bg-gradient-to-t from-[#013d8c]/95 via-[#013d8c]/30 to-transparent">
+        <div className="gov-shell pb-3 sm:pb-4 pt-4">
           <div className="flex items-center justify-center gap-3 pointer-events-auto">
             <button
               type="button"

@@ -9,8 +9,8 @@ import { news } from '@/data/news';
 import type { Language } from '@/types';
 
 const languages: { code: Language; label: string }[] = [
-  { code: 'uz', label: 'OК»zbek' },
-  { code: 'ru', label: 'Р СѓСЃСЃРєРёР№' },
+  { code: 'uz', label: 'Oʻzbek' },
+  { code: 'ru', label: 'Русский' },
   { code: 'en', label: 'English' },
 ];
 
@@ -271,7 +271,7 @@ export const Header: React.FC = () => {
                   <Search className="w-4 h-4 text-blue-500" />
                   <span className="hidden md:inline uppercase tracking-wider text-[10px]">Qidiruv</span>
                   <kbd className="hidden lg:inline-block px-1.5 py-0.5 text-[9px] bg-slate-900/20 dark:bg-white/20 rounded font-mono text-slate-400">
-                    вЊK
+                    ⌘K
                   </kbd>
                 </button>
 
@@ -338,7 +338,7 @@ export const Header: React.FC = () => {
               </div>
             </div>
 
-            {/* Mobile Navigation Drawer вЂ” doim to'q royal fon (oppoq emas) */}
+            {/* Mobile Navigation Drawer — doim to'q royal fon (oppoq emas) */}
             <AnimatePresence>
               {mobileOpen && (
                 <motion.div

@@ -12,7 +12,15 @@ interface LanguageContextValue {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('uz');
+  const [language, setLanguageState] = useState<Language>(() => {
+    const saved = localStorage.getItem('navdu_lang') as Language;
+    return saved && ['uz', 'ru', 'en'].includes(saved) ? saved : 'uz';
+  });
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    localStorage.setItem('navdu_lang', lang);
+  };
 
   const value = useMemo<LanguageContextValue>(
     () => ({

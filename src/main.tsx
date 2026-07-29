@@ -41,7 +41,7 @@ function BootScreen({ message }: { message: string }) {
   );
 }
 
-root.render(<BootScreen message="YuklanmoqdaвЂ¦" />);
+root.render(<BootScreen message="Yuklanmoqda…" />);
 
 hydrateFromApi().then((result) => {
   if (result.source === 'api') {

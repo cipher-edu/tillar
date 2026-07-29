@@ -16,38 +16,38 @@ export const HistoryPage: React.FC = () => {
   const related = selected?.relatedPersonIds ? getPeopleByIds(selected.relatedPersonIds) : [];
 
   return (
-    <PageShell title={t('history_title')} subtitle={t('history_subtitle')} tone="behzod" topic="history">
-      <div className="relative max-w-5xl mx-auto">
-        <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 gov-gradient md:-translate-x-1/2 rounded-full shadow-[0_0_10px_#1675e0]" />
+    <PageShell title={t('history_title')} subtitle={t('history_subtitle')}>
+      <div className="relative max-w-4xl mx-auto font-sans">
+        <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-[#002E69] md:-translate-x-1/2" />
         
-        <div className="space-y-12">
+        <div className="space-y-8">
           {historyEvents.map((event, i) => (
             <motion.button
               key={event.id}
               type="button"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: '-50px' }}
-              transition={{ delay: i * 0.08 }}
+              transition={{ delay: i * 0.06 }}
               onClick={() => setSelected(event)}
               className={`relative w-full text-left pl-16 md:pl-0 ${i % 2 === 0 ? 'md:pr-[52%] md:text-right' : 'md:pl-[52%]'}`}
             >
-              <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-6 h-6 rounded-full gov-gradient border-2 border-slate-950 shadow-xl z-10 flex items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-slate-950" />
+              <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full bg-[#002E69] border-2 border-white z-10 flex items-center justify-center">
+                <div className="w-1.5 h-1.5 rounded-full bg-white" />
               </div>
 
-              <div className="glass-card p-8 md:p-10 rounded-[2.5rem] border border-[#b6c6d7]/70 hover:bg-white hover:border-[#1675e0] hover:shadow-[0_20px_48px_-14px_rgba(166,124,0,0.25)] hover:-translate-y-0.5 transition-all duration-500 group">
-                <span className="inline-block px-5 py-1.5 rounded-full gov-gradient text-white text-[10px] font-black tracking-widest mb-4 font-ui shadow-md">
+              <div className="gov-card p-6 md:p-8 border border-[#E1E1E1] bg-white hover:border-[#013D8C] hover:bg-[#F0F6FE] transition-all group">
+                <span className="inline-block px-3 py-1 bg-[#002E69] text-white text-[10px] font-black tracking-wider mb-3 ">
                   {event.year} YIL
                 </span>
-                <h3 className="text-2xl md:text-3xl font-classic text-slate-950 group-hover:text-[#021e44] font-bold mb-3 transition-colors">
+                <h3 className="text-lg md:text-xl font-black text-slate-900 group-hover:text-[#013D8C] mb-2 transition-colors ">
                   {L(event.title)}
                 </h3>
-                <p className="text-lg italic font-serif-classic text-slate-700 group-hover:text-slate-800 line-clamp-3 transition-colors">
+                <p className="text-xs text-slate-600 font-medium line-clamp-3 leading-relaxed transition-colors">
                   {L(event.description)}
                 </p>
-                <div className="mt-4 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#013d8c] group-hover:text-[#013d8c] font-ui transition-colors">
-                  <span>To'liq ma'lumot</span> в†’
+                <div className="mt-4 flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wider text-[#002E69] group-hover:text-[#013D8C] transition-colors">
+                  <span>Batafsil ma'lumot</span> →
                 </div>
               </div>
             </motion.button>
@@ -56,35 +56,34 @@ export const HistoryPage: React.FC = () => {
       </div>
 
       {/* Modal for history item */}
-      <Modal open={!!selected} onClose={() => setSelected(null)} maxWidthClass="max-w-3xl">
+      <Modal open={!!selected} onClose={() => setSelected(null)} maxWidthClass="max-w-2xl">
         {selected && (
-          <div className="p-8 md:p-12 bg-slate-950 text-white border border-[#1675e0]/40 rounded-[2.5rem]">
+          <div className="p-6 md:p-8 bg-white text-slate-900 font-sans border border-[#E1E1E1] ">
             <div className="flex items-center gap-3 mb-4">
-              <ShamsaMedallion className="w-6 h-6" />
-              <span className="inline-block px-4 py-1.5 rounded-full gov-gradient text-white text-[10px] font-black tracking-widest font-ui">
+              <span className="inline-block px-3 py-1 bg-[#002E69] text-white text-[10px] font-black tracking-wider ">
                 {selected.year} YIL
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-classic text-blue-200 mb-6 font-bold">{L(selected.title)}</h2>
-            <p className="text-xl italic font-serif-classic text-slate-200 leading-relaxed mb-8">{L(selected.description)}</p>
+            <h2 className="text-xl md:text-2xl font-black text-[#002E69] mb-4 ">{L(selected.title)}</h2>
+            <p className="text-sm text-slate-700 leading-relaxed font-medium mb-6">{L(selected.description)}</p>
             {selected.photos?.[0] && (
-              <img src={selected.photos[0]} alt="" className="w-full h-64 object-cover rounded-[2rem] mb-8 border border-[#1675e0]/30" />
+              <img src={selected.photos[0]} alt="" className="w-full h-64 object-cover mb-6 border border-[#E1E1E1]" />
             )}
             {related.length > 0 && (
               <div>
-                <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#1675e0] mb-4 font-ui font-bold">
+                <h4 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-3 ">
                   {t('news_related')}
                 </h4>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2">
                   {related.map((p) => (
                     <Link
                       key={p.id}
                       to={personPath(p)}
                       onClick={() => setSelected(null)}
-                      className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/10 border border-[#1675e0]/30 hover:bg-[#1675e0] hover:text-slate-950 transition-all"
+                      className="flex items-center gap-3 px-3 py-2 bg-[#F0F6FE] border border-[#013D8C]/20 hover:bg-[#002E69] hover:text-white transition-all text-xs font-bold "
                     >
-                      <img src={p.photo} alt="" className="w-10 h-10 rounded-xl object-cover" />
-                      <span className="font-classic text-sm font-bold">{L(p.name)}</span>
+                      <img src={p.photo} alt="" className="w-8 h-8 object-cover" />
+                      <span>{L(p.name)}</span>
                     </Link>
                   ))}
                 </div>

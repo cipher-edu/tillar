@@ -32,74 +32,56 @@ export const ProgramsPage: React.FC = () => {
     const idx = Math.max(0, programs.findIndex((p) => p.id === detail.id));
 
     return (
-      <PageShell title={L(detail.name)} heritageIntensity="medium">
-        <div className="mb-8">
+      <PageShell title={L(detail.name)}>
+        <div className="mb-8 font-sans">
           <Link
             to="/talim/yonalishlar"
-            className="text-[11px] font-black uppercase tracking-widest text-[#013d8c] font-ui hover:text-[#043b87]"
+            className="text-[11px] font-black uppercase tracking-widest text-[#002E69] hover:underline "
           >
-            в†ђ {t('back')}
+            ← {t('back')}
           </Link>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 font-sans">
           <div className="lg:col-span-2 space-y-8">
-            {/* Hero detail card вЂ” 3D */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="relative rounded-[3rem] overflow-hidden border border-[#d6e6f7]/80 bg-white/90 shadow-2xl shadow-
-    param($m)
-    # fallback generic
-    'blue-200'
-  "
-              style={{ transformStyle: 'preserve-3d' }}
+              className="relative overflow-hidden border border-[#E1E1E1] bg-white p-8 md:p-10 "
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#eff7ff]/90 via-[#fffdfa] to-[#f3eee6]/60 pointer-events-none" />
-              <div className="absolute -top-16 -right-16 w-56 h-56 bg-blue-100/30 blur-3xl rounded-full" />
-              <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-[rgba(0,77,97,0.08)] blur-3xl rounded-full" />
-              <div className="relative p-10 md:p-12">
-                <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full royal-gradient text-blue-100 text-[10px] font-black uppercase tracking-widest font-ui shadow-lg">
-                    <GraduationIcon level={detail.level} />
-                    {detail.level === 'master' ? t('level_master') : t('level_bachelor')}
-                  </span>
-                  <span className="inline-flex px-3 py-1.5 rounded-full border border-[#d6e6f7] bg-[#eff7ff] text-[#013d8c] text-[10px] font-black uppercase tracking-widest font-ui">
-                    {studyFormLabel(detail.studyForm, t)}
-                  </span>
-                  <span className="font-classic text-3xl text-[#013d8c]/10 font-black">
-                    {String(idx + 1).padStart(2, '0')}
-                  </span>
-                </div>
-                <p className="text-2xl md:text-3xl italic font-serif-classic text-slate-700 leading-relaxed">
-                  {L(detail.description)}
-                </p>
+              <div className="flex flex-wrap items-center gap-3 mb-6">
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#002E69] text-white text-[10px] font-black uppercase tracking-wider ">
+                  <GraduationIcon level={detail.level} />
+                  {detail.level === 'master' ? t('level_master') : t('level_bachelor')}
+                </span>
+                <span className="inline-flex px-3 py-1.5 border border-[#013D8C]/25 bg-[#F0F6FE] text-[#002E69] text-[10px] font-black uppercase tracking-wider ">
+                  {studyFormLabel(detail.studyForm, t)}
+                </span>
+                <span className="text-2xl text-[#002E69]/20 font-black">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
               </div>
-              <div className="h-1.5 w-full gov-gradient" />
+              <p className="text-sm md:text-base text-slate-700 leading-relaxed font-medium">
+                {L(detail.description)}
+              </p>
             </motion.div>
 
-            {/* Careers вЂ” 3D chips */}
-            <div className="relative rounded-[3rem] p-10 border border-blue-100 bg-white/85 shadow-xl overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#eff7ff]/50 blur-2xl rounded-full" />
-              <h3 className="relative text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-6 font-ui flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5" />
+            {/* Careers */}
+            <div className="relative p-8 border border-[#E1E1E1] bg-white ">
+              <h3 className="relative text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-6 flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5 text-[#013D8C]" />
                 {t('programs_careers')}
               </h3>
               <ul className="relative grid sm:grid-cols-2 gap-3">
                 {detail.careers.map((c, i) => (
                   <li
                     key={i}
-                    className="group flex items-center gap-3 p-4 rounded-2xl bg-gradient-to-br from-white to-
-    param($m)
-    # fallback generic
-    'blue-200'
-   border border-blue-100 shadow-md hover:shadow-xl hover:-translate-y-1 hover:rotate-[0.5deg] transition-all duration-300"
-                    style={{ transform: 'translateZ(0)' }}
+                    className="flex items-center gap-3 p-3.5 bg-[#F0F6FE] border border-[#013D8C]/20 text-slate-800 text-xs font-semibold"
                   >
-                    <span className="w-9 h-9 rounded-xl gov-gradient text-white flex items-center justify-center text-sm font-black shadow-md shrink-0">
+                    <span className="w-7 h-7 bg-[#002E69] text-white flex items-center justify-center text-xs font-black shrink-0 ">
                       {i + 1}
                     </span>
-                    <span className="text-lg italic font-serif-classic text-slate-700">{L(c)}</span>
+                    <span>{L(c)}</span>
                   </li>
                 ))}
               </ul>
@@ -107,7 +89,7 @@ export const ProgramsPage: React.FC = () => {
 
             {/* Staff */}
             <div>
-              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-4 font-ui flex items-center gap-2">
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-4 flex items-center gap-2">
                 <Users className="w-3.5 h-3.5" />
                 {t('programs_staff')}
               </h3>
@@ -116,15 +98,12 @@ export const ProgramsPage: React.FC = () => {
                   <Link
                     key={p.id}
                     to={personPath(p)}
-                    className="flex items-center gap-4 p-5 rounded-[2rem] bg-white/90 border border-blue-100 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 hover:border-[#b6c6d7] transition-all duration-300"
+                    className="flex items-center gap-4 p-4 bg-white border border-[#E1E1E1] hover:border-[#013D8C]/40 transition-all"
                   >
-                    <div className="relative shrink-0">
-                      <div className="absolute inset-0 rounded-2xl gov-gradient blur-md opacity-40" />
-                      <img src={p.photo} alt="" className="relative w-14 h-14 rounded-2xl object-cover ring-2 ring-white shadow-md" />
-                    </div>
+                    <img src={p.photo} alt="" className="w-12 h-12 object-cover" />
                     <div>
-                      <p className="font-classic text-lg text-slate-900">{L(p.name)}</p>
-                      <p className="text-sm italic text-slate-500">{L(p.position)}</p>
+                      <p className="font-bold text-slate-900 text-sm ">{L(p.name)}</p>
+                      <p className="text-xs text-slate-500 font-medium">{L(p.position)}</p>
                     </div>
                   </Link>
                 ))}
@@ -132,18 +111,13 @@ export const ProgramsPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Sticky sidebar 3D */}
+          {/* Sticky sidebar */}
           <div className="lg:sticky lg:top-32 h-fit">
-            <div
-              className="relative rounded-[3rem] p-8 border border-[#d6e6f7]/80 bg-white/95 shadow-2xl overflow-hidden"
-              style={{ transform: 'perspective(800px) rotateY(-2deg)' }}
-            >
-              <div className="absolute inset-0 royal-gradient opacity-[0.04]" />
-              <div className="absolute -top-8 -right-8 w-28 h-28 bg-blue-100/40 blur-2xl rounded-full" />
-              <h3 className="relative text-[10px] font-black uppercase tracking-widest text-[#043b87] mb-3 font-ui">
+            <div className="p-6 border border-[#E1E1E1] bg-white ">
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-2 ">
                 {t('nav_curricula')}
               </h3>
-              <p className="relative text-base italic font-serif-classic text-slate-600 mb-6">
+              <p className="text-xs font-semibold text-slate-700 mb-5">
                 {L(detail.name)}
               </p>
               {detail.curriculumUrl ? (
@@ -151,12 +125,12 @@ export const ProgramsPage: React.FC = () => {
                   href={detail.curriculumUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="relative w-full py-5 royal-gradient text-white rounded-2xl text-[11px] font-black uppercase tracking-widest font-ui flex items-center justify-center gap-3 hover:brightness-110 shadow-xl hover:-translate-y-0.5 transition-all"
+                  className="w-full py-3 bg-[#002E69] text-white text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#013D8C] transition-colors "
                 >
                   <Download className="w-4 h-4" /> {t('curricula_download')} PDF
                 </a>
               ) : (
-                <p className="relative w-full py-5 rounded-2xl text-center text-[11px] font-black uppercase tracking-widest font-ui border border-[#d6e6f7] bg-[#eff7ff]/80 text-[#013d8c]/80">
+                <p className="w-full py-3 text-center text-[11px] font-bold uppercase tracking-wider border border-[#E1E1E1] bg-[#F0F6FE] text-[#002E69]">
                   {t('curricula_unavailable')}
                 </p>
               )}
@@ -168,27 +142,22 @@ export const ProgramsPage: React.FC = () => {
   }
 
   return (
-    <PageShell title={t('programs_title')} subtitle={t('programs_subtitle')} heritageIntensity="strong">
-      {/* Intro 3D banner */}
+    <PageShell title={t('programs_title')} subtitle={t('programs_subtitle')}>
+      {/* Intro banner */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative mb-12 rounded-[3rem] overflow-hidden border border-[#d6e6f7]/60 bg-white/70 backdrop-blur-md shadow-2xl"
+        className="mb-10 border border-[#E1E1E1] bg-[#F0F6FE] p-6 md:p-8 font-sans "
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#eff7ff]/90 via-[#fdfaf3]/40 to-[rgba(0,77,97,0.04)]" />
-        <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-40 h-40 gov-gradient opacity-20 blur-3xl rounded-full" />
-        <div className="relative px-8 py-10 md:px-12 md:py-12 flex flex-col md:flex-row md:items-center gap-8">
-          <div
-            className="w-20 h-20 rounded-[1.5rem] royal-gradient text-blue-200 flex items-center justify-center shadow-2xl shrink-0 border border-[#013d8c]/20"
-            style={{ transform: 'perspective(600px) rotateY(-12deg) rotateX(8deg)' }}
-          >
-            <BookOpen className="w-9 h-9" />
+        <div className="flex flex-col md:flex-row md:items-center gap-6">
+          <div className="w-14 h-14 bg-[#002E69] text-white flex items-center justify-center shrink-0">
+            <BookOpen className="w-7 h-7" />
           </div>
           <div className="flex-1">
-            <p className="text-[10px] font-black uppercase tracking-[0.35em] text-[#043b87] mb-2 font-ui">
+            <p className="text-[10px] font-black uppercase tracking-widest text-[#013D8C] mb-1 ">
               {t('site_name')}
             </p>
-            <p className="text-xl md:text-2xl italic font-serif-classic text-slate-700 leading-relaxed max-w-3xl">
+            <p className="text-sm md:text-base font-semibold text-slate-800 leading-relaxed max-w-3xl">
               {t('programs_intro')}
             </p>
           </div>
@@ -204,10 +173,10 @@ export const ProgramsPage: React.FC = () => {
                 key={opt.id}
                 type="button"
                 onClick={() => setLevel(opt.id)}
-                className={`px-5 py-2.5 rounded-2xl text-[10px] font-black uppercase tracking-widest font-ui border transition-all ${
+                className={`px-4 py-2 text-[10px] font-black uppercase tracking-wider border transition-colors ${
                   level === opt.id
-                    ? 'bg-slate-950 text-blue-200 border-slate-950 shadow-lg'
-                    : 'bg-[#fffdfa] border-[#d6e6f7] text-slate-600 hover:border-[#013d8c] hover:text-[#013d8c]'
+                    ? 'bg-[#002E69] text-white border-transparent '
+                    : 'bg-white border-[#E1E1E1] text-slate-700 hover:bg-[#F0F6FE]'
                 }`}
               >
                 {opt.label}
@@ -217,15 +186,15 @@ export const ProgramsPage: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* 3D cards grid */}
-      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-10">
+      {/* Grid */}
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 font-sans">
         {filtered.map((program, i) => (
           <motion.div
             key={program.id}
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: '-40px' }}
-            transition={{ delay: (i % 6) * 0.06, duration: 0.45 }}
+            transition={{ delay: (i % 6) * 0.05, duration: 0.35 }}
           >
             <ProgramCard program={program} index={programs.indexOf(program)} variant="full" />
           </motion.div>

@@ -5,7 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { contactInfo } from '@/data/site';
 import { PATTERNS } from '@/components/ui/PatternBackground';
 
-/** Yandex Maps вЂ” interaktiv widget */
+/** Yandex Maps — interaktiv widget */
 export const FOOTER_MAP_SHORT = 'https://yandex.uz/maps/-/CTfeeSZh';
 export const FOOTER_MAP_EMBED = 'https://yandex.uz/map-widget/v1/-/CTfeeSZh';
 
@@ -89,7 +89,7 @@ export const Footer: React.FC = () => {
                     to={item.to}
                     className="hover:text-[#1675e0] transition-colors inline-flex items-center gap-2 group"
                   >
-                    <span className="text-blue-500 text-sm group-hover:translate-x-1 transition-transform">в†’</span> {item.label}
+                    <span className="text-blue-500 text-sm group-hover:translate-x-1 transition-transform">→</span> {item.label}
                   </Link>
                 </li>
               ))}
@@ -193,12 +193,12 @@ export const Footer: React.FC = () => {
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p className="text-slate-400 text-xs font-serif-classic italic">
-              В© {new Date().getFullYear()} NavDU вЂ” {t('site_name')}. Barcha huquqlar himoyalangan.
+              © {new Date().getFullYear()} NavDU — {t('site_name')}. Barcha huquqlar himoyalangan.
             </p>
             <p className="text-[10px] font-black uppercase tracking-[0.28em] text-[#1675e0]/70 font-ui flex items-center gap-2">
-              <span className="text-blue-500/80">вќ¦</span>
+              <span className="text-blue-500/80">❦</span>
               {t('footer_heritage')}
-              <span className="text-blue-500/80">вќ¦</span>
+              <span className="text-blue-500/80">❦</span>
             </p>
           </div>
         </div>

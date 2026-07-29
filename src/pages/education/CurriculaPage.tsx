@@ -12,13 +12,13 @@ export const CurriculaPage: React.FC = () => {
 
   return (
     <PageShell title={t('curricula_title')}>
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
+      <div className="flex flex-wrap justify-center gap-2 mb-10 font-sans">
         {(['all', 'bachelor', 'master'] as const).map((v) => (
           <button
             key={v}
             onClick={() => setLevel(v)}
-            className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest font-ui border ${
-              level === v ? 'royal-gradient text-white border-transparent' : 'bg-white border-[#d6e6f7] text-slate-600'
+            className={`px-4 py-2 text-[10px] font-black uppercase tracking-wider border transition-colors ${
+              level === v ? 'bg-[#002E69] text-white border-transparent ' : 'bg-white border-[#E1E1E1] text-slate-700 hover:bg-[#F0F6FE]'
             }`}
           >
             {v === 'all' ? t('filter_all') : v === 'bachelor' ? t('level_bachelor') : t('level_master')}
@@ -26,35 +26,35 @@ export const CurriculaPage: React.FC = () => {
         ))}
       </div>
 
-      <div className="max-w-4xl mx-auto space-y-4">
+      <div className="max-w-4xl mx-auto space-y-4 font-sans">
         {filtered.map((p) => (
           <div
             key={p.id}
-            className="glass-card p-6 md:p-8 rounded-[2rem] border-[#d6e6f7] flex flex-col md:flex-row md:items-center justify-between gap-4"
+            className="gov-card p-6 md:p-8 border border-[#E1E1E1] bg-white flex flex-col md:flex-row md:items-center justify-between gap-4"
           >
             <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-[#043b87] mb-2 font-ui">
+              <p className="text-[10px] font-extrabold uppercase tracking-wider text-[#002E69] mb-1.5 ">
                 {p.level === 'master' ? t('level_master') : t('level_bachelor')}
-                {' В· '}
+                {' · '}
                 {p.studyForm === 'evening'
                   ? t('form_evening')
                   : p.studyForm === 'distance'
                     ? t('form_distance')
                     : t('form_full_time')}
               </p>
-              <h3 className="text-2xl font-classic text-slate-900">{L(p.name)}</h3>
+              <h3 className="text-lg md:text-xl font-black text-slate-900 ">{L(p.name)}</h3>
             </div>
             {p.curriculumUrl ? (
               <a
                 href={p.curriculumUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 gov-gradient text-white rounded-2xl text-[11px] font-black uppercase tracking-widest font-ui hover:brightness-110"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#002E69] text-white text-xs font-black uppercase tracking-wider hover:bg-[#013D8C] transition-colors "
               >
                 <Download className="w-4 h-4" /> {t('curricula_download')}
               </a>
             ) : (
-              <span className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-[11px] font-black uppercase tracking-widest font-ui border border-[#d6e6f7] bg-[#eff7ff] text-[#013d8c]/80">
+              <span className="inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold uppercase tracking-wider border border-[#E1E1E1] bg-[#F0F6FE] text-[#002E69]">
                 {t('curricula_unavailable')}
               </span>
             )}

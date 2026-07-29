@@ -58,7 +58,7 @@ const services = [
 
 export const GovServicesGrid: React.FC = () => {
   return (
-    <section className="gov-section gov-pattern-soft border-y border-[#e1e1e1] select-none">
+    <section className="gov-section bg-[#F0F0F0] border-y border-[#E1E1E1] select-none font-sans py-10 sm:py-12">
       <div className="gov-shell">
         <GovSectionHeader
           kicker="Interaktiv imkoniyatlar va xizmatlar"
@@ -66,41 +66,39 @@ export const GovServicesGrid: React.FC = () => {
           description="Talabalar, abituriyentlar va o‘qituvchilar uchun rasmiy ta’lim va axborot xizmatlari katalogi"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#e1e1e1] bg-white shadow-gov rounded-lg overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#E1E1E1] bg-white rounded-none">
           {services.map((s, idx) => {
             const Icon = s.icon;
             return (
-              <Link key={s.title} to={s.link} className="gov-card-service p-5 sm:p-6 group">
+              <Link key={s.title} to={s.link} className="p-5 sm:p-6 group hover:bg-[#F0F0F0] transition-colors border-r border-b border-[#E1E1E1]">
                 <div className="space-y-3.5">
                   <div className="flex items-center justify-between gap-3">
-                    <div className="w-11 h-11 rounded-lg bg-[#eff7ff] border border-[#b6c6d7]/60 text-[#013d8c] flex items-center justify-center transition-all duration-200 group-hover:bg-[#013d8c] group-hover:text-white group-hover:border-[#013d8c] group-hover:scale-105 group-hover:rotate-3">
+                    <div className="w-11 h-11 rounded-none bg-[#F0F0F0] border border-[#E1E1E1] text-[#013D8C] flex items-center justify-center transition-colors group-hover:bg-[#013D8C] group-hover:text-white">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-black text-[#a8a8a8] group-hover:text-[#013d8c] uppercase tracking-[0.16em] font-mono transition-colors">
+                    <span className="text-xs font-bold text-[#707070] group-hover:text-[#013D8C] font-mono transition-colors">
                       {String(idx + 1).padStart(2, '0')}
                     </span>
                   </div>
 
                   <div className="space-y-1.5">
-                    <span className="inline-block text-[9px] font-extrabold uppercase tracking-wider text-[#013d8c] bg-[#eff7ff] px-2 py-0.5 rounded border border-[#d6e6f7] group-hover:bg-white group-hover:border-[#048708]/30 transition-colors">
+                    <span className="inline-block text-[10px] font-bold text-[#013D8C] bg-[#F0F0F0] px-2 py-0.5 rounded-none border border-[#E1E1E1]">
                       {s.badge}
                     </span>
-                    <h3 className="text-sm font-extrabold uppercase text-[#131523] group-hover:text-[#048708] transition-colors leading-snug">
+                    <h3 className="text-sm font-bold text-[#000000] group-hover:text-[#013D8C] transition-colors leading-snug font-sans">
                       {s.title}
                     </h3>
-                    <p className="text-xs text-[#575757] font-medium leading-relaxed line-clamp-2">
+                    <p className="text-xs text-[#707070] font-normal leading-relaxed line-clamp-2">
                       {s.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-3 border-t border-[#f0f0f0] flex items-center justify-between">
-                  <span className="text-[11px] font-bold uppercase tracking-wide text-[#043b87] group-hover:text-[#048708] transition-colors">
+                <div className="mt-6 pt-3 border-t border-[#E1E1E1] flex items-center justify-between">
+                  <span className="text-xs font-semibold text-[#013D8C] group-hover:underline font-sans">
                     Batafsil ma&apos;lumot
                   </span>
-                  <span className="w-8 h-8 rounded-full bg-[#f5f5f5] text-[#575757] group-hover:bg-[#048708] group-hover:text-white flex items-center justify-center transition-all duration-200 group-hover:translate-x-1">
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
+                  <ArrowRight className="w-4 h-4 text-[#013D8C]" />
                 </div>
               </Link>
             );
