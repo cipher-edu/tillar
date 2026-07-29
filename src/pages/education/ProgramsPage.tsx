@@ -36,7 +36,7 @@ export const ProgramsPage: React.FC = () => {
         <div className="mb-8 font-sans">
           <Link
             to="/talim/yonalishlar"
-            className="text-[11px] font-black uppercase tracking-widest text-[#002E69] hover:underline "
+            className="text-xs font-semibold text-[#013D8C] hover:underline"
           >
             ← {t('back')}
           </Link>
@@ -47,41 +47,39 @@ export const ProgramsPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="relative overflow-hidden border border-[#E1E1E1] bg-white p-8 md:p-10 "
+              className="relative overflow-hidden border border-[#E1E1E1] bg-white p-8 md:p-10 rounded-none"
             >
               <div className="flex flex-wrap items-center gap-3 mb-6">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#002E69] text-white text-[10px] font-black uppercase tracking-wider ">
+                <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#013D8C] text-white text-xs font-bold uppercase rounded-none">
                   <GraduationIcon level={detail.level} />
                   {detail.level === 'master' ? t('level_master') : t('level_bachelor')}
                 </span>
-                <span className="inline-flex px-3 py-1.5 border border-[#013D8C]/25 bg-[#F0F6FE] text-[#002E69] text-[10px] font-black uppercase tracking-wider ">
+                <span className="inline-flex px-3 py-1.5 border border-[#E1E1E1] bg-[#F0F0F0] text-[#000000] text-xs font-semibold rounded-none">
                   {studyFormLabel(detail.studyForm, t)}
                 </span>
-                <span className="text-2xl text-[#002E69]/20 font-black">
+                <span className="text-2xl text-[#707070] font-bold">
                   {String(idx + 1).padStart(2, '0')}
                 </span>
               </div>
-              <p className="text-sm md:text-base text-slate-700 leading-relaxed font-medium">
+              <p className="text-sm md:text-base text-[#000000] leading-relaxed font-normal">
                 {L(detail.description)}
               </p>
             </motion.div>
 
             {/* Careers */}
-            <div className="relative p-8 border border-[#E1E1E1] bg-white ">
-              <h3 className="relative text-[10px] font-black uppercase tracking-widest text-[#002E69] mb-6 flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-[#013D8C]" />
+            <div className="relative p-8 border border-[#E1E1E1] bg-white rounded-none">
+              <h3 className="relative text-xs font-bold uppercase text-[#043B87] mb-6 flex items-center gap-2 font-sans">
+                <Sparkles className="w-4 h-4 text-[#013D8C]" />
                 {t('programs_careers')}
               </h3>
               <ul className="relative grid sm:grid-cols-2 gap-3">
                 {detail.careers.map((c, i) => (
                   <li
                     key={i}
-                    className="flex items-center gap-3 p-3.5 bg-[#F0F6FE] border border-[#013D8C]/20 text-slate-800 text-xs font-semibold"
+                    className="flex items-center gap-3 p-3.5 bg-[#F0F0F0] border border-[#E1E1E1] text-[#000000] text-xs font-medium rounded-none"
                   >
-                    <span className="w-7 h-7 bg-[#002E69] text-white flex items-center justify-center text-xs font-black shrink-0 ">
-                      {i + 1}
-                    </span>
-                    <span>{L(c)}</span>
+                    <span className="w-2 h-2 bg-[#013D8C]" />
+                    {L(c)}
                   </li>
                 ))}
               </ul>

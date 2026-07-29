@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -49,17 +49,17 @@ export const GovLoader: React.FC<GovLoaderProps> = ({
           <motion.div
             animate={{ scale: [0.8, 1.3, 0.8], opacity: [0.4, 1, 0.4] }}
             transition={{ repeat: Infinity, duration: 1, delay: 0 }}
-            className="w-2.5 h-2.5 rounded-full bg-[#002E69]"
+            className="w-2.5 h-2.5 bg-[#013D8C]"
           />
           <motion.div
             animate={{ scale: [0.8, 1.3, 0.8], opacity: [0.4, 1, 0.4] }}
             transition={{ repeat: Infinity, duration: 1, delay: 0.2 }}
-            className="w-2.5 h-2.5 rounded-full bg-[#013D8C]"
+            className="w-2.5 h-2.5 bg-[#013D8C]"
           />
           <motion.div
             animate={{ scale: [0.8, 1.3, 0.8], opacity: [0.4, 1, 0.4] }}
             transition={{ repeat: Infinity, duration: 1, delay: 0.4 }}
-            className="w-2.5 h-2.5 rounded-full bg-[#013D8C]"
+            className="w-2.5 h-2.5 bg-[#013D8C]"
           />
         </div>
 
@@ -67,7 +67,7 @@ export const GovLoader: React.FC<GovLoaderProps> = ({
         <div className="w-12 h-1 rounded-full uz-flag-line my-2 shadow-2xs" />
 
         {/* Loading text */}
-        <p className="text-xs font-black uppercase tracking-widest text-[#002E69] mt-1">
+        <p className="text-xs font-bold uppercase tracking-wider text-[#013D8C] font-sans">
           {loadingText}
         </p>
         <span className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">

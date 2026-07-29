@@ -95,7 +95,7 @@ export const GovHeroSlider: React.FC = () => {
             />
           </div>
         ))}
-        <div className="absolute inset-0 z-[2] gov-hero-gradient" />
+        <div className="absolute inset-0 z-[2] bg-[#013D8C]/85" />
       </div>
 
       <div className="relative z-20 w-full h-full min-h-[inherit] flex flex-col font-sans">

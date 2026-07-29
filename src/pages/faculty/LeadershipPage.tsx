@@ -66,15 +66,15 @@ export const LeadershipPage: React.FC = () => {
   if (detail && detail.roles.includes('leader')) {
     return (
       <PageShell title={L(detail.name)} subtitle={L(detail.position ?? { uz: '', ru: '', en: '' })}>
-        <div className="mb-6">
+        <div className="mb-6 font-sans">
           <Link
             to="/fakultet/rahbariyat"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#002E69] hover:underline bg-[#F0F6FE] px-4 py-2 border border-[#013D8C]/30 "
+            className="inline-flex items-center gap-2 text-xs font-semibold text-[#013D8C] hover:underline bg-[#F0F0F0] px-4 py-2 border border-[#E1E1E1] rounded-none"
           >
             ← {t('back')}
           </Link>
         </div>
-        <div className="gov-card p-6 md:p-8 border border-[#E1E1E1] ">
+        <div className="p-6 md:p-8 border border-[#E1E1E1] bg-white rounded-none">
           <PersonProfile person={detail} />
         </div>
       </PageShell>

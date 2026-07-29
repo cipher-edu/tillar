@@ -324,7 +324,7 @@ export const Header: React.FC = () => {
 
                 {/* Mobile Drawer Button */}
                 <button
-                  className={`xl:hidden flex items-center justify-center min-w-11 min-h-11 p-2.5 rounded-2xl border transition-colors ${
+                  className={`xl:hidden flex items-center justify-center gap-1.5 min-w-10 min-h-10 p-2 sm:p-2.5 rounded-2xl border transition-colors shrink-0 ${
                     scrolled || mobileOpen
                       ? 'border-[#013d8c]/30 bg-white/10 text-white'
                       : 'border-[#d6e6f7] bg-white text-slate-900 shadow-sm'
@@ -334,6 +334,7 @@ export const Header: React.FC = () => {
                   aria-expanded={mobileOpen}
                 >
                   {mobileOpen ? <X className="w-5 h-5 text-[#1675e0]" /> : <Menu className="w-5 h-5" />}
+                  <span className="text-xs font-bold uppercase hidden xs:inline">Menyu</span>
                 </button>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Quote, Award, Sparkles, CheckCircle2, ChevronLeft, ChevronRight, Bookmark, ExternalLink } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { GovSectionHeader } from '@/components/ui/GovSectionHeader';
 
 const PRESIDENT_QUOTES = [
@@ -11,7 +11,7 @@ const PRESIDENT_QUOTES = [
     source: 'O‘zbekiston Respublikasi Prezidentining Oliy Majlisga Murojaatnomasidan',
     link: 'https://president.uz/oz/site/events',
     badge: 'Xorijiy Tillar Siyosati',
-    image: '/images/president/lang-1.jpg',
+    image: '/images/president/lang-3.jpg',
   },
   {
     id: 'quote-2',
@@ -53,179 +53,153 @@ const PRESIDENT_QUOTES = [
 
 export const PresidentQuoteSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
   const current = PRESIDENT_QUOTES[activeIndex];
 
   React.useEffect(() => {
+    if (paused) return;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % PRESIDENT_QUOTES.length);
     }, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [paused]);
 
-  const prev = () => setActiveIndex((prev) => (prev === 0 ? PRESIDENT_QUOTES.length - 1 : prev - 1));
-  const next = () => setActiveIndex((prev) => (prev + 1) % PRESIDENT_QUOTES.length);
+  const prev = () => setActiveIndex((p) => (p === 0 ? PRESIDENT_QUOTES.length - 1 : p - 1));
+  const next = () => setActiveIndex((p) => (p + 1) % PRESIDENT_QUOTES.length);
 
   return (
-    <section className="gov-section bg-[#013D8C] text-white font-sans select-none overflow-hidden relative py-12 sm:py-16">
-      <div className="gov-shell relative z-10">
-        {/* Top Header & Interactive Category Pills */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-none bg-amber-400 text-slate-950 flex items-center justify-center font-bold shrink-0">
-              <Award className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="text-xs font-bold text-amber-300 block font-sans">
-                O‘zbekiston Respublikasi Prezidentining
-              </span>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold uppercase text-white font-sans">
-                Ta’lim, Ilm-Fan, O‘zbek va Xorijiy Tillar borasidagi fikrlari
-              </h2>
-            </div>
-          </div>
+    <section
+      className="gov-section bg-white font-sans select-none"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="gov-shell">
+        <GovSectionHeader
+          kicker="O‘zbekiston Respublikasi Prezidentining"
+          title="Ta’lim, ilm-fan, o‘zbek va xorijiy tillar borasidagi fikrlari"
+        />
 
-          {/* Interactive Quote Indicator Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-            {PRESIDENT_QUOTES.map((q, idx) => (
-              <button
-                key={q.id}
-                onClick={() => setActiveIndex(idx)}
-                className={`px-3 py-1.5 rounded-none text-xs font-bold transition-colors whitespace-nowrap font-sans ${
-                  activeIndex === idx
-                    ? 'bg-amber-400 text-slate-950 font-bold'
-                    : 'bg-white/10 text-white hover:bg-white/20'
-                }`}
-              >
-                0{idx + 1}. {q.category}
-              </button>
-            ))}
-          </div>
+        {/* Document-style topic tabs */}
+        <div className="flex items-stretch gap-0 overflow-x-auto scrollbar-none border-b border-[#E1E1E1] mb-8 -mt-2">
+          {PRESIDENT_QUOTES.map((q, idx) => (
+            <button
+              key={q.id}
+              type="button"
+              onClick={() => setActiveIndex(idx)}
+              className={`px-4 py-3 text-xs font-semibold whitespace-nowrap border-b-2 -mb-px transition-colors ${
+                activeIndex === idx
+                  ? 'border-[#013D8C] text-[#013D8C]'
+                  : 'border-transparent text-[#707070] hover:text-[#013D8C]'
+              }`}
+            >
+              <span className="tabular-nums opacity-60 mr-1.5">0{idx + 1}</span>
+              {q.badge}
+            </button>
+          ))}
         </div>
 
-        <div className="relative rounded-3xl bg-gradient-to-r from-white/[0.08] via-white/[0.12] to-white/[0.05] backdrop-blur-2xl border border-amber-400/40 p-6 sm:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.6)] overflow-hidden">
-          <Quote className="absolute right-4 top-4 w-32 h-32 text-white/5 pointer-events-none stroke-[0.8]" />
-
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-            {/* BRAND NEW CREATIVE PORTRAIT CARD: Spherical Gold Ring Badge */}
-            <div className="relative shrink-0 flex flex-col items-center">
-              {/* Outer Pulsing Aura */}
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-amber-400 via-[#013D8C] to-amber-300 opacity-50 blur-xl animate-pulse" />
-
-              {/* Oval Golden Crown Portrait Ring */}
-              <div className="relative w-44 h-56 sm:w-52 sm:h-64 rounded-[3rem] p-1.5 bg-gradient-to-b from-amber-400 via-white/40 to-amber-400 border-2 border-white/60">
-                <div className="w-full h-full rounded-[2.6rem] overflow-hidden relative bg-slate-900 ">
-                  <AnimatePresence mode="wait">
-                    <motion.img
-                      key={current.id}
-                      initial={{ opacity: 0, scale: 1.15, filter: 'blur(4px)' }}
-                      animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                      exit={{ opacity: 0, scale: 0.9, filter: 'blur(4px)' }}
-                      transition={{ duration: 0.45 }}
-                      src={current.image}
-                      alt="Shavkat Mirziyoyev"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        if (!target.dataset.triedFallback) {
-                          target.dataset.triedFallback = 'true';
-                          target.src = 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Shavkat_Mirziyoyev_%282023-09-19%29.jpg';
-                        }
-                      }}
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </AnimatePresence>
-
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#013D8C]/95 via-[#002E69]/70 to-transparent p-2 text-center">
-                    <span className="text-[8px] font-black uppercase tracking-[0.2em] text-amber-300 ">
-                      O‘zbekiston Respublikasi Prezidenti
-                    </span>
-                  </div>
-                </div>
+        {/* Editorial pull-quote layout */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+          {/* Portrait medallion + attribution */}
+          <div className="lg:col-span-3 flex lg:flex-col items-center gap-4 lg:gap-0 lg:sticky lg:top-24">
+            {/* Rotating photo card */}
+            <div className="w-24 sm:w-32">
+              <div className="relative w-24 h-32 sm:w-32 sm:h-40 border border-[#013D8C]/30 overflow-hidden bg-slate-100">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={current.id}
+                    initial={{ opacity: 0, scale: 1.06 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    src={current.image}
+                    alt="Shavkat Mirziyoyev — O‘zbekiston Respublikasi Prezidenti"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedFallback) {
+                        target.dataset.triedFallback = 'true';
+                        target.src = 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Shavkat_Mirziyoyev_%282023-09-19%29.jpg';
+                      }
+                    }}
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                  />
+                </AnimatePresence>
               </div>
 
-              {/* Floating Bottom Gold Seal */}
-              <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-amber-300 text-slate-950 text-[10px] font-black uppercase tracking-wider ">
-                <Sparkles className="w-3.5 h-3.5 text-slate-950" />
-                <span>Shavkat Mirziyoyev</span>
+              {/* Mini slider dots for the photo card */}
+              <div className="flex items-center justify-center gap-1 mt-2">
+                {PRESIDENT_QUOTES.map((_, idx) => (
+                  <span
+                    key={idx}
+                    className={`h-1 transition-all duration-300 ${
+                      activeIndex === idx ? 'w-4 bg-[#013D8C]' : 'w-1 bg-[#013D8C]/20'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
 
-            {/* Quote Content Showcase */}
-            <div className="flex-1 min-w-0 space-y-5 text-center lg:text-left">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={current.id}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.35 }}
-                  className="space-y-4"
-                >
-                  <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-amber-400/20 text-amber-300 border border-amber-400/40 text-xs font-black uppercase tracking-wider ">
-                    <span>{current.category}</span>
-                  </div>
-
-                  <blockquote className="relative">
-                    <p className="text-lg sm:text-xl md:text-2xl font-bold leading-relaxed text-blue-50 italic font-serif">
-                      {current.text}
-                    </p>
-                  </blockquote>
-
-                  <div className="pt-4 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-medium ">
-                    <a
-                      href={current.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-black text-amber-300 hover:text-white hover:underline inline-flex items-center gap-1.5 transition-colors group/link text-center sm:text-left cursor-pointer"
-                      title="Rasmiy manbani ko‘rish (president.uz)"
-                    >
-                      <span>— {current.source}</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-amber-400 group-hover/link:translate-x-0.5 transition-transform shrink-0" />
-                    </a>
-
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-emerald-300 bg-emerald-950/70 px-3 py-1 border border-emerald-400/40">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> {current.badge}
-                      </span>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
+            <div className="lg:mt-3 lg:text-left">
+              <span className="text-sm font-extrabold text-[#000000] block">Shavkat Mirziyoyev</span>
+              <span className="text-xs text-[#707070] block">O‘zbekiston Respublikasi Prezidenti</span>
+              <div className="hidden lg:block h-px w-10 bg-amber-400 mt-4" />
             </div>
           </div>
 
-          {/* Bottom Progress Bar & Navigation Controls */}
-          <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between gap-4">
-            <div className="flex items-center gap-1.5">
-              {PRESIDENT_QUOTES.map((_, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => setActiveIndex(idx)}
-                  className={`h-1.5 rounded-full cursor-pointer transition-all duration-300 ${
-                    activeIndex === idx ? 'w-8 bg-amber-400' : 'w-2 bg-white/20 hover:bg-white/40'
-                  }`}
-                />
-              ))}
-            </div>
+          {/* Quote content */}
+          <div className="lg:col-span-9 min-w-0">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Quote className="w-10 h-10 text-[#013D8C]/20 mb-2" fill="currentColor" />
 
-            <div className="flex items-center gap-2">
-              <button
-                onClick={prev}
-                className="w-9 h-9 bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-amber-400 hover:text-slate-950 transition-colors "
-                aria-label="Oldingi iqtibos"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <span className="text-xs font-black text-amber-300 tabular-nums px-2 ">
-                0{activeIndex + 1} / 0{PRESIDENT_QUOTES.length}
-              </span>
-              <button
-                onClick={next}
-                className="w-9 h-9 bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-amber-400 hover:text-slate-950 transition-colors "
-                aria-label="Keyingi iqtibos"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
+                <blockquote>
+                  <p className="text-xl sm:text-2xl md:text-[1.75rem] font-medium leading-snug text-[#000000] font-serif">
+                    {current.text}
+                  </p>
+                </blockquote>
+
+                <div className="mt-6 pt-4 border-t border-[#E1E1E1] flex flex-wrap items-center justify-between gap-3">
+                  <a
+                    href={current.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-semibold text-[#013D8C] hover:underline inline-flex items-center gap-1.5"
+                    title="Rasmiy manbani ko‘rish (president.uz)"
+                  >
+                    <span>— {current.source}</span>
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                  </a>
+
+                  <div className="flex items-center gap-2 ml-auto">
+                    <button
+                      type="button"
+                      onClick={prev}
+                      className="w-8 h-8 border border-[#E1E1E1] text-[#013D8C] flex items-center justify-center hover:bg-[#013D8C] hover:text-white hover:border-[#013D8C] transition-colors"
+                      aria-label="Oldingi iqtibos"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <span className="text-[11px] font-semibold text-[#707070] tabular-nums">
+                      0{activeIndex + 1} / 0{PRESIDENT_QUOTES.length}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={next}
+                      className="w-8 h-8 border border-[#E1E1E1] text-[#013D8C] flex items-center justify-center hover:bg-[#013D8C] hover:text-white hover:border-[#013D8C] transition-colors"
+                      aria-label="Keyingi iqtibos"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>

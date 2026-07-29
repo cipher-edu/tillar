@@ -27,24 +27,24 @@ export const PersonProfile: React.FC<PersonProfileProps> = ({ person, compact = 
   const tutor = group ? getPerson(group.tutorId) : undefined;
 
   return (
-    <div className={`font-sans text-slate-900 ${compact ? 'p-5 sm:p-6' : ''}`}>
+    <div className={`font-sans text-[#000000] ${compact ? 'p-5 sm:p-6' : ''}`}>
       {/* Official gov.uz Header Hero Persona Card */}
-      <div className="border border-[#E1E1E1] bg-white overflow-hidden mb-8">
-        <div className="bg-gradient-to-r from-[#002E69] via-[#013D8C] to-[#002E69] px-6 py-3 text-white flex items-center justify-between gap-4 ">
+      <div className="border border-[#E1E1E1] bg-white overflow-hidden mb-8 rounded-none">
+        <div className="bg-[#013D8C] px-6 py-3 text-white flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#013D8C] animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-blue-100">
+            <span className="w-2 h-2 bg-amber-400" />
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-100 font-sans">
               Navoiy davlat universiteti Tillar fakulteti
             </span>
           </div>
-          <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-300 hidden sm:inline">
-            Rasmiy Rahbariyat Profili
+          <span className="text-xs font-semibold text-blue-100 hidden sm:inline font-sans">
+            Rasmiy Profil
           </span>
         </div>
 
         <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
           {/* Portrait Photo */}
-          <div className="relative shrink-0 w-36 h-48 sm:w-44 sm:h-56 mx-auto md:mx-0 overflow-hidden border-2 border-white bg-slate-100 ring-1 ring-[#E1E1E1]">
+          <div className="relative shrink-0 w-36 h-48 sm:w-44 sm:h-56 mx-auto md:mx-0 overflow-hidden border border-[#E1E1E1] bg-slate-100 rounded-none">
             <img
               src={person.photo}
               alt={L(person.name)}

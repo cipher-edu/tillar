@@ -51,9 +51,9 @@ export const GovAccessibilityBar: React.FC = () => {
 
   return (
     <div className="bg-[#F0F0F0] border-b border-[#E1E1E1] text-xs text-[#707070] select-none font-sans relative z-[60]">
-      <div className="gov-shell py-1.5 flex flex-wrap justify-between items-center gap-2">
+      <div className="gov-shell py-1.5 flex flex-wrap justify-between items-center gap-2 min-w-0">
         {/* Left: Accessibility Tools */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0">
           {/* Ekran suhandoni / Text-to-Speech */}
           <div className="relative flex items-center gap-1">
             <button

@@ -39,24 +39,24 @@ export const ContactPage: React.FC = () => {
       <div className="grid lg:grid-cols-2 gap-8 font-sans">
         {/* Left Column: Official Contact Info */}
         <div className="space-y-6">
-          <div className="bg-[#F0F6FE] border border-[#013D8C]/30 p-6 md:p-8 space-y-4 ">
-            <h3 className="text-sm font-black uppercase text-[#002E69] border-b border-[#013D8C]/20 pb-2 ">
+          <div className="bg-[#F0F0F0] border border-[#E1E1E1] p-6 md:p-8 space-y-4 rounded-none">
+            <h3 className="text-sm font-bold uppercase text-[#043B87] border-b border-[#E1E1E1] pb-2 font-sans">
               Rasmiy Manzil va Aloqa
             </h3>
 
             <div className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-[#002E69] shrink-0 mt-0.5" />
+              <MapPin className="w-5 h-5 text-[#013D8C] shrink-0 mt-0.5" />
               <div>
-                <span className="text-[10px] font-bold uppercase text-slate-500 block">Manzil:</span>
-                <p className="text-xs font-semibold text-slate-900">{L(contactInfo.address)}</p>
+                <span className="text-[10px] font-medium uppercase text-[#707070] block">Manzil:</span>
+                <p className="text-xs font-semibold text-[#000000]">{L(contactInfo.address)}</p>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-[#002E69] shrink-0" />
+              <Phone className="w-5 h-5 text-[#013D8C] shrink-0" />
               <div>
-                <span className="text-[10px] font-bold uppercase text-slate-500 block">Ishonch telefoni:</span>
-                <a href={`tel:${contactInfo.phone}`} className="text-xs font-bold text-[#002E69] hover:underline ">
+                <span className="text-[10px] font-medium uppercase text-[#707070] block">Ishonch telefoni:</span>
+                <a href={`tel:${contactInfo.phone}`} className="text-xs font-bold text-[#013D8C] hover:underline font-sans">
                   1199 / {contactInfo.phone}
                 </a>
               </div>

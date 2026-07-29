@@ -58,25 +58,38 @@ export const NewsPage: React.FC = () => {
   };
 
   if (detail) {
-    const related = getPeopleByIds(detail.relatedPersonIds);
+    const authors = detail.authorIds ? getPeopleByIds(detail.authorIds) : [];
+    const related = news.filter((n) => n.id !== detail.id && n.category === detail.category).slice(0, 3);
     const bodyHtml = L(detail.body) || '';
     const isHtml = /<\/?[a-z][\s\S]*>/i.test(bodyHtml);
+
     return (
       <PageShell title={L(detail.title)}>
-        <div className="mb-6">
-          <Link to="/yangiliklar" className="text-[11px] font-black uppercase tracking-widest text-[#002E69] ">
+        <div className="mb-6 font-sans">
+          <Link
+            to="/yangiliklar"
+            className="text-xs font-semibold text-[#013D8C] hover:underline"
+          >
             ← {t('back')}
           </Link>
         </div>
-        <article className="max-w-4xl mx-auto font-sans">
-          {detail.cover && (
+
+        <article className="space-y-6 max-w-4xl font-sans">
+          <div className="flex items-center gap-3 text-xs text-[#707070]">
+            <span className="bg-[#013D8C] text-white px-2.5 py-1 text-xs font-bold rounded-none">
+              {detail.category}
+            </span>
+            <span>{detail.date}</span>
+          </div>
+
+          <div className="border border-[#E1E1E1] bg-slate-100 p-2 rounded-none max-w-3xl">
             <img
               src={detail.cover}
-              alt=""
-              className="w-full h-64 md:h-96 object-cover mb-10 border border-[#E1E1E1]"
+              alt={L(detail.title)}
+              className="w-full h-auto object-cover max-h-[450px]"
             />
-          )}
-          <p className="text-[11px] font-black uppercase tracking-widest text-[#002E69] mb-6 ">{detail.date}</p>
+          </div>
+          
           {isHtml ? (
             <div
               className="news-rich-body prose prose-lg md:prose-xl max-w-none text-slate-800 leading-relaxed mb-12
@@ -90,19 +103,21 @@ export const NewsPage: React.FC = () => {
             </p>
           )}
           {related.length > 0 && (
-            <div className="bg-[#F0F6FE] p-8 border border-[#013D8C]/20 ">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.35em] text-[#002E69] mb-4 ">
+            <div className="bg-[#F0F0F0] p-6 border border-[#E1E1E1] rounded-none">
+              <h3 className="text-xs font-bold uppercase text-[#043B87] mb-4 font-sans">
                 {t('news_related')}
               </h3>
-              <div className="flex flex-wrap gap-3">
-                {related.map((p) => (
+              <div className="grid sm:grid-cols-3 gap-4">
+                {related.map((n) => (
                   <Link
-                    key={p.id}
-                    to={personPath(p)}
-                    className="flex items-center gap-3 px-4 py-3 bg-white border border-slate-200 hover:border-[#013D8C]/40 "
+                    key={n.id}
+                    to={newsPath(n)}
+                    className="group flex flex-col p-3 bg-white border border-[#E1E1E1] hover:border-[#013D8C] transition-colors rounded-none"
                   >
-                    <img src={p.photo} alt="" className="w-12 h-12 object-cover" />
-                    <span className="font-bold text-slate-900 text-sm ">{L(p.name)}</span>
+                    <img src={n.cover} alt={L(n.title)} className="w-full h-24 object-cover mb-2" />
+                    <span className="font-bold text-[#000000] text-xs line-clamp-2 group-hover:text-[#013D8C] font-sans">
+                      {L(n.title)}
+                    </span>
                   </Link>
                 ))}
               </div>
